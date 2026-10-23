@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}{{ result.restaurant.name }} — Celiac-Safe DC Restaurant Ranker{% endblock %}
+{% block content %}
+<section class="detail-panel">
+  <p><a href="/results/{{ search_id }}">&larr; Back to results</a> &middot; <a href="/">New search</a></p>
+
+  <h1>{{ result.restaurant.name }}</h1>
+  <p class="result-address">{{ result.restaurant.address }}{% if result.restaurant.cuisine %} · {{ result.restaurant.cuisine }}{% endif %}</p>
+
+  <div class="tier-banner {{ result.assessment.safety_level | safety_class }}">
+    <strong><i class="ti {{ result.assessment.safety_level | safety_icon }}" aria-hidden="true"></i> {{ result.assessment.safety_level | safety_label }}</strong>
+    <span class="confidence-row">
+      <span class="confidence-label">Confidence</span>
+      <span class="confidence-dots" aria-hidden="true">
+        {% set filled = result.assessment.confidence | confidence_dots %}
+        {% for i in range(3) %}<span class="dot {{ 'filled' if i < filled else '' }}"></span>{% endfor %}
+      </span>
+      <span class="sr-only">{{ result.assessment.confidence }}</span>
+    </span>
+  </div>
+
+  <p class="rationale">{{ result.assessment.rationale }}</p>
+
+  {% if result.assessment.override_applied %}
+  <p class="override-note">
+    A code-level safety check adjusted this result after the AI's own assessment:
+    {{ result.assessment.override_reason }}
+  </p>
+  {% endif %}
+
+  <h2>Supporting evidence</h2>
+  {% if result.assessment.supporting_claims %}
+  <ul class="claim-list">
+    {% for c in result.assessment.supporting_claims %}
+    <li class="claim">
+      <blockquote>&ldquo;{{ c.claim.quote }}&rdquo;</blockquote>
+      <p class="claim-meta">
+        <a href="{{ c.claim.source_url }}" target="_blank" rel="noopener">source</a>
+        &middot; {{ c.claim.source_type.replace('_', ' ') }}
+        {% if c.claim.source_date %} &middot; {{ c.claim.source_date }}{% endif %}
+      </p>
+      <p class="claim-note">{{ c.skeptic_note }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty-state">No supporting claims found.</p>
+  {% endif %}
+
+  <h2>Contradicting / cautionary evidence</h2>
+  {% if result.assessment.contradicting_claims %}
+  <ul class="claim-list">
+    {% for c in result.assessment.contradicting_claims %}
+    <li class="claim">
+      <blockquote>&ldquo;{{ c.claim.quote }}&rdquo;</blockquote>
+      <p class="claim-meta">
+        <a href="{{ c.claim.source_url }}" target="_blank" rel="noopener">source</a>
+        &middot; {{ c.claim.source_type.replace('_', ' ') }}
+        {% if c.claim.source_date %} &middot; {{ c.claim.source_date }}{% endif %}
+      </p>
+      <p class="claim-note">{{ c.skeptic_note }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty-state">None found.</p>
+  {% endif %}
+
+  <h2>Run details</h2>
+  {% if result.run_log.overall_stop_reason == "cached" %}
+  <p class="cached-note">
+    <i class="ti ti-database" aria-hidden="true"></i>
+    Served from our cache (verified {{ result.cached_at.split('T')[0] if result.cached_at else "previously" }}) —
+    zero new tokens spent. A cache entry expires after 30 days, after which the next search re-verifies it live.
+  </p>
+  {% else %}
+  <table class="audit-table">
+    <thead>
+      <tr><th>Agent</th><th>Input tokens</th><th>Cached input</th><th>Output tokens</th><th>Duration</th></tr>
+    </thead>
+    <tbody>
+      {% for call in result.run_log.agent_calls %}
+      <tr>
+        <td>{{ call.agent_name }}</td>
+        <td>{{ call.tokens.input_tokens if call.tokens else '—' }}</td>
+        <td>{{ call.tokens.cached_input_tokens if call.tokens else '—' }}</td>
+        <td>{{ call.tokens.output_tokens if call.tokens else '—' }}</td>
+        <td>{{ "%.1f"|format(call.duration_seconds) }}s</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="audit-summary">
+    Total: {{ result.run_log.total_tokens().input_tokens }} input / {{ result.run_log.total_tokens().cached_input_tokens }} cached / {{ result.run_log.total_tokens().output_tokens }} output tokens
+    &middot; {{ "%.1f"|format(result.run_log.total_duration_seconds()) }}s
+    &middot; est. cost ${{ "%.4f"|format(result.run_log.total_tokens() | estimate_cost_usd) }} (placeholder rate, not final pricing)
+  </p>
+  {% endif %}
+</section>
+{% endblock %}

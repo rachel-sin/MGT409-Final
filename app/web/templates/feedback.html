@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Feedback — Celiac-Safe DC Restaurant Ranker{% endblock %}
+{% block content %}
+<section class="search-panel">
+  <h1>Tell us what you think</h1>
+  <p class="lede">
+    Thanks for trying the app! This takes about 2 minutes and helps us understand whether it's actually useful.
+  </p>
+
+  {% if submitted %}
+  <p class="suggestion-thanks" style="font-size:1rem;padding:1rem;background:var(--safe-bg);color:var(--safe-fg);border-radius:8px;">
+    Thank you — your feedback was saved. We really appreciate it.
+  </p>
+  {% else %}
+  <form action="/feedback" method="post" id="feedback-form">
+    <label for="restaurant_tried">Which restaurant(s) did you look up?</label>
+    <input type="text" id="restaurant_tried" name="restaurant_tried" placeholder="e.g. Lapis" required maxlength="120">
+
+    <label for="matched_experience">Did the app's result match what you already knew about it?</label>
+    <select id="matched_experience" name="matched_experience" required>
+      <option value="">Choose one</option>
+      <option value="yes_matched">Yes — matched my real experience</option>
+      <option value="partially">Partially — some of it matched, some didn't</option>
+      <option value="no_mismatch">No — it didn't match what I know</option>
+      <option value="new_to_me">I didn't know this restaurant before, can't compare</option>
+    </select>
+
+    <label for="usual_time_minutes">Normally, how many minutes does it take you to decide if a new restaurant is safe enough to try?</label>
+    <input type="text" id="usual_time_minutes" name="usual_time_minutes" placeholder="e.g. 10, or 'I usually just wing it'" maxlength="60">
+
+    <label for="app_time_minutes">About how many minutes did checking the app actually take?</label>
+    <input type="text" id="app_time_minutes" name="app_time_minutes" placeholder="e.g. 2" maxlength="60">
+
+    <label for="trust_rating">Would you trust this over what you currently use? (1 = no, 5 = definitely)</label>
+    <select id="trust_rating" name="trust_rating" required>
+      <option value="">Choose one</option>
+      <option value="1">1 — no</option>
+      <option value="2">2</option>
+      <option value="3">3 — maybe</option>
+      <option value="4">4</option>
+      <option value="5">5 — definitely</option>
+    </select>
+
+    <label for="comment">Anything else? (a real quote here is genuinely useful to us)</label>
+    <textarea id="comment" name="comment" rows="4" maxlength="1000" placeholder="What stood out, what confused you, what you'd change..."></textarea>
+
+    <button type="submit">Submit feedback</button>
+  </form>
+  {% if error %}
+  <p class="error-state" style="margin-top:1rem;">{{ error }}</p>
+  {% endif %}
+  {% endif %}
+</section>
+{% endblock %}

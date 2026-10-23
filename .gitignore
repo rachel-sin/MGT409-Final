@@ -1,0 +1,17 @@
+# Python
+.venv
+__pycache__
+**/__pycache__
+*.pyc
+
+# Secrets (PORTKEY_API_KEY, OPENAI_API_KEY) — see .env.example
+.env
+
+# Per-run logs and caches (not the small committed cached dataset)
+logs/runs
+
+# OS
+.DS_Store
+
+# Local tool config, not project content
+.claude

@@ -1,0 +1,55 @@
+{
+  "_comment": "Step 6 golden set: 10 of the 20 cached restaurants, each labeled independently by reading the restaurant's own real extracted evidence quotes (in data/cached_restaurants.json) and judging what tier a careful human reviewer would assign — not by copying the system's own output. 'label' uses the same 5 SafetyLevel values the app uses, so scripts/run_golden_eval.py can compare directly.",
+  "entries": [
+    {
+      "name": "Rise Bakery",
+      "label": "confirmed_dedicated_gf_prep",
+      "reasoning": "Own site states the whole bakery is gluten-free with allergen labeling; a reviewer reported no symptoms. Clearly a dedicated GF facility."
+    },
+    {
+      "name": "Ama",
+      "label": "credible_illness_report",
+      "reasoning": "A reviewer who specified celiac to staff (twice) and confirmed precautions still reported moderate-to-severe symptoms. A credible got-sick report, nothing outweighs this."
+    },
+    {
+      "name": "BIBIBOP Asian Grill",
+      "label": "accommodates_caution_cross_contamination",
+      "reasoning": "Holds a real third-party Gluten Intolerance Group certification (gluten-specific, not just general allergy accommodation) but the chain itself states cross-contact can happen during prep. This is gluten-specific accommodation evidence with a real caution, not merely 'unclear/general allergy' territory."
+    },
+    {
+      "name": "Chaia Georgetown",
+      "label": "accommodates_caution_cross_contamination",
+      "reasoning": "Own site confirms GF tortillas made fresh daily, reviewer had no symptoms — but no claim about the whole kitchen/fryer being dedicated."
+    },
+    {
+      "name": "Cane",
+      "label": "accommodates_caution_cross_contamination",
+      "reasoning": "Explicit third-party disclosure that it is NOT a dedicated gluten-free facility, alongside positive accommodation reports."
+    },
+    {
+      "name": "Sixty Vines",
+      "label": "accommodates_caution_cross_contamination",
+      "reasoning": "A 'dedicated fryer' claim exists but is an undated third-party report, so it can't be verified as current — accommodation evidence with real caution, not confirmed dedicated prep."
+    },
+    {
+      "name": "Supra",
+      "label": "accommodates_caution_cross_contamination",
+      "reasoning": "Reviewer reports virtually no cross-contact for GF-marked items, but the restaurant's own allergy notice says it uses significant flour/walnuts generally — real accommodation, real caution."
+    },
+    {
+      "name": "Arepa Zone",
+      "label": "accommodates_caution_cross_contamination",
+      "reasoning": "Explicitly fried in a common fryer with wheat-containing products nearby, despite several GF menu items — a real, specific cross-contact caution."
+    },
+    {
+      "name": "Medium Rare",
+      "label": "accommodates_caution_cross_contamination",
+      "reasoning": "Nearly entirely GF menu (except bread) and a diner confirmed cross-contamination directly with staff with no issues — strong accommodation signal, but not a verified dedicated whole-kitchen claim."
+    },
+    {
+      "name": "Spices Asian Restaurant & Sushi Bar",
+      "label": "accommodates_caution_cross_contamination",
+      "reasoning": "GF menu and GF soy sauce reported, but a real specific gotcha is flagged (rice vinegar containing wheat) — genuine accommodation with a genuine, specific caution."
+    }
+  ]
+}

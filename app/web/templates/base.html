@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Celiac-Safe DC Restaurant Ranker{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><i class="ti ti-shield-check" aria-hidden="true"></i> Celiac-Safe DC Restaurant Ranker</a>
+    <p class="site-subtitle">Evidence-based gluten-free safety, not just "has a GF menu"</p>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <p>Every claim here is backed by a verbatim quote and a source link. "Evidence suggests" — never a guarantee.</p>
+    <p><a href="/feedback">Tried the app? Tell us what you think →</a></p>
+  </footer>
+</body>
+</html>

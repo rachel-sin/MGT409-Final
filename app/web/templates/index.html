@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="search-panel">
+  <h1>Find a celiac-safe restaurant in DC</h1>
+  <p class="lede">
+    Search by neighborhood and/or cuisine. Each result is backed by real evidence —
+    quotes and links, not a star rating.
+  </p>
+  <form action="/search" method="post" id="search-form">
+    <label for="neighborhood">Neighborhood</label>
+    <select id="neighborhood" name="neighborhood">
+      <option value="">Any neighborhood in DC</option>
+      {% for n in neighborhoods %}
+      <option value="{{ n }}">{{ n }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="cuisine">Cuisine (optional)</label>
+    <input type="text" id="cuisine" name="cuisine" placeholder="e.g. Afghan, Mexican">
+
+    <button type="submit" id="search-button">Search</button>
+  </form>
+  <p class="loading-note" id="loading-note" hidden>
+    Searching the web and checking up to 3 restaurants at once — usually under a minute.
+  </p>
+</section>
+
+<section class="suggestion-box">
+  <h2>Don't see your neighborhood?</h2>
+  <p class="lede">We've tested the app on {{ neighborhoods | length }} DC neighborhoods so far. Tell us which one to add next.</p>
+  <form action="/suggest-neighborhood" method="post" id="suggestion-form">
+    <input type="text" name="suggested_neighborhood" placeholder="e.g. Brookland" maxlength="60" required>
+    <button type="submit">Suggest it</button>
+  </form>
+  {% if suggestion_thanks %}
+  <p class="suggestion-thanks">Thanks — we've noted "{{ suggestion_thanks }}" for a future update.</p>
+  {% endif %}
+  {% if suggestion_error %}
+  <p class="error-state">{{ suggestion_error }}</p>
+  {% endif %}
+</section>
+
+<section class="how-it-works">
+  <h2>How this works</h2>
+  <div class="steps">
+    <div class="step">
+      <i class="ti ti-search" aria-hidden="true"></i>
+      <h3>Search</h3>
+      <p>We look across the web for restaurants matching your filter — not just one curated directory.</p>
+    </div>
+    <div class="step">
+      <i class="ti ti-file-text" aria-hidden="true"></i>
+      <h3>Check the menu</h3>
+      <p>Each restaurant's own menu is checked first, then real reviews, for specific GF safety claims.</p>
+    </div>
+    <div class="step">
+      <i class="ti ti-list-check" aria-hidden="true"></i>
+      <h3>Rank with evidence</h3>
+      <p>Every claim is kept with its source link. Thin evidence stays "unclear" — never a guess.</p>
+    </div>
+  </div>
+</section>
+<script>
+  document.getElementById('search-form').addEventListener('submit', function () {
+    document.getElementById('search-button').disabled = true;
+    document.getElementById('search-button').textContent = 'Searching…';
+    document.getElementById('loading-note').hidden = false;
+  });
+</script>
+{% endblock %}

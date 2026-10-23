@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="results-panel">
+  <p class="search-summary">
+    Showing up to {{ max_candidates }} result(s){% if neighborhood %} in <strong>{{ neighborhood }}</strong>{% endif %}{% if cuisine %} ({{ cuisine }}){% endif %}.
+    <a href="/">New search</a>
+  </p>
+
+  {% if not results %}
+    {% if input_rejected %}
+    <p class="error-state">
+      {{ note }}
+    </p>
+    {% elif search_likely_failed %}
+    <p class="error-state">
+      Something went wrong with the live search itself — this isn't a result saying no restaurants match.
+      {% if note %}{{ note }}{% endif %}
+    </p>
+    {% else %}
+    <p class="empty-state">
+      No candidates could be confirmed for this search.{% if note %} {{ note }}{% endif %}
+      Try a different neighborhood or cuisine.
+    </p>
+    {% endif %}
+  {% endif %}
+
+  <div class="result-grid">
+    {% for r in results %}
+    <a class="result-card {{ r.assessment.safety_level | safety_class }}" href="/restaurant/{{ r.run_log.run_id }}">
+      <div class="result-card-header">
+        <h2>{{ r.restaurant.name }}</h2>
+        <span class="tier-badge {{ r.assessment.safety_level | safety_class }}">
+          <i class="ti {{ r.assessment.safety_level | safety_icon }}" aria-hidden="true"></i>
+          {{ r.assessment.safety_level | safety_label }}
+        </span>
+      </div>
+      <p class="result-address">{{ r.restaurant.address }}{% if r.restaurant.cuisine %} · {{ r.restaurant.cuisine }}{% endif %}</p>
+
+      <div class="confidence-row">
+        <span class="confidence-label">Confidence</span>
+        <span class="confidence-dots" aria-hidden="true">
+          {% set filled = r.assessment.confidence | confidence_dots %}
+          {% for i in range(3) %}<span class="dot {{ 'filled' if i < filled else '' }}"></span>{% endfor %}
+        </span>
+        <span class="sr-only">{{ r.assessment.confidence }}</span>
+      </div>
+
+      <div class="evidence-stats">
+        <span><i class="ti ti-quote" aria-hidden="true"></i> {{ r.assessment.supporting_claims | length }} supporting</span>
+        <span><i class="ti ti-alert-circle" aria-hidden="true"></i> {{ r.assessment.contradicting_claims | length }} cautionary</span>
+      </div>
+
+      <p class="result-rationale">{{ r.assessment.short_summary }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

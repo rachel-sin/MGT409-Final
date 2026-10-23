@@ -1,0 +1,92 @@
+<svg width="100%" viewBox="0 0 680 800" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Discover then verify flow, with broad web search replacing directory scraping</title>
+<desc>A user filter feeds the Finder agent, which discovers candidate restaurants via a broad, unrestricted web search rather than scraping a single curated directory like Find Me Gluten Free. Each candidate's own menu is checked first for a gluten-free marking; if none is found, aggregator and review sites are checked as a fallback. Both paths produce evidence claims, which flow through the Skeptic and then the Ranker to produce a final safety assessment. A legend at the bottom explains the color coding: gray for data, purple for discovery, teal for verification, coral for review, pink for the final decision.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#3d3d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<style>
+  text { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #2C2C2A; }
+  .th { font-size: 14px; font-weight: 500; }
+  .ts { font-size: 12px; }
+  .box { fill: #F1EFE8; stroke: #888780; stroke-width: 0.5; }
+  .c-gray { fill: #F1EFE8; stroke: #5F5E5A; }
+  .c-purple { fill: #EEEDFE; stroke: #534AB7; }
+  .c-purple .th, .c-purple .ts { fill: #26215C; }
+  .c-teal { fill: #E1F5EE; stroke: #0F6E56; }
+  .c-teal .th, .c-teal .ts { fill: #04342C; }
+  .c-coral { fill: #FAECE7; stroke: #993C1D; }
+  .c-coral .th, .c-coral .ts { fill: #4A1B0C; }
+  .c-pink { fill: #FBEAF0; stroke: #993556; }
+  .c-pink .th, .c-pink .ts { fill: #4B1528; }
+  .arr { stroke: #5F5E5A; stroke-width: 1.5; fill: none; }
+</style>
+
+<g class="c-gray">
+  <rect x="170" y="40" width="340" height="44" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="66" text-anchor="middle">Neighborhood / cuisine filter</text>
+</g>
+<line x1="340" y1="84" x2="340" y2="118" class="arr" marker-end="url(#arrow)"/>
+
+<g class="c-purple">
+  <rect x="170" y="118" width="340" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="140" text-anchor="middle">Finder</text>
+  <text class="ts" x="340" y="158" text-anchor="middle">Broad web search by area/cuisine</text>
+</g>
+<line x1="340" y1="174" x2="340" y2="208" class="arr" marker-end="url(#arrow)"/>
+
+<g class="c-teal">
+  <rect x="180" y="208" width="320" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="230" text-anchor="middle">Evidence extractor</text>
+  <text class="ts" x="340" y="248" text-anchor="middle">Checks restaurant's own menu</text>
+</g>
+<line x1="340" y1="264" x2="340" y2="298" class="arr" marker-end="url(#arrow)"/>
+
+<g class="c-gray">
+  <polygon points="340,298 450,333 340,368 230,333" stroke-width="0.5"/>
+  <text class="th" x="340" y="338" text-anchor="middle">GF marked on menu?</text>
+</g>
+
+<line x1="340" y1="368" x2="340" y2="402" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="350" y="392">No</text>
+
+<path d="M450 333 L560 333 L560 520 L490 520" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="565" y="322">Yes</text>
+
+<g class="c-teal">
+  <rect x="180" y="402" width="320" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="424" text-anchor="middle">Evidence extractor</text>
+  <text class="ts" x="340" y="442" text-anchor="middle">Falls back to reviews / aggregators</text>
+</g>
+<line x1="340" y1="458" x2="340" y2="492" class="arr" marker-end="url(#arrow)"/>
+
+<g class="c-gray">
+  <rect x="190" y="492" width="300" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="514" text-anchor="middle">Evidence claims</text>
+  <text class="ts" x="340" y="532" text-anchor="middle">Quote + source URL</text>
+</g>
+<line x1="340" y1="548" x2="340" y2="582" class="arr" marker-end="url(#arrow)"/>
+
+<g class="c-coral">
+  <rect x="190" y="582" width="300" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="604" text-anchor="middle">Skeptic</text>
+  <text class="ts" x="340" y="622" text-anchor="middle">Flags promotional or contradicted</text>
+</g>
+<line x1="340" y1="638" x2="340" y2="672" class="arr" marker-end="url(#arrow)"/>
+
+<g class="c-pink">
+  <rect x="190" y="672" width="300" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="694" text-anchor="middle">Ranker</text>
+  <text class="ts" x="340" y="712" text-anchor="middle">Final safety level + confidence</text>
+</g>
+
+<circle cx="172" cy="752" r="4" fill="#5F5E5A"/>
+<text class="ts" x="180" y="756">Data</text>
+<circle cx="228" cy="752" r="4" fill="#534AB7"/>
+<text class="ts" x="236" y="756">Discover</text>
+<circle cx="312" cy="752" r="4" fill="#0F6E56"/>
+<text class="ts" x="320" y="756">Verify</text>
+<circle cx="382" cy="752" r="4" fill="#993C1D"/>
+<text class="ts" x="390" y="756">Review</text>
+<circle cx="452" cy="752" r="4" fill="#993556"/>
+<text class="ts" x="460" y="756">Decision</text>
+</svg>
