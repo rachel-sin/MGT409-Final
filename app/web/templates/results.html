@@ -2,7 +2,11 @@
 {% block content %}
 <section class="results-panel">
   <p class="search-summary">
-    Showing up to {{ max_candidates }} result(s){% if neighborhood %} in <strong>{{ neighborhood }}</strong>{% endif %}{% if cuisine %} ({{ cuisine }}){% endif %}.
+    {% if restaurant_name %}
+      Looking up <strong>{{ restaurant_name }}</strong>{% if neighborhood or cuisine %} ({{ [neighborhood, cuisine] | select | join(', ') }}){% endif %}.
+    {% else %}
+      Showing up to {{ max_candidates }} result(s){% if neighborhood %} in <strong>{{ neighborhood }}</strong>{% endif %}{% if cuisine %} ({{ cuisine }}){% endif %}.
+    {% endif %}
     <a href="/">New search</a>
   </p>
 

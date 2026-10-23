@@ -3,10 +3,13 @@
 <section class="search-panel">
   <h1>Find a celiac-safe restaurant in DC</h1>
   <p class="lede">
-    Search by neighborhood and/or cuisine. Each result is backed by real evidence —
-    quotes and links, not a star rating.
+    Look up a specific restaurant by name, or browse by neighborhood and/or cuisine.
+    Each result is backed by real evidence — quotes and links, not a star rating.
   </p>
   <form action="/search" method="post" id="search-form">
+    <label for="restaurant_name">Restaurant name (optional)</label>
+    <input type="text" id="restaurant_name" name="restaurant_name" placeholder="e.g. Lapis — leave blank to browse instead" maxlength="120">
+
     <label for="neighborhood">Neighborhood</label>
     <select id="neighborhood" name="neighborhood">
       <option value="">Any neighborhood in DC</option>

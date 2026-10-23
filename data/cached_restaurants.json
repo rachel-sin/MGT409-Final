@@ -4106,5 +4106,307 @@
       "override_reason": null
     },
     "cached_at": "2026-10-23T19:36:37.939993+00:00"
+  },
+  "rice restaurant": {
+    "restaurant": {
+      "name": "Rice Restaurant",
+      "address": "1608 14th Street NW, Washington, DC 20009",
+      "neighborhood": "Logan Circle",
+      "cuisine": "Thai and Japanese",
+      "existence_source_url": "https://www.ricedc.com/restaurant"
+    },
+    "evidence": {
+      "claims": [
+        {
+          "quote": "No dedicated fryer -2",
+          "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "dedicated_fryer_or_prep_area",
+          "direction": "negative"
+        },
+        {
+          "quote": "I didn\u2019t get sick after so it seemed to be gluten-free.",
+          "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "reviewer_was_fine",
+          "direction": "positive"
+        },
+        {
+          "quote": "I had eaten here about 3 times without issue but was just glutened yesterday.",
+          "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "reviewer_got_sick",
+          "direction": "negative"
+        },
+        {
+          "quote": "they look at you like you have 5 heads and don't write anything down.",
+          "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "staff_cross_contamination_knowledge",
+          "direction": "negative"
+        },
+        {
+          "quote": "They do not mark plates and takeout/pickup containers are not labeled \u201cgluten free.\u201d",
+          "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "staff_cross_contamination_knowledge",
+          "direction": "negative"
+        },
+        {
+          "quote": "their staff and management are not knowledgeable of or respectful about allergies/dietary restrictions.",
+          "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "staff_cross_contamination_knowledge",
+          "direction": "negative"
+        },
+        {
+          "quote": "When I called to let them know I was glutened, the manager said \u201cwhat do you want me to do\u201d like I was wasting his time.",
+          "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "staff_cross_contamination_knowledge",
+          "direction": "negative"
+        }
+      ],
+      "note": "I checked Rice Restaurant\u2019s own site/menu first; it lists dishes and ingredients but, in the fetched menu text, shows no clear GF marking, dedicated gluten-free section, or celiac/cross-contamination policy. I therefore used Find Me Gluten Free as the fallback. Its page includes mixed reviewer reports, including both a no-symptoms experience and reports of getting glutened. These are individual accounts, not verified restaurant policy; the evidence does not establish that this restaurant is safe for celiac disease."
+    },
+    "reviewed": {
+      "claims": [
+        {
+          "claim": {
+            "quote": "No dedicated fryer -2",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific negative report about the fryer, with no conflicting fryer claim in the batch."
+        },
+        {
+          "claim": {
+            "quote": "I didn\u2019t get sick after so it seemed to be gluten-free.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": true,
+          "skeptic_note": "This is one reviewer\u2019s limited no-symptoms account, and it conflicts with the separate report of being glutened."
+        },
+        {
+          "claim": {
+            "quote": "I had eaten here about 3 times without issue but was just glutened yesterday.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_got_sick",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": true,
+          "skeptic_note": "This specific reviewer reports both prior uneventful visits and a recent illness, conflicting with the separate report of no symptoms."
+        },
+        {
+          "claim": {
+            "quote": "they look at you like you have 5 heads and don't write anything down.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific negative account of staff response and note-taking, with no direct conflicting claim about that interaction."
+        },
+        {
+          "claim": {
+            "quote": "They do not mark plates and takeout/pickup containers are not labeled \u201cgluten free.\u201d",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This identifies specific reported labeling practices, and no other claim in the batch directly disputes them."
+        },
+        {
+          "claim": {
+            "quote": "their staff and management are not knowledgeable of or respectful about allergies/dietary restrictions.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a negative reviewer assessment of staff and management, with no directly opposing staff-knowledge claim in the batch."
+        },
+        {
+          "claim": {
+            "quote": "When I called to let them know I was glutened, the manager said \u201cwhat do you want me to do\u201d like I was wasting his time.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific reported response from a manager, and no claim in the batch directly contradicts that account."
+        }
+      ]
+    },
+    "assessment": {
+      "restaurant": {
+        "name": "Rice Restaurant",
+        "address": "1608 14th Street NW, Washington, DC 20009",
+        "neighborhood": "Logan Circle",
+        "cuisine": "Thai and Japanese",
+        "existence_source_url": "https://www.ricedc.com/restaurant"
+      },
+      "safety_level": "credible_illness_report",
+      "confidence": "medium",
+      "supporting_claims": [
+        {
+          "claim": {
+            "quote": "I had eaten here about 3 times without issue but was just glutened yesterday.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_got_sick",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": true,
+          "skeptic_note": "The reviewer reports becoming ill, but the batch flags this account as contradicted by another reviewer's no-symptoms report."
+        },
+        {
+          "claim": {
+            "quote": "No dedicated fryer -2",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Specific report that there is no dedicated fryer; this does not directly conflict with another fryer claim."
+        },
+        {
+          "claim": {
+            "quote": "I didn\u2019t get sick after so it seemed to be gluten-free.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": true,
+          "skeptic_note": "A limited no-symptoms account, but the batch flags it as conflicting with the reported illness."
+        },
+        {
+          "claim": {
+            "quote": "they look at you like you have 5 heads and don't write anything down.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Specific negative account about staff response and note-taking; no direct contradiction is identified."
+        },
+        {
+          "claim": {
+            "quote": "They do not mark plates and takeout/pickup containers are not labeled \u201cgluten free.\u201d",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Specific report about plate and container labeling, with no direct contradiction identified."
+        },
+        {
+          "claim": {
+            "quote": "their staff and management are not knowledgeable of or respectful about allergies/dietary restrictions.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Negative reviewer assessment of staff knowledge and respect; no directly opposing claim is identified."
+        },
+        {
+          "claim": {
+            "quote": "When I called to let them know I was glutened, the manager said \u201cwhat do you want me to do\u201d like I was wasting his time.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Specific reported manager response, with no direct contradiction identified."
+        }
+      ],
+      "contradicting_claims": [
+        {
+          "claim": {
+            "quote": "I didn\u2019t get sick after so it seemed to be gluten-free.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": true,
+          "skeptic_note": "This limited no-symptoms account conflicts with the separate report of becoming glutened."
+        },
+        {
+          "claim": {
+            "quote": "I had eaten here about 3 times without issue but was just glutened yesterday.",
+            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_got_sick",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": true,
+          "skeptic_note": "This illness account conflicts with another reviewer's report of no symptoms."
+        }
+      ],
+      "short_summary": "One reviewer reported being glutened, and other accounts describe poor handling of dietary restrictions; the reports conflict, so use caution.",
+      "rationale": "A reviewer reported being glutened, but that account is flagged as contradicted by a separate report of no symptoms. Because the illness report is not uncontradicted, it does not meet the rule for the highest-priority illness finding. The no-symptoms report is also flagged as contradicted. Other reviewer accounts describe no dedicated fryer and concerning staff communication and labeling practices; there is no positive evidence of dedicated gluten-free preparation.",
+      "override_applied": false,
+      "override_reason": null
+    },
+    "cached_at": "2026-10-23T23:47:23.427424+00:00"
   }
 }

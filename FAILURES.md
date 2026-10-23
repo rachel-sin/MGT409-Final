@@ -134,4 +134,16 @@ Every harness failure or attack caught or fixed during this build: the exact inp
 
 **Retest:** Verified the fix's logic directly (the raise is now unreachable unless `PORTKEY_API_KEY` is genuinely absent from both a `.env` file and the environment) — confirmed by code review rather than a same-machine runtime test, since this machine already has a real `.env` one directory up that would mask the old bug in either code path.
 
+## 12 — Real Step 9 feedback: no way to search for a specific restaurant by name
+
+**When:** First real user tester (via `USER_TEST_SCRIPT.md`), texted back: *"Claude told me to search a restaurant but the form says cuisine so wasn't sure if that was allowed. Tried it anyways."*
+
+**Exact input/incident:** The tester wanted to look up "Rice Restaurant" specifically (a real restaurant she'd been to), but the search form only had a neighborhood dropdown and a "Cuisine (optional)" text field — no field for a restaurant's actual name. She typed it into the cuisine field as a workaround. The discovery pipeline (correctly, per its own design) tried to match "Rice Restaurant" as if it were a cuisine, found no genuine candidates, and honestly reported it couldn't confirm anything — rather than guessing, which is the right fail-safe behavior, but the underlying UX gap (no way to search by name at all) was real.
+
+**Why it happened:** The backend has always supported a direct single-restaurant lookup (`run_for_restaurant()`, used since Step 2) — it was simply never wired into the web UI, which only ever exposed the discovery flow (`run_for_discovered_list`).
+
+**Fix:** Added a "Restaurant name (optional)" field to the search form (`app/web/templates/index.html`). `/search` (`app/web/server.py`) now branches: a provided name goes to `run_for_restaurant` directly (with neighborhood/cuisine passed through as a disambiguating hint), reusing the same input-guard validation and the same graceful cap/error handling already proven for discovery; an empty name falls through to the existing discovery flow unchanged.
+
+**Retest:** Re-ran the tester's exact original search (restaurant name "Rice Restaurant", neighborhood "Logan Circle") live. Not only did it work — a direct named lookup found substantially more evidence than the discovery attempt had (7 supporting + 2 cautionary claims vs. none), correctly landing on `credible_illness_report` (a real reviewer reported being "glutened"). Makes sense: a named lookup spends its entire token budget researching one restaurant, instead of splitting it across a whole discovery batch.
+
 **Known follow-on limitation, not yet fixed**: the cache (`app/harness/cache.py`) keys entries by exact restaurant name, so the same real restaurant can get cached under multiple different keys if the agent names it differently across runs (e.g. "BIBIBOP Asian Grill" vs "BIBIBOP Asian Grill — Dupont Circle") — a minor cache-efficiency gap, not a correctness bug, since each cache entry is still independently verified.

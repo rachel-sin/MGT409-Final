@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "restaurant_tried": "Rice Restaurant (Logan Circle)",
+    "matched_experience": "ux_confusion",
+    "usual_time_minutes": "",
+    "app_time_minutes": "",
+    "trust_rating": "",
+    "comment": "Claude told me to search a restaurant but the form says cuisine so wasn't sure if that was allowed. Tried it anyways. Maybe if this is the answer would you be able to like extract the cuisine and have a button \"search other Asian restaurants in Logan circle\"",
+    "tester_number": 1,
+    "collection_method": "texted_to_builder",
+    "submitted_at": "2026-10-23T23:44:49.635986+00:00"
+  }
+]

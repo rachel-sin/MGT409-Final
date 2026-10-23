@@ -15,7 +15,7 @@ from fastapi.templating import Jinja2Templates
 
 from app.harness.audit_log import estimate_cost_usd
 from app.harness.input_guard import validate_search_input
-from app.pipeline import PipelineResult, run_for_discovered_list
+from app.pipeline import AgentCapExceeded, PipelineResult, run_for_discovered_list, run_for_restaurant
 from app.web.labels import confidence_dots, safety_class, safety_icon, safety_label
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -61,6 +61,7 @@ class StoredSearch:
     note: str | None
     search_likely_failed: bool
     input_rejected: bool
+    restaurant_name: str
     neighborhood: str
     cuisine: str
 
@@ -144,18 +145,51 @@ async def submit_feedback(
 
 
 @app.post("/search")
-async def search(neighborhood: str = Form(""), cuisine: str = Form("")):
-    outcome = await run_for_discovered_list(neighborhood or None, cuisine or None, MAX_CANDIDATES)
+async def search(restaurant_name: str = Form(""), neighborhood: str = Form(""), cuisine: str = Form("")):
     search_id = uuid.uuid4().hex[:8]
+
+    if restaurant_name:
+        # Named-restaurant lookup (found missing in Step 9's real user test —
+        # the form only had neighborhood/cuisine, so a tester had nowhere
+        # obvious to type a specific restaurant). Uses run_for_restaurant
+        # directly instead of discovery; neighborhood/cuisine (if given) are
+        # passed through as a disambiguating hint, same as the CLI script.
+        rejection = validate_search_input(restaurant_name, None, field_names=("Restaurant name", ""))
+        if rejection:
+            results, note, search_likely_failed, input_rejected = [], rejection, False, True
+        else:
+            hint = ", ".join(p for p in (neighborhood, cuisine) if p) or None
+            try:
+                result = await run_for_restaurant(restaurant_name, hint)
+                results, note, search_likely_failed, input_rejected = [result], None, False, False
+            except AgentCapExceeded as exc:
+                results, note, search_likely_failed, input_rejected = [], f"Hit a cost/time limit: {exc}", True, False
+            except Exception as exc:  # noqa: BLE001
+                results, note, search_likely_failed, input_rejected = (
+                    [],
+                    f"Couldn't confirm this restaurant ({type(exc).__name__}): {exc}",
+                    True,
+                    False,
+                )
+    else:
+        outcome = await run_for_discovered_list(neighborhood or None, cuisine or None, MAX_CANDIDATES)
+        results, note, search_likely_failed, input_rejected = (
+            outcome.results,
+            outcome.note,
+            outcome.search_likely_failed,
+            outcome.input_rejected,
+        )
+
     SEARCHES_STORE[search_id] = StoredSearch(
-        results=outcome.results,
-        note=outcome.note,
-        search_likely_failed=outcome.search_likely_failed,
-        input_rejected=outcome.input_rejected,
+        results=results,
+        note=note,
+        search_likely_failed=search_likely_failed,
+        input_rejected=input_rejected,
+        restaurant_name=restaurant_name,
         neighborhood=neighborhood,
         cuisine=cuisine,
     )
-    for r in outcome.results:
+    for r in results:
         RESULTS_STORE[r.run_log.run_id] = (r, search_id)
     # Redirect (not render directly) so the results page has its own URL —
     # refreshing it re-displays the same search instead of resubmitting the
@@ -176,6 +210,7 @@ async def results(request: Request, search_id: str):
             "note": stored.note,
             "search_likely_failed": stored.search_likely_failed,
             "input_rejected": stored.input_rejected,
+            "restaurant_name": stored.restaurant_name,
             "neighborhood": stored.neighborhood,
             "cuisine": stored.cuisine,
             "max_candidates": MAX_CANDIDATES,
