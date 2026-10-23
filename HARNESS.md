@@ -237,6 +237,16 @@ Reuses the existing input guard (`validate_search_input`, generalized with a new
 
 **Not done**: the actual user test itself — needs the user to recruit and run 2-3 real testers.
 
+## Step 10 — README, requirements.txt, and a real fresh-clone dry run
+
+Added `README.md` (setup, live-vs-cached explanation, project layout, useful scripts, safety/cost summary) and `requirements.txt` (versions confirmed against what's actually installed and working: fastapi, uvicorn, jinja2, pydantic/pydantic-ai, openai, python-dotenv, certifi, requests, pypdf).
+
+Pushed the project to GitHub (`rachel-sin/MGT409-Final`) along the way — needed for Step 9's user test (shared via a GitHub Codespace with the API key as a Codespaces secret, port forwarded publicly) and for the eventual submission. Scanned all staged files for secret-looking patterns before the first commit (all false positives — CSS variable names, a "risk-free" string).
+
+**Real bug found via the actual Codespace test** (see `FAILURES.md` #11): `app/runtime.py` only checked for a `.env` file on disk and raised immediately if none existed, even though a Codespaces secret had correctly set `PORTKEY_API_KEY` as a real environment variable. Fixed to only raise if the key is unavailable from both a file and the environment — a necessary fix for any real deployment (Codespaces, CI, production), not just this one test.
+
+**Real timed fresh-clone dry run** (not the uncommitted working directory — an actual `git clone` of the pushed repo into a clean temp folder): clone itself took under a second; copied `.env.example` to `.env` with a real key; skipped re-testing `pip install` here since the Codespace test already proved a genuine fresh install works (this local sandbox has an unrelated TLS quirk in its own pip, the same macOS-trust-store issue diagnosed back in Step 1 — not a real-world problem). Started the server directly from the fresh clone: `Application startup complete`, and `curl` to the homepage returned a real `HTTP 200`. Well under the 10-minute rule.
+
 ## Limits and next steps (running list for the report)
 
 - **User-submitted finds**: let a user save a restaurant they personally found to be GF-safe, even if it never shows up via web search. Would need a way to distinguish "user-reported, unverified" entries from the evidence-backed ranking (since a bare user claim doesn't meet the verbatim-quote-plus-URL bar everything else in this system is held to), and a decision on real accounts vs. lightweight browser-local storage. Scoped out of the current build given the timeline — good candidate for "what's next."
