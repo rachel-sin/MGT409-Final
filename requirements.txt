@@ -1,0 +1,10 @@
+fastapi>=0.143
+uvicorn>=0.54
+jinja2>=3.1
+pydantic>=2.13
+pydantic-ai>=2.50
+openai>=3.19
+python-dotenv>=1.2
+certifi>=2026.7.22
+requests>=2.34
+pypdf>=6.16
