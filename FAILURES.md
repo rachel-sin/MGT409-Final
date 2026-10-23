@@ -146,4 +146,14 @@ Every harness failure or attack caught or fixed during this build: the exact inp
 
 **Retest:** Re-ran the tester's exact original search (restaurant name "Rice Restaurant", neighborhood "Logan Circle") live. Not only did it work — a direct named lookup found substantially more evidence than the discovery attempt had (7 supporting + 2 cautionary claims vs. none), correctly landing on `credible_illness_report` (a real reviewer reported being "glutened"). Makes sense: a named lookup spends its entire token budget researching one restaurant, instead of splitting it across a whole discovery batch.
 
+## 13 — Same tester's follow-up question exposed a real copy/clarity gap
+
+**When:** Same tester, follow-up: "Is the idea it's checking restaurants and skipping any that aren't friendly, only returning friendly ones. And it keeps searching until it finds at least one?"
+
+**Why this is worth logging:** The honest answer is no, on both counts — confirmed by re-checking the actual code (`grep` for any tier-based filtering in `app/pipeline.py`: there is none). Discovery's *search* is scoped to restaurants that already present some GF angle (the Finder's own prompt asks for "GF-friendly" candidates), but the *verdict* is never filtered — a candidate can land on any of the 5 tiers, including the most severe warning, and is still shown (Rice Restaurant and Ama both proved this directly). There's also no "keep searching until something positive turns up" loop — a genuine zero-candidate result is shown honestly, not padded (see FAILURES.md #4/#6). But her question was a completely reasonable misread: "GF-friendly" in the search description could easily sound like a pre-filter rather than a search scope.
+
+**Fix:** Rewrote the homepage copy (`app/web/templates/index.html`) to state explicitly that results are never pre-filtered to only "safe" ones, and that a risky result is shown with the warning front and center, not hidden — both in the main intro paragraph and the "How this works" step 1 description.
+
+**Retest:** Verified live — the new copy renders correctly, reads clearly, and isn't a wall of text.
+
 **Known follow-on limitation, not yet fixed**: the cache (`app/harness/cache.py`) keys entries by exact restaurant name, so the same real restaurant can get cached under multiple different keys if the agent names it differently across runs (e.g. "BIBIBOP Asian Grill" vs "BIBIBOP Asian Grill — Dupont Circle") — a minor cache-efficiency gap, not a correctness bug, since each cache entry is still independently verified.
