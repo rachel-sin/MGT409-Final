@@ -18,19 +18,26 @@ from pydantic_ai.providers.openai import OpenAIProvider
 from pydantic_ai.usage import UsageLimits
 
 # app/runtime.py -> app -> final project root. .env is looked for here first,
-# then one folder above (the course's required lookup order).
+# then one folder above (the course's required lookup order). If no .env
+# file exists, PORTKEY_API_KEY may still be set directly in the environment
+# (a GitHub Codespaces secret, a CI secret, a production deployment's own
+# env config, etc.) — only error if the key truly isn't available from
+# either source, don't hard-fail just because there's no file on disk.
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CANDIDATE_ENV_PATHS = [REPO_ROOT / ".env", REPO_ROOT.parent / ".env"]
 ENV_PATH = next((p for p in CANDIDATE_ENV_PATHS if p.exists()), None)
-if ENV_PATH is None:
-    raise RuntimeError(
-        "No .env found in either of:\n  " + "\n  ".join(str(p) for p in CANDIDATE_ENV_PATHS) + "\nCopy .env.example."
-    )
-load_dotenv(ENV_PATH)
+if ENV_PATH is not None:
+    load_dotenv(ENV_PATH)
 
 PORTKEY_API_KEY = os.getenv("PORTKEY_API_KEY")
 if not PORTKEY_API_KEY:
-    raise RuntimeError(f"PORTKEY_API_KEY not found — expected it in {ENV_PATH}")
+    raise RuntimeError(
+        "PORTKEY_API_KEY not found. Looked for a .env file in:\n  "
+        + "\n  ".join(str(p) for p in CANDIDATE_ENV_PATHS)
+        + "\n...and found none. It also isn't set directly in the environment "
+        "(e.g. as a Codespaces/CI secret). Copy .env.example to one of the paths "
+        "above, or set the environment variable directly."
+    )
 
 PORTKEY_BASE_URL = "https://api.portkey.ai/v1"
 MODEL_NAME = "gpt-6-luna"

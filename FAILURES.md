@@ -122,4 +122,16 @@ Every harness failure or attack caught or fixed during this build: the exact inp
 
 **Retest:** Verified directly against the real BIBIBOP page (now correctly confirms) and a negative control (a fully fabricated restaurant name against the same real page, still correctly rejected — the fix isn't too lenient). Re-ran the exact originally-failing "Dupont Circle" search live: BIBIBOP now comes through correctly instead of being dropped.
 
+## 11 — App failed to start in GitHub Codespaces despite a correctly-set secret
+
+**When:** User set up a GitHub Codespace (for the Step 9 user test — sharing a public URL with friends via Codespaces port forwarding) and added `PORTKEY_API_KEY` as a repository Codespaces secret, then tried to start the server.
+
+**Exact input/incident:** `RuntimeError: No .env found in either of: /workspaces/MGT409-Final/.env, /workspaces/.env. Copy .env.example.` — even though the Codespaces secret was correctly configured.
+
+**Why it happened:** Two separate issues. (1) `app/runtime.py` only ever checked for an actual `.env` *file* on disk and raised immediately if neither candidate path existed — it never checked whether `PORTKEY_API_KEY` might already be set directly in the process environment, which is exactly what a Codespaces secret (or a CI secret, or most production deployments) does — it injects a real environment variable, not a `.env` file. (2) Separately, the assistant's own setup instructions told the user to `cd "final project"` inside the Codespace — but the repo was initialized and pushed from *inside* the `final project` folder, so its contents (`app/`, `scripts/`, etc.) are already the repo root; there is no nested `final project` folder in the pushed repo. That `cd` instruction was simply wrong.
+
+**Fix:** `app/runtime.py` now only calls `load_dotenv()` if a `.env` file actually exists at one of the two candidate paths, then checks `PORTKEY_API_KEY` from the environment regardless of whether a file was found — only raising if the key is truly unavailable from both a file and the environment. The repo-structure instruction was corrected (no `cd` needed; the repo root already contains `app/` directly).
+
+**Retest:** Verified the fix's logic directly (the raise is now unreachable unless `PORTKEY_API_KEY` is genuinely absent from both a `.env` file and the environment) — confirmed by code review rather than a same-machine runtime test, since this machine already has a real `.env` one directory up that would mask the old bug in either code path.
+
 **Known follow-on limitation, not yet fixed**: the cache (`app/harness/cache.py`) keys entries by exact restaurant name, so the same real restaurant can get cached under multiple different keys if the agent names it differently across runs (e.g. "BIBIBOP Asian Grill" vs "BIBIBOP Asian Grill — Dupont Circle") — a minor cache-efficiency gap, not a correctness bug, since each cache entry is still independently verified.
