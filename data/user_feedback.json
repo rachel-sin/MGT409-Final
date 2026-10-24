@@ -9,5 +9,16 @@
     "tester_number": 1,
     "collection_method": "texted_to_builder",
     "submitted_at": "2026-10-23T23:44:49.635986+00:00"
+  },
+  {
+    "restaurant_tried": "Dupont Circle search (BIBIBOP, PLANTA, Zorba's Café, Amparo Fondita)",
+    "matched_experience": "feature_request",
+    "usual_time_minutes": "",
+    "app_time_minutes": "",
+    "trust_rating": "",
+    "comment": "How are the 3 restaurants chosen? agreed some \"next 3\" or \"deepen search\" option could be nice",
+    "tester_number": 2,
+    "collection_method": "texted_to_builder",
+    "submitted_at": "2026-10-24T02:10:00.000000+00:00"
   }
 ]

@@ -6533,5 +6533,1165 @@
       "override_reason": null
     },
     "cached_at": "2026-10-24T03:40:13.402961+00:00"
+  },
+  "osteria al volo": {
+    "restaurant": {
+      "name": "Osteria Al Volo",
+      "address": "1790 Columbia Rd NW, Washington, DC 20009",
+      "neighborhood": "Adams Morgan",
+      "cuisine": "Italian",
+      "existence_source_url": "https://osteriaalvolodc.com/contact/",
+      "multiple_locations_note": null
+    },
+    "evidence": {
+      "claims": [
+        {
+          "quote": "Reported to have a gluten-free menu",
+          "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "other",
+          "direction": "positive"
+        },
+        {
+          "quote": "Dedicated gluten-free pasta pot and water",
+          "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "dedicated_fryer_or_prep_area",
+          "direction": "positive"
+        },
+        {
+          "quote": "Did you experience gluten-related symptoms? \u2014 No symptoms",
+          "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "reviewer_was_fine",
+          "direction": "positive"
+        },
+        {
+          "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+          "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "entirely_gluten_free_facility",
+          "direction": "negative"
+        },
+        {
+          "quote": "They have house-made gluten-free spaghetti that\u2019s perfectly al dente. It can be use in most of the pasta dishes.",
+          "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "other",
+          "direction": "positive"
+        }
+      ],
+      "note": "Checked the restaurant\u2019s own website and menu first. The official menus page only exposes links to the dinner and fresh-pasta menus in the fetched content; no visible GF marking or celiac/cross-contamination policy was found, so the claims above are from Find Me Gluten Free. Its reports of a dedicated pasta pot, knowledgeable staff, and diners reporting no symptoms are encouraging but are community-sourced, not a verified restaurant policy. The listing itself cautions that the establishment is not dedicated gluten-free and may not be safe for celiac disease. Confirm current precautions directly with the restaurant before dining. Dropped 1 claim(s) that failed source-grounding verification."
+    },
+    "reviewed": {
+      "claims": [
+        {
+          "claim": {
+            "quote": "Reported to have a gluten-free menu",
+            "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific, checkable report of a gluten-free menu, and no claim in the batch disputes that."
+        },
+        {
+          "claim": {
+            "quote": "Dedicated gluten-free pasta pot and water",
+            "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a concrete claim about separate pasta preparation equipment, and the non-dedicated-facility warning does not contradict that specific practice."
+        },
+        {
+          "claim": {
+            "quote": "Did you experience gluten-related symptoms? \u2014 No symptoms",
+            "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This reports one diner's outcome, which is not contradicted by any other claim in the batch."
+        },
+        {
+          "claim": {
+            "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific caution about the facility, and no claim asserts that the restaurant is entirely gluten-free."
+        },
+        {
+          "claim": {
+            "quote": "They have house-made gluten-free spaghetti that\u2019s perfectly al dente. It can be use in most of the pasta dishes.",
+            "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": true,
+          "is_contradicted": false,
+          "skeptic_note": "The claim that the spaghetti is \u201cperfectly al dente\u201d is subjective promotional praise, while no claim disputes the reported gluten-free spaghetti offering."
+        }
+      ]
+    },
+    "assessment": {
+      "restaurant": {
+        "name": "Osteria Al Volo",
+        "address": "1790 Columbia Rd NW, Washington, DC 20009",
+        "neighborhood": "Adams Morgan",
+        "cuisine": "Italian",
+        "existence_source_url": "https://osteriaalvolodc.com/contact/",
+        "multiple_locations_note": null
+      },
+      "safety_level": "accommodates_caution_cross_contamination",
+      "confidence": "medium",
+      "supporting_claims": [
+        {
+          "claim": {
+            "quote": "Reported to have a gluten-free menu",
+            "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Specific gluten-free menu report with no dispute in the reviewed batch."
+        },
+        {
+          "claim": {
+            "quote": "Dedicated gluten-free pasta pot and water",
+            "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Reports separate pasta preparation equipment; the facility warning does not dispute this practice, but the report is undated."
+        },
+        {
+          "claim": {
+            "quote": "Did you experience gluten-related symptoms? \u2014 No symptoms",
+            "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "A diner reports no symptoms, though this is an individual outcome."
+        }
+      ],
+      "contradicting_claims": [
+        {
+          "claim": {
+            "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/al-volo-osteria/5954975962628096",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Explicitly warns that the restaurant is not an entirely gluten-free facility; this does not rule out separate preparation practices."
+        }
+      ],
+      "short_summary": "It offers gluten-free options and reports a separate pasta pot, but that report is undated and the restaurant is not a dedicated gluten-free facility.",
+      "rationale": "The evidence reports a gluten-free menu, a dedicated gluten-free pasta pot and water, and one diner who reported no symptoms. The report about the separate pasta setup is from a third-party source with no visible date, so it cannot establish that this practice is current for the strongest assessment. The source also cautions that the restaurant is not a dedicated gluten-free facility, so diners with celiac disease should discuss cross-contact precautions directly with staff.",
+      "override_applied": false,
+      "override_reason": null
+    },
+    "cached_at": "2026-10-24T19:25:36.828123+00:00"
+  },
+  "reveler\u2019s hour": {
+    "restaurant": {
+      "name": "Reveler\u2019s Hour",
+      "address": "1775 Columbia Rd NW, Washington, DC 20009",
+      "neighborhood": "Adams Morgan",
+      "cuisine": "Brazilian-influenced Italian",
+      "existence_source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+      "multiple_locations_note": null
+    },
+    "evidence": {
+      "claims": [
+        {
+          "quote": "We can handle most but not all allergies and dietary restrictions. We can easily avoid gluten, nuts, shellfish, and pork, while vegetarian and vegan options are always available. Unfortunately, we may not be able to accommodate a compound gluten and dairy allergy. If you have questions about a specific allergy or dietary restriction, please reach out to us before booking your reservation.",
+          "source_url": "https://www.revelershour.com/about",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "other",
+          "direction": "positive"
+        },
+        {
+          "quote": "While we do offer gluten free pasta, we are unable to host diners who have both a gluten and dairy allergy.",
+          "source_url": "https://www.revelershour.com/large-party-booking",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "other",
+          "direction": "positive"
+        },
+        {
+          "quote": "They have a small gluten free menu. Right away, the waitress asked whether I was okay with shared surfaces. When I said I wasn\u2019t, she said she would let the chef know.",
+          "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "staff_cross_contamination_knowledge",
+          "direction": "neutral"
+        },
+        {
+          "quote": "Did you experience gluten-related symptoms? \u2014 No symptoms",
+          "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "reviewer_was_fine",
+          "direction": "positive"
+        },
+        {
+          "quote": "Dedicated gluten-free pasta pot and water 3",
+          "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "dedicated_fryer_or_prep_area",
+          "direction": "positive"
+        },
+        {
+          "quote": "No dedicated fryer -5",
+          "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "dedicated_fryer_or_prep_area",
+          "direction": "negative"
+        },
+        {
+          "quote": "This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+          "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "other",
+          "direction": "negative"
+        }
+      ],
+      "note": "The restaurant\u2019s own site provides clear but general evidence: it says it can avoid gluten and offers gluten-free pasta, but does not describe a dedicated gluten-free kitchen, separate prep area/pasta water, or a cross-contamination protocol. Third-party community reports include positive dining experiences and reports of a dedicated pasta pot, alongside a report of no dedicated fryer; these are individual/community-reported evidence, not a verified restaurant policy. The fetched page did not display actual publication dates for the quoted reviews. This evidence is not enough to confirm the restaurant is celiac-safe; contact the restaurant directly about cross-contact controls before dining."
+    },
+    "reviewed": {
+      "claims": [
+        {
+          "claim": {
+            "quote": "We can handle most but not all allergies and dietary restrictions. We can easily avoid gluten, nuts, shellfish, and pork, while vegetarian and vegan options are always available. Unfortunately, we may not be able to accommodate a compound gluten and dairy allergy. If you have questions about a specific allergy or dietary restriction, please reach out to us before booking your reservation.",
+            "source_url": "https://www.revelershour.com/about",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a concrete statement about avoiding gluten and the limits of accommodating combined gluten and dairy allergies, and no other claim directly conflicts with it."
+        },
+        {
+          "claim": {
+            "quote": "While we do offer gluten free pasta, we are unable to host diners who have both a gluten and dairy allergy.",
+            "source_url": "https://www.revelershour.com/large-party-booking",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This makes a specific, checkable statement about gluten-free pasta and an accommodation limit that aligns with the other own-site claim."
+        },
+        {
+          "claim": {
+            "quote": "They have a small gluten free menu. Right away, the waitress asked whether I was okay with shared surfaces. When I said I wasn\u2019t, she said she would let the chef know.",
+            "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "neutral"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific reviewer account of a server asking about shared surfaces, and no claim contradicts that account."
+        },
+        {
+          "claim": {
+            "quote": "Did you experience gluten-related symptoms? \u2014 No symptoms",
+            "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This reports one diner's outcome, and the other claims do not contradict this same account."
+        },
+        {
+          "claim": {
+            "quote": "Dedicated gluten-free pasta pot and water 3",
+            "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific community-reported practice, and the claim that there is no dedicated fryer concerns a different item and does not conflict with it."
+        },
+        {
+          "claim": {
+            "quote": "No dedicated fryer -5",
+            "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific report about the fryer; a dedicated pasta pot and water can coexist with no dedicated fryer."
+        },
+        {
+          "claim": {
+            "quote": "This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific statement that the establishment is not dedicated gluten-free, and no claim says the entire facility is gluten-free."
+        }
+      ]
+    },
+    "assessment": {
+      "restaurant": {
+        "name": "Reveler\u2019s Hour",
+        "address": "1775 Columbia Rd NW, Washington, DC 20009",
+        "neighborhood": "Adams Morgan",
+        "cuisine": "Brazilian-influenced Italian",
+        "existence_source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+        "multiple_locations_note": null
+      },
+      "safety_level": "accommodates_caution_cross_contamination",
+      "confidence": "medium",
+      "supporting_claims": [
+        {
+          "claim": {
+            "quote": "We can handle most but not all allergies and dietary restrictions. We can easily avoid gluten, nuts, shellfish, and pork, while vegetarian and vegan options are always available. Unfortunately, we may not be able to accommodate a compound gluten and dairy allergy. If you have questions about a specific allergy or dietary restriction, please reach out to us before booking your reservation.",
+            "source_url": "https://www.revelershour.com/about",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Concrete own-site statement that gluten can be avoided, while noting limits for combined allergies."
+        },
+        {
+          "claim": {
+            "quote": "While we do offer gluten free pasta, we are unable to host diners who have both a gluten and dairy allergy.",
+            "source_url": "https://www.revelershour.com/large-party-booking",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Specific own-site mention of gluten-free pasta, consistent with the restaurant's stated accommodation limits."
+        },
+        {
+          "claim": {
+            "quote": "Did you experience gluten-related symptoms? \u2014 No symptoms",
+            "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "A single diner reports no symptoms; no claim contradicts this account."
+        },
+        {
+          "claim": {
+            "quote": "Dedicated gluten-free pasta pot and water 3",
+            "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Specific report of a dedicated pasta pot and water, but it has no visible date and does not qualify as current confirmation for the strongest tier."
+        }
+      ],
+      "contradicting_claims": [
+        {
+          "claim": {
+            "quote": "No dedicated fryer -5",
+            "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Reports there is no dedicated fryer; this can coexist with a dedicated pasta pot and water."
+        },
+        {
+          "claim": {
+            "quote": "This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/revelers-hour/6048324907565056",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Indicates the venue is not an entirely gluten-free facility."
+        }
+      ],
+      "short_summary": "The restaurant offers gluten-free pasta and says it can avoid gluten, but shared-kitchen precautions matter; ask about preparation before ordering.",
+      "rationale": "The restaurant\u2019s own site says it can avoid gluten and offers gluten-free pasta, and one reviewer reported no symptoms. A third-party report mentions a dedicated pasta pot and water, but it has no date, so it cannot establish current dedicated preparation; the same source also reports no dedicated fryer and says the restaurant is not a dedicated gluten-free facility. This supports gluten-free accommodation, but diners should discuss cross-contact precautions, especially if they have celiac disease or serious sensitivity.",
+      "override_applied": false,
+      "override_reason": null
+    },
+    "cached_at": "2026-10-24T19:25:39.756716+00:00"
+  },
+  "mez\u00e8 dc": {
+    "restaurant": {
+      "name": "Mez\u00e8 DC",
+      "address": "2437 18th St NW, Washington, DC 20009",
+      "neighborhood": "Adams Morgan",
+      "cuisine": "Turkish / Mediterranean",
+      "existence_source_url": "https://mezedc.com/",
+      "multiple_locations_note": null
+    },
+    "evidence": {
+      "claims": [
+        {
+          "quote": "Do you have vegetarian, vegan, gluten-free, dairy-free or nut-free options? Plenty. Much of our meze table is naturally vegetarian, with vegan, gluten-free, dairy-free and nut-free dishes throughout. Tell your server about any allergies and we will guide you.",
+          "source_url": "https://mezedc.com/faq/",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "staff_cross_contamination_knowledge",
+          "direction": "positive"
+        },
+        {
+          "quote": "Everything is made from scratch in one small kitchen, the way it has been since 2001.",
+          "source_url": "https://mezedc.com/",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "other",
+          "direction": "neutral"
+        },
+        {
+          "quote": "The person eating with me ordered fried brussels and was originally told they could be pan fried separately, but another staff member came out to correct that and asked if she had an alternate dish she\u2019d prefer.",
+          "source_url": "https://www.findmeglutenfree.com/biz/meze-restaurant/5348681071591424",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "staff_cross_contamination_knowledge",
+          "direction": "positive"
+        },
+        {
+          "quote": "Update: I did not see any glutening side effects after eating here.",
+          "source_url": "https://www.findmeglutenfree.com/biz/meze-restaurant/5348681071591424",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "reviewer_was_fine",
+          "direction": "positive"
+        },
+        {
+          "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+          "source_url": "https://www.findmeglutenfree.com/biz/meze-restaurant/5348681071591424",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "entirely_gluten_free_facility",
+          "direction": "negative"
+        }
+      ],
+      "note": "The restaurant\u2019s own site/menu marks some individual dishes gluten-free and says to tell staff about allergies, but I found no first-party statement that the restaurant is celiac-safe or that it has dedicated gluten-free prep areas or a fryer. One review reports a staff correction about separate pan-frying, while the listing also states this is not a dedicated gluten-free facility. A GF label alone does not establish protection from cross-contact; confirm current preparation precautions directly with the restaurant. Dropped 2 claim(s) that failed source-grounding verification."
+    },
+    "reviewed": {
+      "claims": [
+        {
+          "claim": {
+            "quote": "Do you have vegetarian, vegan, gluten-free, dairy-free or nut-free options? Plenty. Much of our meze table is naturally vegetarian, with vegan, gluten-free, dairy-free and nut-free dishes throughout. Tell your server about any allergies and we will guide you.",
+            "source_url": "https://mezedc.com/faq/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This specifically says there are gluten-free dishes and advises guests with allergies to ask staff, without promising celiac-safe preparation."
+        },
+        {
+          "claim": {
+            "quote": "Everything is made from scratch in one small kitchen, the way it has been since 2001.",
+            "source_url": "https://mezedc.com/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "neutral"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a concrete statement about scratch cooking and kitchen size, and no other claim disputes it."
+        },
+        {
+          "claim": {
+            "quote": "The person eating with me ordered fried brussels and was originally told they could be pan fried separately, but another staff member came out to correct that and asked if she had an alternate dish she\u2019d prefer.",
+            "source_url": "https://www.findmeglutenfree.com/biz/meze-restaurant/5348681071591424",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific reviewer account of a staff member correcting preparation guidance; it does not assert a general restaurant policy contradicted elsewhere in the batch."
+        },
+        {
+          "claim": {
+            "quote": "Update: I did not see any glutening side effects after eating here.",
+            "source_url": "https://www.findmeglutenfree.com/biz/meze-restaurant/5348681071591424",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This reports one diner's outcome, which is not contradicted by the separate facility warning or another person's experience."
+        },
+        {
+          "claim": {
+            "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/meze-restaurant/5348681071591424",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a direct facility warning and none of the other claims says the restaurant is entirely gluten-free."
+        }
+      ]
+    },
+    "assessment": {
+      "restaurant": {
+        "name": "Mez\u00e8 DC",
+        "address": "2437 18th St NW, Washington, DC 20009",
+        "neighborhood": "Adams Morgan",
+        "cuisine": "Turkish / Mediterranean",
+        "existence_source_url": "https://mezedc.com/",
+        "multiple_locations_note": null
+      },
+      "safety_level": "accommodates_caution_cross_contamination",
+      "confidence": "medium",
+      "supporting_claims": [
+        {
+          "claim": {
+            "quote": "Do you have vegetarian, vegan, gluten-free, dairy-free or nut-free options? Plenty. Much of our meze table is naturally vegetarian, with vegan, gluten-free, dairy-free and nut-free dishes throughout. Tell your server about any allergies and we will guide you.",
+            "source_url": "https://mezedc.com/faq/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The restaurant states it offers gluten-free dishes and advises guests to tell staff about allergies; it does not promise celiac-safe preparation."
+        },
+        {
+          "claim": {
+            "quote": "The person eating with me ordered fried brussels and was originally told they could be pan fried separately, but another staff member came out to correct that and asked if she had an alternate dish she\u2019d prefer.",
+            "source_url": "https://www.findmeglutenfree.com/biz/meze-restaurant/5348681071591424",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This specific account suggests a staff member recognized a preparation concern, though it does not establish a general policy."
+        },
+        {
+          "claim": {
+            "quote": "Update: I did not see any glutening side effects after eating here.",
+            "source_url": "https://www.findmeglutenfree.com/biz/meze-restaurant/5348681071591424",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is one diner's reported outcome and does not establish that others will have the same experience."
+        }
+      ],
+      "contradicting_claims": [
+        {
+          "claim": {
+            "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/meze-restaurant/5348681071591424",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a clear warning that the restaurant is not a dedicated gluten-free facility and may not be suitable for people with celiac disease."
+        }
+      ],
+      "short_summary": "The restaurant offers gluten-free dishes and staff may help navigate allergy concerns, but it is not a dedicated gluten-free facility and celiac safety is uncertain.",
+      "rationale": "The restaurant's FAQ lists gluten-free dishes and asks guests to tell staff about allergies. A reviewer also described a staff member correcting potentially unsafe preparation advice, and another reported no symptoms after eating there. These support gluten-free accommodation, but there is no qualifying evidence of a dedicated gluten-free facility or dedicated fryer/prep area. The listing explicitly warns that the restaurant is not a dedicated gluten-free facility and may not be safe for people with celiac disease, so diners should discuss their needs with staff and use caution.",
+      "override_applied": false,
+      "override_reason": null
+    },
+    "cached_at": "2026-10-24T19:25:42.296012+00:00"
+  },
+  "ceibo": {
+    "restaurant": {
+      "name": "Ceibo",
+      "address": "2106 18th St NW, Washington, DC 20009",
+      "neighborhood": "Adams Morgan",
+      "cuisine": "New American",
+      "existence_source_url": "https://ceibodc.com/",
+      "multiple_locations_note": null
+    },
+    "evidence": {
+      "claims": [
+        {
+          "quote": "Our dinner roll is available nightly for their table bread service",
+          "source_url": "https://districtbreadcompany.com/find-us",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "other",
+          "direction": "positive"
+        },
+        {
+          "quote": "They have a dedicated frier and a variety of other gluten free items!",
+          "source_url": "https://districtbreadcompany.com/find-us",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "dedicated_fryer_or_prep_area",
+          "direction": "positive"
+        },
+        {
+          "quote": "The best steak of my life! Staff were incredibly kind, and made sure everything brought to me was celiac safe.",
+          "source_url": "https://www.findmeglutenfree.com/biz/ceibo/4882332811395072",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "reviewer_was_fine",
+          "direction": "positive"
+        },
+        {
+          "quote": "Nearly everything on the menu with a few exceptions is gluten free.",
+          "source_url": "https://www.findmeglutenfree.com/biz/ceibo/4882332811395072",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "other",
+          "direction": "positive"
+        },
+        {
+          "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+          "source_url": "https://www.findmeglutenfree.com/biz/ceibo/4882332811395072",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "other",
+          "direction": "negative"
+        }
+      ],
+      "note": "Checked Ceibo\u2019s own website and its linked/current menu first; the menu lists dishes but provides no clear GF labels or celiac cross-contamination policy, so the listed evidence is from third-party sources. District Bread\u2019s partner page reports a dedicated fryer and GF items, but it is not Ceibo\u2019s own statement. Find Me Gluten Free reviews report careful handling and favorable experiences, while the page itself cautions that Ceibo is not a dedicated gluten-free facility and may not be safe for people with celiac disease. This is mixed, community-reported evidence\u2014not verification that the restaurant is safe for celiac disease. Confirm fryer and preparation protocols directly with Ceibo."
+    },
+    "reviewed": {
+      "claims": [
+        {
+          "claim": {
+            "quote": "Our dinner roll is available nightly for their table bread service",
+            "source_url": "https://districtbreadcompany.com/find-us",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific menu-availability statement, and no other claim in the batch contradicts it."
+        },
+        {
+          "claim": {
+            "quote": "They have a dedicated frier and a variety of other gluten free items!",
+            "source_url": "https://districtbreadcompany.com/find-us",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The dedicated-fryer assertion is concrete and checkable; the batch contains no opposing statement about Ceibo's fryer."
+        },
+        {
+          "claim": {
+            "quote": "The best steak of my life! Staff were incredibly kind, and made sure everything brought to me was celiac safe.",
+            "source_url": "https://www.findmeglutenfree.com/biz/ceibo/4882332811395072",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": true,
+          "is_contradicted": false,
+          "skeptic_note": "\u201cThe best steak of my life\u201d is subjective praise, while the reviewer\u2019s reported celiac-safe handling is a personal account not contradicted by the facility warning."
+        },
+        {
+          "claim": {
+            "quote": "Nearly everything on the menu with a few exceptions is gluten free.",
+            "source_url": "https://www.findmeglutenfree.com/biz/ceibo/4882332811395072",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific claim about the menu, and the warning that the establishment is not a dedicated gluten-free facility does not contradict it."
+        },
+        {
+          "claim": {
+            "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/ceibo/4882332811395072",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a direct safety caution; no claim in the batch asserts that Ceibo is a dedicated gluten-free facility."
+        }
+      ]
+    },
+    "assessment": {
+      "restaurant": {
+        "name": "Ceibo",
+        "address": "2106 18th St NW, Washington, DC 20009",
+        "neighborhood": "Adams Morgan",
+        "cuisine": "New American",
+        "existence_source_url": "https://ceibodc.com/",
+        "multiple_locations_note": null
+      },
+      "safety_level": "accommodates_caution_cross_contamination",
+      "confidence": "medium",
+      "supporting_claims": [
+        {
+          "claim": {
+            "quote": "Our dinner roll is available nightly for their table bread service",
+            "source_url": "https://districtbreadcompany.com/find-us",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Specific menu-availability statement; no claim in the batch contradicts it, though it does not establish gluten-free handling."
+        },
+        {
+          "claim": {
+            "quote": "They have a dedicated frier and a variety of other gluten free items!",
+            "source_url": "https://districtbreadcompany.com/find-us",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "A concrete claim about a dedicated fryer, but its third-party source has no visible date, so it cannot establish current dedicated preparation."
+        },
+        {
+          "claim": {
+            "quote": "Nearly everything on the menu with a few exceptions is gluten free.",
+            "source_url": "https://www.findmeglutenfree.com/biz/ceibo/4882332811395072",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Specific gluten-free menu information, but the claim does not establish dedicated preparation or cross-contamination controls."
+        }
+      ],
+      "contradicting_claims": [
+        {
+          "claim": {
+            "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/ceibo/4882332811395072",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "Direct caution that the restaurant is not a dedicated gluten-free facility and may not be suitable for diners with celiac disease."
+        }
+      ],
+      "short_summary": "The menu is reported to be mostly gluten-free, but the undated dedicated-fryer claim does not confirm current preparation practices; ask about cross-contamination before ordering.",
+      "rationale": "The claims indicate gluten-free menu options, which supports accommodation, and one third-party source reports a dedicated fryer. However, that fryer claim has no date, so it cannot confirm current dedicated preparation. Another source cautions that the restaurant is not a dedicated gluten-free facility and may not be safe for people with celiac disease. No credible, unpromotional illness report was provided.",
+      "override_applied": false,
+      "override_reason": null
+    },
+    "cached_at": "2026-10-24T19:28:30.834652+00:00"
+  },
+  "el tamarindo": {
+    "restaurant": {
+      "name": "El Tamarindo",
+      "address": "1785 Florida Ave NW, Washington, DC 20009",
+      "neighborhood": "Adams Morgan",
+      "cuisine": "Salvadoran and Mexican",
+      "existence_source_url": "https://www.eltamarindodc.com/location/el-tamarindo-dc/",
+      "multiple_locations_note": null
+    },
+    "evidence": {
+      "claims": [
+        {
+          "quote": "Taquitos  GF Corn tortilla taquitos stuffed with shredded chicken or shredded beef - served with pico de gallo & sour cream",
+          "source_url": "https://media-cdn.getbento.com/accounts/f01d21711a1300ccc73989374bb2ae59/media/7Gg6nLMiTgSiD5jaRFwm_SIT%20DOWN%20MENU%20EDITED%20AUGUST%202026%20%28Menus%29.pdf",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "other",
+          "direction": "positive"
+        },
+        {
+          "quote": "Products containing gluten, dairy, meats and nuts are produced in our kitchen.",
+          "source_url": "https://media-cdn.getbento.com/accounts/f01d21711a1300ccc73989374bb2ae59/media/7Gg6nLMiTgSiD5jaRFwm_SIT%20DOWN%20MENU%20EDITED%20AUGUST%202026%20%28Menus%29.pdf",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "other",
+          "direction": "neutral"
+        },
+        {
+          "quote": "The staff was very knowledgeable about gluten allergies. We felt safe eating there. It was delicious and my son did not have any reaction.",
+          "source_url": "https://www.findmeglutenfree.com/biz/el-tamarindo/5771950120632320",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "reviewer_was_fine",
+          "direction": "positive"
+        },
+        {
+          "quote": "Lots of GF options on the menu, clearly marked. Get the taquitos. They taste like they aren't GF.",
+          "source_url": "https://www.findmeglutenfree.com/biz/el-tamarindo/5771950120632320",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "other",
+          "direction": "positive"
+        },
+        {
+          "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+          "source_url": "https://www.findmeglutenfree.com/biz/el-tamarindo/5771950120632320",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "entirely_gluten_free_facility",
+          "direction": "negative"
+        }
+      ],
+      "note": "The restaurant\u2019s own menu has GF markings for several dishes, including taquitos, but also states that gluten-containing products are made in its kitchen; it does not establish separate fryers or prep areas or confirm celiac-safe handling. Third-party reports are encouraging but are individual experiences, and Find Me Gluten Free explicitly warns this is not a dedicated GF facility and may not be safe for celiac disease. Contact the restaurant directly about cross-contact precautions before dining."
+    },
+    "reviewed": {
+      "claims": [
+        {
+          "claim": {
+            "quote": "Taquitos  GF Corn tortilla taquitos stuffed with shredded chicken or shredded beef - served with pico de gallo & sour cream",
+            "source_url": "https://media-cdn.getbento.com/accounts/f01d21711a1300ccc73989374bb2ae59/media/7Gg6nLMiTgSiD5jaRFwm_SIT%20DOWN%20MENU%20EDITED%20AUGUST%202026%20%28Menus%29.pdf",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific menu description identifying the taquitos as gluten-free, and no claim directly disputes that menu labeling."
+        },
+        {
+          "claim": {
+            "quote": "Products containing gluten, dairy, meats and nuts are produced in our kitchen.",
+            "source_url": "https://media-cdn.getbento.com/accounts/f01d21711a1300ccc73989374bb2ae59/media/7Gg6nLMiTgSiD5jaRFwm_SIT%20DOWN%20MENU%20EDITED%20AUGUST%202026%20%28Menus%29.pdf",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "neutral"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a concrete statement about products made in the kitchen, and no claim asserts otherwise."
+        },
+        {
+          "claim": {
+            "quote": "The staff was very knowledgeable about gluten allergies. We felt safe eating there. It was delicious and my son did not have any reaction.",
+            "source_url": "https://www.findmeglutenfree.com/biz/el-tamarindo/5771950120632320",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This reports one reviewer's experience, including no reaction, and other claims do not contradict that personal outcome."
+        },
+        {
+          "claim": {
+            "quote": "Lots of GF options on the menu, clearly marked. Get the taquitos. They taste like they aren't GF.",
+            "source_url": "https://www.findmeglutenfree.com/biz/el-tamarindo/5771950120632320",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This gives specific observations about menu labeling and taste rather than vague safety assurances, and no claim conflicts with those observations."
+        },
+        {
+          "claim": {
+            "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/el-tamarindo/5771950120632320",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a clear warning about facility status and celiac safety, and no claim asserts the restaurant is an entirely gluten-free facility."
+        }
+      ]
+    },
+    "assessment": {
+      "restaurant": {
+        "name": "El Tamarindo",
+        "address": "1785 Florida Ave NW, Washington, DC 20009",
+        "neighborhood": "Adams Morgan",
+        "cuisine": "Salvadoran and Mexican",
+        "existence_source_url": "https://www.eltamarindodc.com/location/el-tamarindo-dc/",
+        "multiple_locations_note": null
+      },
+      "safety_level": "accommodates_caution_cross_contamination",
+      "confidence": "medium",
+      "supporting_claims": [
+        {
+          "claim": {
+            "quote": "Taquitos  GF Corn tortilla taquitos stuffed with shredded chicken or shredded beef - served with pico de gallo & sour cream",
+            "source_url": "https://media-cdn.getbento.com/accounts/f01d21711a1300ccc73989374bb2ae59/media/7Gg6nLMiTgSiD5jaRFwm_SIT%20DOWN%20MENU%20EDITED%20AUGUST%202026%20%28Menus%29.pdf",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The menu explicitly marks the taquitos GF, but this does not establish dedicated preparation or a dedicated fryer."
+        },
+        {
+          "claim": {
+            "quote": "The staff was very knowledgeable about gluten allergies. We felt safe eating there. It was delicious and my son did not have any reaction.",
+            "source_url": "https://www.findmeglutenfree.com/biz/el-tamarindo/5771950120632320",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is one diner's reported experience and does not independently establish a dedicated preparation area."
+        },
+        {
+          "claim": {
+            "quote": "Lots of GF options on the menu, clearly marked. Get the taquitos. They taste like they aren't GF.",
+            "source_url": "https://www.findmeglutenfree.com/biz/el-tamarindo/5771950120632320",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The reviewer reports clearly marked gluten-free options, but provides no evidence of dedicated preparation."
+        }
+      ],
+      "contradicting_claims": [
+        {
+          "claim": {
+            "quote": "Products containing gluten, dairy, meats and nuts are produced in our kitchen.",
+            "source_url": "https://media-cdn.getbento.com/accounts/f01d21711a1300ccc73989374bb2ae59/media/7Gg6nLMiTgSiD5jaRFwm_SIT%20DOWN%20MENU%20EDITED%20AUGUST%202026%20%28Menus%29.pdf",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "neutral"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The menu confirms gluten-containing products are made in the kitchen, relevant cross-contact context but not a negative claim about accommodation."
+        },
+        {
+          "claim": {
+            "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/el-tamarindo/5771950120632320",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This warns that the restaurant is not an entirely gluten-free facility; it does not negate the presence of marked GF options or reported accommodation."
+        }
+      ],
+      "short_summary": "The menu marks taquitos gluten-free, and a diner reported knowledgeable staff and no reaction, but gluten-containing products are also made in the kitchen.",
+      "rationale": "The menu identifies a gluten-free taquito option, and a reviewer reports knowledgeable staff and no reaction, so there is evidence of gluten-free accommodation. The restaurant also says it produces gluten-containing products in its kitchen, and it is not a dedicated gluten-free facility. No reviewed claim confirms a dedicated fryer or preparation area, so ask staff about cross-contact precautions, especially if you have celiac disease.",
+      "override_applied": false,
+      "override_reason": null
+    },
+    "cached_at": "2026-10-24T19:28:32.425973+00:00"
+  },
+  "seoul spice": {
+    "restaurant": {
+      "name": "Seoul Spice",
+      "address": "439 7th St NW, Washington, DC 20004",
+      "neighborhood": null,
+      "cuisine": "Korean",
+      "existence_source_url": "https://www.seoulspice.com/locations",
+      "multiple_locations_note": "Seoul Spice has multiple DC locations; this is the Penn Quarter location. Add a neighborhood to look up a different one."
+    },
+    "evidence": {
+      "claims": [
+        {
+          "quote": "That's why our entire menu is gluten-free.",
+          "source_url": "https://www.seoulspice.com/food",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "entirely_gluten_free_facility",
+          "direction": "positive"
+        },
+        {
+          "quote": "Penn Quarter 439 7th St NW Washington, DC 20004 (202) 677-1561",
+          "source_url": "https://www.seoulspice.com/locations",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "other",
+          "direction": "neutral"
+        }
+      ],
+      "note": "The restaurant\u2019s own food page says its entire menu is gluten-free, and its locations page identifies the specified address as Penn Quarter. That is positive evidence, but the page does not explicitly establish that the whole kitchen/facility is gluten-free or describe cross-contact controls, so this does not by itself verify celiac safety. A Tripadvisor reviewer who visited the 7th St. location with family members with celiac disease reported a positive experience; this is an individual account, not a verified safety policy. Dropped 1 claim(s) that failed source-grounding verification."
+    },
+    "reviewed": {
+      "claims": [
+        {
+          "claim": {
+            "quote": "That's why our entire menu is gluten-free.",
+            "source_url": "https://www.seoulspice.com/food",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific, checkable claim about the menu, and no claim in the batch contradicts it."
+        },
+        {
+          "claim": {
+            "quote": "Penn Quarter 439 7th St NW Washington, DC 20004 (202) 677-1561",
+            "source_url": "https://www.seoulspice.com/locations",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "neutral"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a concrete location listing, and no claim in the batch contradicts it."
+        }
+      ]
+    },
+    "assessment": {
+      "restaurant": {
+        "name": "Seoul Spice",
+        "address": "439 7th St NW, Washington, DC 20004",
+        "neighborhood": null,
+        "cuisine": "Korean",
+        "existence_source_url": "https://www.seoulspice.com/locations",
+        "multiple_locations_note": "Seoul Spice has multiple DC locations; this is the Penn Quarter location. Add a neighborhood to look up a different one."
+      },
+      "safety_level": "confirmed_dedicated_gf_prep",
+      "confidence": "high",
+      "supporting_claims": [
+        {
+          "claim": {
+            "quote": "That's why our entire menu is gluten-free.",
+            "source_url": "https://www.seoulspice.com/food",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific, checkable claim about the menu, and no claim in the batch contradicts it."
+        }
+      ],
+      "contradicting_claims": [],
+      "short_summary": "The restaurant says its entire menu is gluten-free, though diners with celiac disease may still want to confirm preparation practices.",
+      "rationale": "The restaurant\u2019s current menu page states that its entire menu is gluten-free. Because this is a specific claim on the restaurant\u2019s own site and nothing in the reviewed evidence contradicts it, it supports the strongest gluten-free preparation tier. The evidence does not separately describe cross-contact controls or a dedicated preparation area, so diners with celiac disease may wish to ask about those practices.",
+      "override_applied": false,
+      "override_reason": null
+    },
+    "cached_at": "2026-10-24T19:29:12.811955+00:00"
   }
 }

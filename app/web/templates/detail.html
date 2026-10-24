@@ -12,8 +12,8 @@
 
   <div class="tier-banner {{ result.assessment.safety_level | safety_class }}">
     <strong><i class="ti {{ result.assessment.safety_level | safety_icon }}" aria-hidden="true"></i> {{ result.assessment.safety_level | safety_label }}</strong>
-    <span class="confidence-row">
-      <span class="confidence-label">Confidence</span>
+    <span class="confidence-row" title="How strong the evidence is for this tier — not how safe the restaurant is.">
+      <span class="confidence-label">Evidence confidence</span>
       <span class="confidence-dots" aria-hidden="true">
         {% set filled = result.assessment.confidence | confidence_dots %}
         {% for i in range(3) %}<span class="dot {{ 'filled' if i < filled else '' }}"></span>{% endfor %}

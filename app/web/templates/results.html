@@ -45,8 +45,8 @@
       <p class="multi-location-note"><i class="ti ti-map-pin" aria-hidden="true"></i> {{ r.restaurant.multiple_locations_note }}</p>
       {% endif %}
 
-      <div class="confidence-row">
-        <span class="confidence-label">Confidence</span>
+      <div class="confidence-row" title="How strong the evidence is for this tier — not how safe the restaurant is.">
+        <span class="confidence-label">Evidence confidence</span>
         <span class="confidence-dots" aria-hidden="true">
           {% set filled = r.assessment.confidence | confidence_dots %}
           {% for i in range(3) %}<span class="dot {{ 'filled' if i < filled else '' }}"></span>{% endfor %}

@@ -57,7 +57,7 @@ The 14 neighborhoods in the search dropdown are the ones the cached dataset was 
 │   ├── pipeline.py        orchestrates the agents, applies the code-level safety backstops
 │   └── runtime.py         shared Portkey-routed model, env/config loading
 ├── data/
-│   ├── cached_restaurants.json     the cached dataset (35 restaurants as of this writing)
+│   ├── cached_restaurants.json     the cached dataset (41 restaurants as of this writing)
 │   ├── golden_set.json             10 independently-labeled restaurants for the accuracy check
 │   ├── competitor_comparison.md    Find Me Gluten Free / Google comparison, with screenshots
 │   ├── neighborhood_suggestions.json, user_feedback.json   real data captured from the live app

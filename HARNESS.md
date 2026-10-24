@@ -155,7 +155,7 @@ Built `data/cached_restaurants.json` by running the real live pipeline (discover
 
 Not cut: the cost-vs-quality comparison (a cheaper agent configuration vs. the full one) mentioned as "if time allows" in the brief — still pending, revisit if time permits before the deadline.
 
-**Update (post-launch, see FAILURES.md #14-#15):** the BIBIBOP mismatch above turned out to be a real Skeptic bug, not an inherent model limitation — see the "Post-launch fixes from real user testing" section near the end of this file. After fixing it and refreshing the dataset, **golden-set accuracy is now 10/10 = 100%**, with one golden-set label itself also corrected (Chaia Georgetown) rather than left stale just to preserve a number. The cached dataset has also grown organically from 20 to 35 restaurants (as of this writing — it keeps growing with use) through later live named-restaurant searches, discovery runs, and UI testing (SeoulSpice, Emmy Squared Pizza - Shaw, Amazonia, Rice Restaurant, Taqueria Al Lado, and a few duplicate-name cache entries for the same physical restaurant — see FAILURES.md #10/#18 on that last point).
+**Update (post-launch, see FAILURES.md #14-#15):** the BIBIBOP mismatch above turned out to be a real Skeptic bug, not an inherent model limitation — see the "Post-launch fixes from real user testing" section near the end of this file. After fixing it and refreshing the dataset, **golden-set accuracy is now 10/10 = 100%**, with one golden-set label itself also corrected (Chaia Georgetown) rather than left stale just to preserve a number. The cached dataset has also grown organically from 20 to 41 restaurants (as of this writing — it keeps growing with use) through later live named-restaurant searches, discovery runs, and UI testing (SeoulSpice, Emmy Squared Pizza - Shaw, Amazonia, Rice Restaurant, Taqueria Al Lado, an Adams Morgan discovery batch run during final report/deck verification, and a few duplicate-name cache entries for the same physical restaurant — see FAILURES.md #10/#18 on that last point).
 
 ## UI: neighborhood dropdown + suggestion box
 
@@ -169,18 +169,18 @@ Added a suggestion box (`/suggest-neighborhood`, `data/neighborhood_suggestions.
 
 All numbers below are aggregated from `logs/runs/` (`scripts/compute_tokenomics.py`, read-only — no new live calls), not estimates or a single cherry-picked run.
 
-**Updated post-launch** (originally computed from 124 run logs; recomputed repeatedly as the session's live/report testing accumulated more logs, most recently after the overnight audit following FAILURES.md #24 — numbers below are current as of 312 total run logs, not the original Step 7 snapshot. The Skeptic prompt fixes in FAILURES.md #14-#19 changed *which tier* a restaurant lands on, not materially how many tokens each agent call uses, so the shape of the breakdown is unchanged: Evidence Extractor still dominates cost.)
+**Updated post-launch** (originally computed from 124 run logs; recomputed repeatedly as the session's live/report testing accumulated more logs, most recently after a final pre-submission pass once report/deck verification added more live runs — numbers below are current as of 330 total run logs, not the original Step 7 snapshot. The Skeptic prompt fixes in FAILURES.md #14-#19 changed *which tier* a restaurant lands on, not materially how many tokens each agent call uses, so the shape of the breakdown is unchanged: Evidence Extractor still dominates cost.)
 
-### Real per-agent token averages (201 live restaurant evaluations)
+### Real per-agent token averages (207 live restaurant evaluations)
 
 Per the 5-agent count established for the report (FAILURES.md #19's agent-count fix): a single-restaurant evaluation uses the confirm-mode Finder (`finder_agent`); a discovery/browse search uses the separate discover-mode Finder (`finder_discovery_agent`) instead, which only ever runs once per search (not once per restaurant), so its cost shows up in "one discovery call" below rather than this per-restaurant table.
 
 | Agent | Avg input | Avg cached input | Avg output |
 |---|---|---|---|
-| evidence_extractor (n=201) | 17,304 | 4,688 | 659 |
-| skeptic (n=201) | 1,412 | 14 | 565 |
-| ranker (n=201) | 2,764 | 1,675 | 663 |
-| finder — confirm mode (n=10) | 9,092 | 949 | 120 |
+| evidence_extractor (n=207) | 17,334 | 4,681 | 661 |
+| skeptic (n=207) | 1,419 | 14 | 566 |
+| ranker (n=207) | 2,771 | 1,676 | 664 |
+| finder — confirm mode (n=11) | 9,108 | 862 | 121 |
 
 Evidence Extractor dominates cost (web search + reading real pages) — roughly three-quarters of a restaurant evaluation's tokens. Skeptic and Ranker are comparatively cheap, reasoning-only steps.
 
@@ -188,11 +188,11 @@ Evidence Extractor dominates cost (web search + reading real pages) — roughly 
 
 Using the placeholder per-token rates in `estimate_cost_usd()` (`app/harness/audit_log.py`) — **flagged honestly: these are assumed rates, not confirmed `gpt-6-luna`/Portkey pricing**, since no official rate card exists for this course model. Real token *counts* are measured; the $/token conversion is the one assumption in this section.
 
-- **One live restaurant evaluation** (n=201): ~30,249 total tokens → **est. $0.0981**
-- **One discovery call** (n=66, finder — discover mode): ~19,698 total tokens → **est. $0.0576**
+- **One live restaurant evaluation** (n=207): ~30,321 total tokens → **est. $0.0984**
+- **One discovery call** (n=70, finder — discover mode): ~19,240 total tokens → **est. $0.0563**
 - **One full search** (1 discovery + up to 3 restaurants):
-  - Cold (no cache hits yet): **est. $0.3521**
-  - This session's actual mix (17% cache hit rate — 41 cache hits across 242 restaurant lookups): **est. $0.3030**
+  - Cold (no cache hits yet): **est. $0.3516**
+  - This session's actual mix (19% cache hit rate — 49 cache hits across 256 restaurant lookups): **est. $0.2959**
 
 ### Per-user-per-month and at-scale cost
 
@@ -200,12 +200,12 @@ Using the placeholder per-token rates in `estimate_cost_usd()` (`app/harness/aud
 
 | | Cold (worst case) | This session's actual cache rate |
 |---|---|---|
-| Per search | $0.3521 | $0.3030 |
-| Per user/month | $3.52 | $3.03 |
-| At 100 users/month | $352.06 | $302.99 |
-| At 10,000 users/month | $35,206.20 | $30,298.80 |
+| Per search | $0.3516 | $0.2959 |
+| Per user/month | $3.52 | $2.96 |
+| At 100 users/month | $351.57 | $295.93 |
+| At 10,000 users/month | $35,157.00 | $29,592.94 |
 
-The gap between "cold" and "actual" widens as the cache fills with more of DC's restaurants — a mature deployment covering most of DC would push the cache-hit rate far above this session's 17% (built from scratch this week, and the discovery-level cache added in FAILURES.md #14 doesn't show up in this per-*restaurant* cache-hit rate at all — it saves a whole discovery call, not a restaurant evaluation), making the real steady-state cost meaningfully lower than either figure above.
+The gap between "cold" and "actual" widens as the cache fills with more of DC's restaurants — a mature deployment covering most of DC would push the cache-hit rate far above this session's 19% (built from scratch this week, and the discovery-level cache added in FAILURES.md #14 doesn't show up in this per-*restaurant* cache-hit rate at all — it saves a whole discovery call, not a restaurant evaluation), making the real steady-state cost meaningfully lower than either figure above.
 
 ### Cost-reduction steps evaluated
 
