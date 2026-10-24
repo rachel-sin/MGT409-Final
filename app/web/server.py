@@ -15,7 +15,7 @@ from fastapi.templating import Jinja2Templates
 
 from app.harness.audit_log import estimate_cost_usd
 from app.harness.input_guard import validate_search_input
-from app.pipeline import AgentCapExceeded, PipelineResult, run_for_discovered_list, run_for_restaurant
+from app.pipeline import SAFETY_LEVEL_RANK_ORDER, AgentCapExceeded, PipelineResult, run_for_discovered_list, run_for_restaurant
 from app.web.labels import confidence_dots, safety_class, safety_icon, safety_label
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -197,6 +197,30 @@ async def search(restaurant_name: str = Form(""), neighborhood: str = Form(""), 
     return RedirectResponse(f"/results/{search_id}", status_code=303)
 
 
+@app.post("/search/{search_id}/more")
+async def search_more(search_id: str):
+    stored = SEARCHES_STORE.get(search_id)
+    if stored is None or stored.restaurant_name:
+        # "Show more" only applies to a neighborhood/cuisine browse, not a
+        # named lookup (there's only ever one restaurant to show for that).
+        return RedirectResponse(f"/results/{search_id}", status_code=303)
+
+    already_shown = [r.restaurant.name for r in stored.results]
+    outcome = await run_for_discovered_list(
+        stored.neighborhood or None, stored.cuisine or None, MAX_CANDIDATES, exclude_names=already_shown
+    )
+    new_results = [r for r in outcome.results if r.restaurant.name not in already_shown]
+    combined = stored.results + new_results
+    combined.sort(key=lambda r: SAFETY_LEVEL_RANK_ORDER.index(r.assessment.safety_level))
+    stored.results = combined
+    if not new_results and not stored.note:
+        stored.note = outcome.note or "No further new restaurants were found for this search."
+    for r in new_results:
+        RESULTS_STORE[r.run_log.run_id] = (r, search_id)
+
+    return RedirectResponse(f"/results/{search_id}", status_code=303)
+
+
 @app.get("/results/{search_id}", response_class=HTMLResponse)
 async def results(request: Request, search_id: str):
     stored = SEARCHES_STORE.get(search_id)
@@ -214,6 +238,7 @@ async def results(request: Request, search_id: str):
             "neighborhood": stored.neighborhood,
             "cuisine": stored.cuisine,
             "max_candidates": MAX_CANDIDATES,
+            "search_id": search_id,
         },
     )
 

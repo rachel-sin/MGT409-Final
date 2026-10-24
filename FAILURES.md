@@ -157,3 +157,56 @@ Every harness failure or attack caught or fixed during this build: the exact inp
 **Retest:** Verified live — the new copy renders correctly, reads clearly, and isn't a wall of text.
 
 **Known follow-on limitation, not yet fixed**: the cache (`app/harness/cache.py`) keys entries by exact restaurant name, so the same real restaurant can get cached under multiple different keys if the agent names it differently across runs (e.g. "BIBIBOP Asian Grill" vs "BIBIBOP Asian Grill — Dupont Circle") — a minor cache-efficiency gap, not a correctness bug, since each cache entry is still independently verified.
+
+## 14 — A real tester saw a different restaurant list on a repeat search, and SeoulSpice (a 100%-GF restaurant) wasn't ranked as such
+
+**When:** A tester ran the same neighborhood/cuisine search twice and got different restaurants back ("that doesn't make sense"), and separately flagged that SeoulSpice — a restaurant whose entire concept is a 100% gluten-free menu — only got "accommodates, proceed with caution," not the top tier.
+
+**Why (two separate causes, found by live-testing both):**
+1. **Non-determinism**: `discover_candidates()` had no caching at all — every neighborhood/cuisine search re-ran live, unseeded web search from scratch, so an identical query could legitimately surface a different candidate set each time. This looked like a bug but was really expected behavior for live search with nothing pinning it to a prior result.
+2. **SeoulSpice's ranking gap** (confirmed via `scripts/run_single_restaurant.py`): the Skeptic agent's prompt told it to flag "a single vague positive claim with no specifics" as weak, and the only tool it had for that was `is_promotional`. SeoulSpice's own-site quote — "That's why our entire menu is gluten-free." — is a concrete, falsifiable factual claim, not marketing puffery, but it got marked `is_promotional: true` anyway just for being short, which disqualified it from `confirmed_dedicated_gf_prep` under the code-level tier-1 backstop (`_qualifies_for_tier1` in `app/pipeline.py` requires `not is_promotional`).
+
+**Fix:**
+1. Added `app/harness/discovery_cache.py`: a 24-hour TTL cache keyed by `(neighborhood, cuisine)`, wired into `discover_candidates()`. Repeating the same search within the window now reuses the same candidate list instead of re-querying live search. (Much shorter TTL than the 30-day per-restaurant cache in `app/harness/cache.py`, since discovery should still refresh periodically to find new restaurants.)
+2. Rewrote the Skeptic's `is_promotional` instructions (`app/agents/skeptic.py`) to explicitly separate "reads like unverifiable marketing puffery" from "is short/lacks elaboration" — a concrete, specific, checkable claim is never promotional just because it's brief.
+
+**Retest:** Ran SeoulSpice twice fresh (bypassing cache) before and after the fix. Before: both runs `accommodates_caution_cross_contamination`. After: both runs `confirmed_dedicated_gf_prep`, high confidence, identical reasoning — confirmed both correct and now stable.
+
+## 15 — The Skeptic fix exposed (and fixed) the dataset's one existing golden-set mismatch, and one mislabel in the golden set itself
+
+**When:** After fixing #14's Skeptic prompt, re-ran the full cached dataset (`scripts/refresh_cached_dataset.py`, new script) to re-evaluate all 23 restaurants under the corrected rules rather than leaving stale pre-fix verdicts in the committed dataset.
+
+**What changed:** 5 of 23 restaurants changed tier on refresh. Two are directly explained by #14's fix:
+- **BIBIBOP Asian Grill**: `unclear_gluten_specific` → `accommodates_caution_cross_contamination` — this was the one documented mismatch in Step 6's golden-set eval (90% accuracy). It's now a match: the Skeptic was wrongly flagging BIBIBOP's own "dedicated gluten-free kitchen" and "Gluten Intolerance Group certified" claims as promotional, understating the tier.
+- **Chaia Georgetown**: `accommodates_caution_cross_contamination` → `confirmed_dedicated_gf_prep` — this one is more interesting: the evidence claims were identical before and after the fix (own site: "Our kitchens are free of gluten... we use no products in our kitchen that contain these ingredients"). The *original golden-set label* under-weighted this claim (its reasoning only mentioned the GF tortillas), and the system's pre-fix answer happened to match it only by coincidence — because the same Skeptic bug was *also* wrongly flagging this exact claim as promotional. Fixing the bug didn't just change the system's answer, it revealed the golden label itself needed a second look. Corrected `data/golden_set.json`'s Chaia entry to `confirmed_dedicated_gf_prep` with updated reasoning, rather than leaving a stale label just to preserve an accuracy number.
+- **SeoulSpice**: `accommodates_caution_cross_contamination` → `confirmed_dedicated_gf_prep` (per #14).
+- **BIBIBOP Asian Grill — Dupont Circle**: same change as the main BIBIBOP entry (a duplicate cache entry for the same real restaurant under a different name — see #10's known limitation).
+- **Rice Restaurant**: see #16 below — this one was not a fix, it was a near-miss caught by re-testing twice.
+
+**Retest:** Re-ran `scripts/run_golden_eval.py` against the refreshed dataset: still 9/10 = 90%, but the one mismatch moved from a real bug (BIBIBOP) to a corrected golden-set label (Chaia), not a remaining system error.
+
+## 16 — Critical: a credible illness report could be neutralized by a *different* reviewer's unrelated positive experience
+
+**When:** Found while re-testing Rice Restaurant during #15's dataset refresh — on one re-run it flipped from `credible_illness_report` to `no_evidence_found`, which is a dangerous direction for a safety app to be unstable in (burying a real illness report, not just under-crediting a safe restaurant).
+
+**Why:** The Skeptic was marking the `reviewer_got_sick` claim ("I had eaten here about 3 times without issue but was just glutened yesterday") as `is_contradicted: true` — because a *different* reviewer, in a separate review, reported no symptoms. Two different diners having two different outcomes at the same restaurant is not a logical contradiction (inconsistent kitchen handling, different orders, human error — exactly the kind of real-world variance this app exists to surface), but the Skeptic's prompt only gave a same-fact-conflict example ("dedicated fryer" vs. "fried in shared oil") and the model over-applied it to different people's different personal outcomes. Once `is_contradicted` was true, `_is_credible()` in `app/pipeline.py` excluded the claim from the code-level asymmetric-risk override (Rule 1 in `apply_safety_backstops`), leaving the final tier entirely up to the Ranker's own (apparently unstable) judgment on that run.
+
+**Why this is the most serious finding this session:** the asymmetric-risk override is the project's core safety guarantee — a credible got-sick report is supposed to dominate regardless of other positive evidence. This bug could silently defeat that guarantee for any restaurant with mixed reviews (i.e., most real restaurants), with the failure direction being the dangerous one (hiding risk, not overstating it).
+
+**Fix:** Rewrote `is_contradicted`'s instructions in `app/agents/skeptic.py` to explicitly state that two different reviewers' different personal outcomes are not a contradiction, and that `reviewer_got_sick` should never be marked contradicted by a different reviewer's fine experience — only by a genuine same-fact conflict or an inconsistency within the same account.
+
+**Retest:** Re-ran Rice Restaurant twice fresh after the fix: both runs `credible_illness_report`, high confidence, `is_contradicted: false` on the illness claim, with the Skeptic's own note now correctly explaining why. Re-ran the full dataset refresh again afterward — only Rice Restaurant changed (back to `credible_illness_report`), everything else held stable across two consecutive full refreshes.
+
+## 17 — Results weren't ranked by evidence at all, and only ever showed 3 restaurants with no way to see more
+
+**When:** Live-testing the deployed app (tester screenshot) showed "No evidence found" listed above "Accommodates — proceed with caution" — the opposite of a useful ranking. Separately, a tester asked how the 3 results are chosen and asked for a "next 3" / "deepen search" option.
+
+**Why:** `run_for_discovered_list()` returned restaurants in whatever order the Finder discovery agent happened to list them — an arbitrary live-search order, not sorted by the safety tier the rest of the app spends 3 more agent calls computing. And `MAX_CANDIDATES = 3` was a hard cap with no way to ask for more.
+
+**Fix:**
+1. Added `SAFETY_LEVEL_RANK_ORDER` to `app/pipeline.py` and sorted results by it (best evidence first; a credible illness report still always shows, just last — never hidden, matching the homepage's "never pre-filtered" promise from #13).
+2. Added a "Show more restaurants" button (`app/web/templates/results.html`) that posts to a new `POST /search/{search_id}/more` endpoint (`app/web/server.py`). It re-runs discovery for the same neighborhood/cuisine with an explicit exclude list (the names already shown) so the Finder is asked for *different* restaurants, appends genuinely new ones to the existing list, and re-sorts. Only shown for neighborhood/cuisine browsing, not a named lookup (nothing to show more of).
+
+**Retest:** Verified live in the browser preview — Shaw search returned Emmy Squared Pizza (confirmed dedicated GF prep) first; clicking "Show more restaurants" added Amazonia (accommodates — proceed with caution) *after* it, not before, and didn't repeat Emmy Squared.
+
+**Not built yet (logged for later, explicitly deprioritized today):** a tester also suggested proactively redirecting to a better-reviewed option in a nearby neighborhood ("we see you wanted Mexican here, but there's a better-reviewed one two blocks over") — a real idea, but meaningfully more compute per search (cross-neighborhood comparison) and scoped out for now in favor of the fixes above.

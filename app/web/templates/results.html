@@ -58,5 +58,19 @@
     </a>
     {% endfor %}
   </div>
+
+  {% if results and not restaurant_name and not search_likely_failed %}
+  <form action="/search/{{ search_id }}/more" method="post" id="more-form">
+    <button type="submit" id="more-button">Show more restaurants</button>
+  </form>
+  <p class="loading-note" id="more-loading-note" hidden>Searching for more — usually under a minute.</p>
+  <script>
+    document.getElementById('more-form').addEventListener('submit', function () {
+      document.getElementById('more-button').disabled = true;
+      document.getElementById('more-button').textContent = 'Searching…';
+      document.getElementById('more-loading-note').hidden = false;
+    });
+  </script>
+  {% endif %}
 </section>
 {% endblock %}

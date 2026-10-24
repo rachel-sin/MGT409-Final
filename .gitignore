@@ -9,6 +9,7 @@ __pycache__
 
 # Per-run logs and caches (not the small committed cached dataset)
 logs/runs
+data/discovery_cache.json
 
 # OS
 .DS_Store

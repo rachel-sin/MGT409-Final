@@ -16,6 +16,7 @@ from app.agents.ranker import ranker_agent
 from app.agents.skeptic import skeptic_agent
 from app.harness.audit_log import AgentCallRecord, RunLog, TokenUsage, new_run_log, save_run_log
 from app.harness.cache import get_cached, put_cached
+from app.harness.discovery_cache import get_cached_discovery, put_cached_discovery
 from app.harness.grounding import restaurant_existence_grounded, verify_claims_grounded
 from app.harness.input_guard import validate_search_input
 from app.models import CandidateBatch, EvidenceBatch, ReviewedBatch, ReviewedClaim, RestaurantCandidate, SafetyAssessment
@@ -30,6 +31,20 @@ from app.runtime import (
 )
 
 RECENCY_WINDOW_DAYS = 183  # ~6 months
+
+# Best-evidence-first display order for a list of results (the app's whole
+# premise is ranking by safety evidence, so the order it returns candidates
+# in — essentially arbitrary live-search order — was never the right order
+# to show them in; see FAILURES.md #16). A credible illness report still
+# shows (never filtered out), just last, since it's the worst outcome, not
+# the best.
+SAFETY_LEVEL_RANK_ORDER = [
+    "confirmed_dedicated_gf_prep",
+    "accommodates_caution_cross_contamination",
+    "unclear_gluten_specific",
+    "no_evidence_found",
+    "credible_illness_report",
+]
 
 
 class AgentCapExceeded(Exception):
@@ -275,7 +290,7 @@ def _looks_like_real_address(address: str) -> bool:
     return bool(re.search(r"\d", address)) and len(address) < 80
 
 
-async def _discover_once(neighborhood, cuisine, max_candidates, run_log) -> tuple[CandidateBatch, bool]:
+async def _discover_once(neighborhood, cuisine, max_candidates, run_log, exclude_names=None) -> tuple[CandidateBatch, bool]:
     # Title-cased, trimmed input — cheap mitigation for an observed pattern
     # where an all-lowercase, informally-phrased query made the model skip
     # invoking web search entirely (see HARNESS.md's "live search
@@ -289,6 +304,8 @@ async def _discover_once(neighborhood, cuisine, max_candidates, run_log) -> tupl
         prompt += f"\nNeighborhood: {neighborhood}"
     if cuisine:
         prompt += f"\nCuisine: {cuisine}"
+    if exclude_names:
+        prompt += f"\nAlready shown, find DIFFERENT restaurants (do not repeat these): {', '.join(exclude_names)}"
 
     result = await _run_agent_logged(
         finder_discovery_agent,
@@ -339,18 +356,34 @@ async def _discover_once(neighborhood, cuisine, max_candidates, run_log) -> tupl
 
 
 async def discover_candidates(
-    neighborhood: str | None = None, cuisine: str | None = None, max_candidates: int = 5
+    neighborhood: str | None = None, cuisine: str | None = None, max_candidates: int = 5, exclude_names: list[str] | None = None
 ) -> DiscoveryOutcome:
     # max_candidates is a stopgap bound on this first test, ahead of Step 5's
     # real per-run/per-session caps — not a substitute for those.
-    subject = f"discovery: neighborhood={neighborhood!r} cuisine={cuisine!r}"
+    subject = f"discovery: neighborhood={neighborhood!r} cuisine={cuisine!r} exclude={exclude_names!r}"
     run_log = new_run_log(subject)
+
+    # The discovery-level cache (FAILURES.md #14) only applies to the base
+    # query — a "show more" request with an exclude list is a deliberate
+    # ask for different results, so it always goes live rather than
+    # replaying the same cached candidate list.
+    if not exclude_names:
+        cached = get_cached_discovery(neighborhood, cuisine)
+        if cached is not None:
+            # Repeating the same neighborhood/cuisine search within the TTL
+            # reuses the same candidate list instead of re-querying live
+            # search — live search is unseeded, so an identical query can
+            # otherwise return a different set of restaurants each time.
+            run_log.overall_stop_reason = "cached"
+            save_run_log(run_log)
+            return DiscoveryOutcome(batch=cached.batch, run_log=run_log, search_likely_failed=cached.search_likely_failed)
+
     try:
-        batch, looks_like_search_failure = await _discover_once(neighborhood, cuisine, max_candidates, run_log)
+        batch, looks_like_search_failure = await _discover_once(neighborhood, cuisine, max_candidates, run_log, exclude_names)
         if looks_like_search_failure:
             # One retry — a fast, empty result usually means the web search
             # tool didn't fire this call, not that nothing exists.
-            batch, still_failing = await _discover_once(neighborhood, cuisine, max_candidates, run_log)
+            batch, still_failing = await _discover_once(neighborhood, cuisine, max_candidates, run_log, exclude_names)
             if still_failing:
                 batch = batch.model_copy(
                     update={
@@ -372,6 +405,12 @@ async def discover_candidates(
         raise
 
     save_run_log(run_log)
+    if not looks_like_search_failure and not exclude_names:
+        # Don't cache a likely search failure — that's not a real "no
+        # matches" answer worth pinning for the next 24 hours. Don't cache
+        # an exclude-list ("show more") result under the base query's key
+        # either — it would poison the base search with a partial list.
+        put_cached_discovery(neighborhood, cuisine, batch, looks_like_search_failure)
     return DiscoveryOutcome(batch=batch, run_log=run_log, search_likely_failed=looks_like_search_failure)
 
 
@@ -411,18 +450,20 @@ class DiscoveredListResult:
 
 
 async def run_for_discovered_list(
-    neighborhood: str | None = None, cuisine: str | None = None, max_candidates: int = 5
+    neighborhood: str | None = None, cuisine: str | None = None, max_candidates: int = 5, exclude_names: list[str] | None = None
 ) -> DiscoveredListResult:
     """Step 3: discover candidates, then run each through evidence/skeptic/
     ranker. Reuses Finder's discovery output directly rather than re-running
     the single-restaurant Finder again for each candidate — discovery already
-    confirmed existence/address."""
+    confirmed existence/address. exclude_names supports the "show more"
+    action: the same search, but asking discovery for different restaurants
+    than the ones already shown."""
     rejection = validate_search_input(neighborhood, cuisine)
     if rejection:
         return DiscoveredListResult(results=[], note=rejection, search_likely_failed=False, input_rejected=True)
 
     try:
-        outcome = await discover_candidates(neighborhood, cuisine, max_candidates)
+        outcome = await discover_candidates(neighborhood, cuisine, max_candidates, exclude_names)
     except AgentCapExceeded as exc:
         print(f"Discovery failed: {exc}. Returning no results rather than crashing.")
         return DiscoveredListResult(results=[], note=f"Discovery hit a cost/time limit: {exc}", search_likely_failed=True)
@@ -458,6 +499,7 @@ async def run_for_discovered_list(
 
     outcomes = await asyncio.gather(*(_run_one(r) for r in outcome.batch.candidates))
     results = [r for r in outcomes if r is not None]
+    results.sort(key=lambda r: SAFETY_LEVEL_RANK_ORDER.index(r.assessment.safety_level))
     return DiscoveredListResult(results=results, note=outcome.batch.note, search_likely_failed=outcome.search_likely_failed)
 
 

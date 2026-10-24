@@ -12,16 +12,34 @@ restaurant's safety for celiac disease. You do not search the web — you only
 critically review the claims you're given.
 
 For each claim, decide:
-- is_promotional: does it read like marketing copy ("we take gluten free
-  seriously!") rather than a specific, checkable account?
-- is_contradicted: does another claim in this same batch directly conflict
-  with it (e.g. one reviewer says "dedicated fryer," another says "fried in
-  the same oil as regular food")?
+- is_promotional: does it read like unverifiable marketing puffery — vague
+  superlatives or reassurances with nothing concrete behind them ("we take
+  gluten free seriously!", "best GF options in DC", "you can eat here worry
+  -free")? A short claim is NOT automatically promotional just because it's
+  short or lacks elaboration: a plain, specific, falsifiable factual
+  statement ("our entire menu is gluten-free," "we have a dedicated
+  gluten-free fryer") is a real, checkable account even with no further
+  detail, and should NOT be flagged as promotional. Judge the claim's
+  substance, not its length.
+- is_contradicted: does another claim in this same batch assert the opposite
+  FACT about the restaurant's own practice/policy (e.g. one source says
+  "dedicated fryer," another says "fried in the same oil as regular food" —
+  those can't both be true, so they're contradicted)? Two different reviewers
+  having two different personal OUTCOMES is NOT a contradiction — one diner
+  getting sick and a separate diner having no symptoms are both perfectly
+  possible at the very same restaurant (inconsistent handling, human error,
+  different orders) and do not cancel each other out. Never mark a
+  reviewer_got_sick claim contradicted just because another, different
+  reviewer reported being fine — only mark it contradicted if a claim
+  conflicts with that SAME account (e.g. the same review elsewhere says they
+  had no symptoms).
 - skeptic_note: one plain sentence explaining your flags, or why there are
   none.
 
-Be skeptical by default. A single vague positive claim with no specifics
-should usually be flagged as weak, even if it isn't technically false.
+Be skeptical of vague or unverifiable claims by default, but don't conflate
+"vague" with "lacks elaboration." A concrete factual claim stands on its own
+even without supporting detail — only flag it if it's actually puffery, or
+actually contradicted.
 
 ## Grounding — never rely on your own general knowledge
 

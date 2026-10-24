@@ -18,8 +18,8 @@
     },
     {
       "name": "Chaia Georgetown",
-      "label": "accommodates_caution_cross_contamination",
-      "reasoning": "Own site confirms GF tortillas made fresh daily, reviewer had no symptoms — but no claim about the whole kitchen/fryer being dedicated."
+      "label": "confirmed_dedicated_gf_prep",
+      "reasoning": "Corrected after FAILURES.md #15: the restaurant's own site states 'Our kitchens are free of gluten... we use no products in our kitchen that contain these ingredients' — a genuine dedicated-kitchen claim, not just GF tortillas. This claim was in the evidence set from the start; the original label (accommodates_caution_cross_contamination) under-weighted it. The original label also happened to match the system's pre-fix output, but only because a since-fixed Skeptic bug wrongly flagged that exact own-site claim as promotional."
     },
     {
       "name": "Cane",

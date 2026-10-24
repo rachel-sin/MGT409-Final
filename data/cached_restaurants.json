@@ -41,7 +41,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific but single diner's account of not getting sick, with a stated reservation about the waitress's confidence; it does not establish broader safety."
+          "skeptic_note": "This is a specific report of one diner's outcome and impression, and the separate report of no GF fryer does not contradict it."
         },
         {
           "claim": {
@@ -54,7 +54,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific reviewer impression and reports no gluten-free fryer; the other claim does not directly conflict with that report."
+          "skeptic_note": "The reviewer gives a concrete report that there is no GF fryer; the separate diner's report of feeling fine is a different personal outcome, not a conflicting restaurant-practice claim."
         }
       ]
     },
@@ -67,7 +67,7 @@
         "existence_source_url": "https://www.lapisdc.com/homepage"
       },
       "safety_level": "accommodates_caution_cross_contamination",
-      "confidence": "low",
+      "confidence": "medium",
       "supporting_claims": [
         {
           "claim": {
@@ -80,10 +80,8 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is one diner's report of no symptoms and staff confidence, tempered by their concern about the assurance; it does not establish broader safety."
-        }
-      ],
-      "contradicting_claims": [
+          "skeptic_note": "A single reviewer reports no symptoms and describes the server's assurances, but this is an individual account."
+        },
         {
           "claim": {
             "quote": "Good variety and seemed to know what they were talking about for GF! No GF fryer.",
@@ -95,15 +93,16 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The reviewer specifically reports there is no gluten-free fryer, which cautions against assuming dedicated frying equipment."
+          "skeptic_note": "The reviewer reports no gluten-free fryer, so this does not support dedicated-fryer confirmation."
         }
       ],
-      "short_summary": "One diner reported no symptoms and staff confidence, but also noted there is no gluten-free fryer; ask about cross-contact when ordering.",
-      "rationale": "A reviewer reported not getting sick and described the waitress as confident about gluten-free assurances, which is limited evidence that the restaurant accommodates gluten-free diners. The same reviewer also said there was no gluten-free fryer, and there is no qualifying positive claim of a dedicated fryer or prep area. The evidence is a single, undated account, so confidence is low.",
+      "contradicting_claims": [],
+      "short_summary": "A reviewer reported knowledgeable gluten-free service and no symptoms, but also noted there is no gluten-free fryer.",
+      "rationale": "The evidence supports gluten-free accommodation through one diner's report of knowledgeable service and no symptoms. Another report says there is no gluten-free fryer, and there is no positive claim confirming a dedicated gluten-free fryer or prep area. These are undated third-party reports, so the assessment rests on limited individual experiences.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:00:32.833373+00:00"
+    "cached_at": "2026-10-24T00:08:57.283749+00:00"
   },
   "rise bakery": {
     "restaurant": {
@@ -171,7 +170,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a concrete statement of the bakery's gluten-free policy, though it is the restaurant's own claim rather than independent verification."
+          "skeptic_note": "The statement that everything is gluten-free is a specific, checkable description of the bakery's offerings, and no claim in this batch conflicts with it."
         },
         {
           "claim": {
@@ -184,7 +183,7 @@
           },
           "is_promotional": true,
           "is_contradicted": false,
-          "skeptic_note": "The founder's reported diagnosis is specific, but the promise of a \u201cone-of-a-kind gluten-free experience\u201d and expansive menu is promotional language."
+          "skeptic_note": "The founding and diagnosis details are concrete, but the phrase \u201cone-of-a-kind gluten-free experience\u201d is unverifiable promotional language and no claim contradicts it."
         },
         {
           "claim": {
@@ -197,7 +196,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This supports a dedicated-gluten-free report but is explicitly presented as reported information, not a detailed first-hand account."
+          "skeptic_note": "This is a specific report about the facility, and the restaurant's own statement that everything is gluten-free aligns with it."
         },
         {
           "claim": {
@@ -210,7 +209,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific positive report of no symptoms, but the claim provides no further details about the meal or preparation."
+          "skeptic_note": "This reports a specific reviewer's outcome and no claim in the batch gives a conflicting outcome for that same account."
         },
         {
           "claim": {
@@ -223,7 +222,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a neutral caveat that the listing relies on community reports and advises direct verification."
+          "skeptic_note": "This is a concrete caveat about the basis of the listing and advises direct verification; nothing in the batch contradicts it."
         }
       ]
     },
@@ -249,7 +248,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The restaurant's current site makes a direct, specific statement that everything is gluten-free; it is uncontradicted and is not promotional language."
+          "skeptic_note": "The statement that everything is gluten-free is a specific, checkable description of the bakery's offerings, and no claim in this batch conflicts with it."
         },
         {
           "claim": {
@@ -262,16 +261,16 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is an uncontradicted diner report of no symptoms, though it gives little detail about the meal."
+          "skeptic_note": "This reports a specific reviewer's outcome and no claim in the batch gives a conflicting outcome for that same account."
         }
       ],
       "contradicting_claims": [],
-      "short_summary": "The bakery says everything it serves is gluten-free, and one diner report also noted no symptoms.",
-      "rationale": "The bakery's own site explicitly says everything is gluten-free, which supports the strongest assessment without needing a date on that current restaurant page. A third-party listing also reports no symptoms, but provides little detail. No credible illness report or contradictory claim was provided.",
+      "short_summary": "The bakery says everything it serves is gluten-free, and one diner reported no gluten-related symptoms.",
+      "rationale": "The bakery's own current page states that everything is gluten-free, which supports the strongest assessment without relying on the undated third-party listing. A reviewer also reported no symptoms. No credible illness report or contradicting claim appears in the reviewed evidence; as always, diners with celiac disease may wish to confirm current practices directly.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:03:02.619234+00:00"
+    "cached_at": "2026-10-24T00:09:07.258667+00:00"
   },
   "il canale": {
     "restaurant": {
@@ -347,7 +346,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a terse menu label indicating GF options, but it gives no detail about preparation or cross-contact precautions."
+          "skeptic_note": "This is a concrete menu label identifying items as gluten-free, not promotional puffery."
         },
         {
           "claim": {
@@ -360,7 +359,7 @@
           },
           "is_promotional": true,
           "is_contradicted": false,
-          "skeptic_note": "The superlative praise is promotional in tone, though the quote makes the specific checkable claim that a separate wood-fired oven is used."
+          "skeptic_note": "The superlative that it is the best gluten-free pizza in DC is promotional, while the separate-oven assertion is a specific factual claim not contradicted elsewhere in this batch."
         },
         {
           "claim": {
@@ -373,7 +372,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific first-person account and reported conversation, but it is one diner's experience rather than independent verification."
+          "skeptic_note": "This is a specific reviewer's account of a conversation and meal outcome, not marketing copy, and no claim in the batch directly contradicts that account."
         },
         {
           "claim": {
@@ -386,7 +385,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports one reviewer's outcome without claiming a general guarantee of safety."
+          "skeptic_note": "This reports one reviewer's personal outcome and is neither puffery nor contradicted by another account in the batch."
         },
         {
           "claim": {
@@ -399,7 +398,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific claim relayed from a server and is consistent with the other claims about a separate oven."
+          "skeptic_note": "This is a concrete report of what a server said, and the batch contains no opposing claim about oven practices."
         },
         {
           "claim": {
@@ -412,7 +411,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This warning concerns whether the whole facility is gluten-free; it does not conflict with claims about separate preparation or ovens for GF pizza."
+          "skeptic_note": "This is a specific warning that the restaurant is not entirely gluten-free; separate preparation or oven for gluten-free pizzas does not conflict with that fact."
         }
       ]
     },
@@ -438,7 +437,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The menu label supports GF options, but does not describe preparation or cross-contact precautions."
+          "skeptic_note": "This identifies gluten-free menu items but does not establish dedicated preparation."
         },
         {
           "claim": {
@@ -451,7 +450,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is one diner's specific account of staff knowledge and a separate prep area, not independent verification."
+          "skeptic_note": "This is a specific account of staff knowledge, separate prep, and one diner's outcome, but the undated third-party report cannot establish current dedicated preparation."
         },
         {
           "claim": {
@@ -464,36 +463,10 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a single reviewer's reported outcome and does not establish a general guarantee."
+          "skeptic_note": "This is one reviewer's reported outcome and supports accommodation, not a guarantee for other diners."
         }
       ],
       "contradicting_claims": [
-        {
-          "claim": {
-            "quote": "Btw if you're gluten free, this place also has gluten free pizza for those that are and it's the best gluten free pizza in all of DC (separate wood fired oven, traditional Napoli).",
-            "source_url": "https://ilcanale.com/",
-            "source_type": "own_menu",
-            "source_date": null,
-            "topic": "dedicated_fryer_or_prep_area",
-            "direction": "positive"
-          },
-          "is_promotional": true,
-          "is_contradicted": false,
-          "skeptic_note": "The specific separate-oven statement is embedded in strongly promotional language, so it does not establish dedicated preparation for the strongest assessment."
-        },
-        {
-          "claim": {
-            "quote": "The server said that they make all the GF pizzas in a separate oven to avoid cross contamination.",
-            "source_url": "https://www.findmeglutenfree.com/biz/il-canale/5416726442016768",
-            "source_type": "third_party_aggregator",
-            "source_date": null,
-            "topic": "dedicated_fryer_or_prep_area",
-            "direction": "positive"
-          },
-          "is_promotional": false,
-          "is_contradicted": false,
-          "skeptic_note": "This specific separate-oven report has no visible date, so it cannot establish current dedicated preparation for the strongest assessment."
-        },
         {
           "claim": {
             "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease. Please contact the establishment directly to inquire about safety precautions.",
@@ -505,15 +478,15 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This cautions that the whole facility is not gluten-free, but does not directly contradict separate ovens or prep areas for GF orders."
+          "skeptic_note": "This warns that the restaurant is not wholly gluten-free; that is compatible with some separate preparation practices."
         }
       ],
-      "short_summary": "The menu offers gluten-free options, and a diner reported knowledgeable staff and a separate prep area, but ask about current cross-contact precautions.",
-      "rationale": "The menu identifies gluten-free options, and a diner reports that staff understood celiac needs, used a separate prep area, and served a meal without symptoms. The separate-oven claim from a third-party report has no visible date, so it cannot support the strongest assessment of dedicated preparation; the restaurant\u2019s separate-oven claim is promotional. The listing also warns that the establishment is not an entirely gluten-free facility.",
+      "short_summary": "The menu marks gluten-free options, and one diner reported knowledgeable staff and no symptoms; ask about current cross-contact precautions before ordering.",
+      "rationale": "The gluten-free menu marking and a reviewer's account of knowledgeable staff and a symptom-free meal provide evidence of accommodation. The report that gluten-free pizzas use a separate oven is undated third-party evidence, so it cannot confirm current dedicated preparation; the restaurant is also identified as not being an entirely gluten-free facility. No illness report was provided.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:03:24.549524+00:00"
+    "cached_at": "2026-10-24T00:09:17.901486+00:00"
   },
   "chaia georgetown": {
     "restaurant": {
@@ -579,9 +552,9 @@
             "topic": "entirely_gluten_free_facility",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a broad first-party assurance framed as accommodating dietary needs, without describing specific handling practices."
+          "skeptic_note": "This is a specific, checkable statement about the kitchens and is not contradicted by another claim."
         },
         {
           "claim": {
@@ -592,9 +565,9 @@
             "topic": "entirely_gluten_free_facility",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a sweeping first-party product and kitchen claim, not a specific account of preparation or cross-contact controls."
+          "skeptic_note": "This makes a concrete statement about products and kitchen ingredients, and the beer exception does not contradict the other claims."
         },
         {
           "claim": {
@@ -607,7 +580,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This gives a concrete description of the tortillas and their preparation, and no other claim conflicts with it."
+          "skeptic_note": "This provides specific, checkable information about the tortillas and their preparation, with no opposing claim in the batch."
         },
         {
           "claim": {
@@ -620,7 +593,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports one reviewer's outcome, which is anecdotal and does not conflict with another claim in the batch."
+          "skeptic_note": "This reports one diner's outcome and is not contradicted by any claim about a different diner."
         },
         {
           "claim": {
@@ -633,7 +606,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a brief third-party assertion without supporting preparation details, and no claim in the batch directly disputes it."
+          "skeptic_note": "This is a concrete assertion about the restaurant, consistent with the first-party kitchen and product statements in the batch."
         }
       ]
     },
@@ -645,9 +618,35 @@
         "cuisine": "Vegetarian Mexican / tacos",
         "existence_source_url": "https://www.chaiatacos.com/location/georgetown/"
       },
-      "safety_level": "accommodates_caution_cross_contamination",
-      "confidence": "medium",
+      "safety_level": "confirmed_dedicated_gf_prep",
+      "confidence": "high",
       "supporting_claims": [
+        {
+          "claim": {
+            "quote": "Our kitchens are free of gluten, peanuts, tree nuts, and soy, making it easier to accommodate a variety of dietary needs.",
+            "source_url": "https://www.chaiatacos.com/faq/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific, checkable statement about the kitchens and is not contradicted by another claim."
+        },
+        {
+          "claim": {
+            "quote": "All of our products are 100% nut-free, soy-free, and gluten-free (except for the beer!). We use no products in our kitchen that contain these ingredients.",
+            "source_url": "https://www.chaiatacos.com/menus/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This makes a concrete statement about products and kitchen ingredients, and the beer exception does not contradict the other claims."
+        },
         {
           "claim": {
             "quote": "Our tortillas are 100 percent gluten-free. We hand-griddle our corn tortillas daily using pure masa harina made by Masienda.",
@@ -659,7 +658,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This provides specific information about gluten-free tortillas, but it does not establish dedicated gluten-free preparation or facility controls."
+          "skeptic_note": "This provides specific, checkable information about the tortillas and their preparation, with no opposing claim in the batch."
         },
         {
           "claim": {
@@ -672,16 +671,29 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is one reviewer's reported outcome and supports accommodation only anecdotally."
+          "skeptic_note": "This reports one diner's outcome and is not contradicted by any claim about a different diner."
+        },
+        {
+          "claim": {
+            "quote": "The whole restaurant is gluten free.",
+            "source_url": "https://www.findmeglutenfree.com/biz/chaia/5513962407329792",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a concrete assertion about the restaurant, consistent with the first-party kitchen and product statements in the batch."
         }
       ],
       "contradicting_claims": [],
-      "short_summary": "The corn tortillas are described as gluten-free and one diner reported no symptoms, but ask about cross-contact precautions before ordering.",
-      "rationale": "The restaurant describes its corn tortillas as gluten-free, and a third-party reviewer reported no symptoms. Those claims support gluten-free accommodation, but the first-party facility assurances were flagged as promotional, while the third-party assertion that the whole restaurant is gluten free has no date and does not establish current dedicated preparation. No unflagged, qualifying evidence confirms a dedicated gluten-free facility or prep area, so take care about cross-contact.",
+      "short_summary": "The restaurant says its kitchens and products are gluten-free, though diners with celiac disease may still want to confirm handling practices when ordering.",
+      "rationale": "The restaurant's own current FAQ says its kitchens are free of gluten, and its menu says it uses no gluten-containing products in the kitchen. These specific, uncontradicted first-party statements support the strongest assessment; no date is needed for a current page from the restaurant. A diner also reported no symptoms, though that is an individual experience rather than a guarantee of safety.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:03:26.483424+00:00"
+    "cached_at": "2026-10-24T00:09:27.693383+00:00"
   },
   "zorba\u2019s caf\u00e9": {
     "restaurant": {
@@ -749,7 +761,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific reported interaction describing separate cooking and glove changes, with no direct conflicting claim in the batch."
+          "skeptic_note": "This is a specific report of what staff said and does not conflict with another claim about the restaurant's practices."
         },
         {
           "claim": {
@@ -762,7 +774,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The brief safety label makes a checkable dedicated-fryer claim, and no other claim says the fryer is shared."
+          "skeptic_note": "This is a concrete, checkable statement about a dedicated fryer, and no other claim disputes that practice."
         },
         {
           "claim": {
@@ -775,7 +787,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific caution about facility status and celiac safety, not promotional language, and it does not directly conflict with the reported precautions or dedicated fryer."
+          "skeptic_note": "This is a specific warning that the establishment is not dedicated gluten-free, which does not conflict with claims about a dedicated fryer or staff precautions."
         },
         {
           "claim": {
@@ -788,7 +800,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a concrete report about an item no longer being available and does not conflict with another claim in the batch."
+          "skeptic_note": "This is a concrete report about menu availability and does not contradict any other claim in the batch."
         },
         {
           "claim": {
@@ -801,7 +813,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This describes a specific staff interaction, though it does not give details of the protocol; no claim in the batch directly contradicts it."
+          "skeptic_note": "This describes a specific interaction with staff and no claim in the batch asserts an opposing staff practice."
         }
       ]
     },
@@ -827,7 +839,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "A specific diner report describes separate cooking and glove changes, with no conflicting report in the batch."
+          "skeptic_note": "A specific report of staff describing separate cooking and glove changes supports gluten-aware handling, but does not establish dedicated equipment."
         },
         {
           "claim": {
@@ -840,16 +852,42 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "A separate account supports staff awareness, though it gives no detail about the protocol."
+          "skeptic_note": "This describes a specific staff interaction and supports accommodation, though it does not establish dedicated preparation."
+        },
+        {
+          "claim": {
+            "quote": "Safety \u2014 Dedicated fryer",
+            "source_url": "https://www.findmeglutenfree.com/biz/zorbas-cafe/5581368079679488",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The dedicated-fryer statement is undated, so it cannot establish that this practice is current."
+        },
+        {
+          "claim": {
+            "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/zorbas-cafe/5581368079679488",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This warning clarifies that the restaurant is not an entirely gluten-free facility; it does not rule out gluten-aware handling."
         }
       ],
       "contradicting_claims": [],
-      "short_summary": "Diners report staff taking cross-contamination precautions, but the dedicated-fryer claim is undated, so ask about current practices before ordering.",
-      "rationale": "Diner reports describe separate cooking, glove changes, and staff explaining cross-contamination precautions. A listing also labels the fryer as dedicated, but that third-party claim has no date, so it cannot establish current dedicated-fryer practices. The listing cautions that the restaurant is not an entirely gluten-free facility; ask staff about current procedures and your needs.",
+      "short_summary": "Reports describe staff taking steps to avoid cross-contact, but the undated dedicated-fryer listing can\u2019t confirm that practice is current.",
+      "rationale": "Reports describe staff explaining separate cooking, glove changes, and cross-contact precautions, which is evidence of gluten-aware accommodation. The dedicated-fryer claim is from a third-party source with no visible date, so it cannot confirm a current dedicated fryer. The warning that the restaurant is not a dedicated gluten-free facility is also relevant; ask staff about current procedures before ordering.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:03:54.370645+00:00"
+    "cached_at": "2026-10-24T00:09:36.647931+00:00"
   },
   "bibibop asian grill": {
     "restaurant": {
@@ -899,9 +937,9 @@
             "topic": "entirely_gluten_free_facility",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": true,
-          "skeptic_note": "This is a sweeping first-party assurance that reads like marketing, and the FAQ\u2019s warning that cross-contact can happen during prep directly conflicts with its claim that nothing on the line can cross-contact a bowl."
+          "skeptic_note": "This is a concrete facility-practice claim, but it conflicts with the same-site FAQ statement that cross-contact with other foods can happen during prep."
         },
         {
           "claim": {
@@ -912,9 +950,9 @@
             "topic": "staff_cross_contamination_knowledge",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a broad, favorable corporate certification claim rather than a specific account of how staff handle a particular order, and no other claim directly disputes the certification."
+          "skeptic_note": "This is a specific, checkable claim about certification and its scope, and no other claim disputes it."
         },
         {
           "claim": {
@@ -927,7 +965,7 @@
           },
           "is_promotional": false,
           "is_contradicted": true,
-          "skeptic_note": "This is a specific caution rather than promotional copy, and its statement that cross-contact can happen during prep conflicts with the first claim\u2019s assurance that nothing on the line can cross-contact a bowl."
+          "skeptic_note": "The cross-contact warning conflicts with the first claim\u2019s assertion that there is no gluten in the building and nothing can cross-contact a bowl."
         }
       ]
     },
@@ -939,7 +977,7 @@
         "cuisine": "Asian bowls",
         "existence_source_url": "https://www.bibibop.com/locations/dupont/"
       },
-      "safety_level": "unclear_gluten_specific",
+      "safety_level": "accommodates_caution_cross_contamination",
       "confidence": "medium",
       "supporting_claims": [
         {
@@ -951,9 +989,9 @@
             "topic": "staff_cross_contamination_knowledge",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The first-party certification statement is favorable corporate copy, not a specific account of staff handling an order, so it provides limited evidence of gluten-specific accommodation."
+          "skeptic_note": "The claim describes gluten-specific certification, training, sourcing, and handling, with no directly contradicting evidence in the reviewed batch."
         },
         {
           "claim": {
@@ -966,7 +1004,7 @@
           },
           "is_promotional": false,
           "is_contradicted": true,
-          "skeptic_note": "This is a relevant cross-contact caution, but it is general allergen language rather than specific evidence about gluten handling."
+          "skeptic_note": "This warning is relevant context about cross-contact, though it was flagged as conflicting with the dedicated-kitchen assertion; that assertion itself is contradicted and does not qualify as confirmation."
         }
       ],
       "contradicting_claims": [
@@ -979,17 +1017,17 @@
             "topic": "entirely_gluten_free_facility",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": true,
-          "skeptic_note": "This sweeping claim is promotional and is directly contradicted by the FAQ warning that cross-contact can happen during prep, so it cannot establish dedicated gluten-free preparation."
+          "skeptic_note": "This dedicated-facility claim is directly at odds with the restaurant's FAQ warning that cross-contact can happen during preparation."
         }
       ],
-      "short_summary": "The restaurant describes cross-contact as possible during prep; its broader gluten-free assurances are promotional and conflict with that caution.",
-      "rationale": "The claim about a dedicated gluten-free kitchen is sweeping promotional language and is directly contradicted by the restaurant\u2019s warning that cross-contact can happen during prep, so it does not establish dedicated preparation. The certification statement is also promotional and general; it does not provide specific evidence of how gluten-free orders are handled. The remaining warning is about allergens generally, not gluten specifically, so the evidence does not support a stronger gluten-specific assessment.",
+      "short_summary": "BIBIBOP cites gluten-specific certification and handling practices, but warns that cross-contact can happen during preparation.",
+      "rationale": "The restaurant describes gluten-specific certification covering training, sourcing, and food handling, which supports accommodation for gluten-free diners. Its claim of a dedicated gluten-free kitchen is contradicted by its FAQ warning that cross-contact can occur, so dedicated preparation is not confirmed. The warning merits caution; ask staff about precautions for your order.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:03:54.560512+00:00"
+    "cached_at": "2026-10-24T00:09:43.772864+00:00"
   },
   "am\u00e9lie dc bistro & wine bar": {
     "restaurant": {
@@ -1073,7 +1111,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a straightforward allergy notice, not a safety assurance, and no claim directly conflicts with it."
+          "skeptic_note": "This is a concrete instruction about allergy communication, with no contrary claim about that instruction."
         },
         {
           "claim": {
@@ -1086,7 +1124,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific diner account of staff offering to verify an order, though it does not establish broader cross-contamination practices."
+          "skeptic_note": "This describes a specific reported staff interaction and does not conflict with another claim about that interaction."
         },
         {
           "claim": {
@@ -1099,7 +1137,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports a specific assurance from staff, but no other claim in the batch directly disputes the fryer claim."
+          "skeptic_note": "The claim reports a specific assurance about fryer use, and no claim in the batch says the fryer is shared."
         },
         {
           "claim": {
@@ -1112,7 +1150,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a brief diner-reported fryer description and is consistent with the other fryer assurance in the batch."
+          "skeptic_note": "This is a specific, checkable claim about a separate fryer, not vague marketing language, and nothing in the batch asserts the opposite."
         },
         {
           "claim": {
@@ -1125,7 +1163,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific report of regular bread being served and the diner needing to confirm the allergy note, but it does not directly conflict with the separate staff or fryer accounts."
+          "skeptic_note": "This recounts a specific bread mix-up and follow-up, which does not contradict other diners' separate experiences or the fryer claims."
         },
         {
           "claim": {
@@ -1138,7 +1176,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports one diner's outcome and no other claim in the batch reports a conflicting symptom outcome."
+          "skeptic_note": "This reports one diner's outcome and is not contradicted by other diners' distinct accounts."
         },
         {
           "claim": {
@@ -1151,7 +1189,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a clear facility-status warning, which does not conflict with reports of a separate fryer or an individual diner having no symptoms."
+          "skeptic_note": "This states that the restaurant is not an entirely gluten-free facility; no claim in the batch asserts that it is."
         }
       ]
     },
@@ -1177,7 +1215,20 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "A diner specifically reports staff checking with the kitchen, though this does not establish broader cross-contamination practices."
+          "skeptic_note": "This describes a specific reported staff interaction and does not conflict with another claim about that interaction."
+        },
+        {
+          "claim": {
+            "quote": "staff was super nice and assured me of the dedicated fryer.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amelie-dc-bistro-and-wine-bar/4644430071332864",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The claim reports a specific assurance about fryer use, and no claim in the batch says the fryer is shared."
         },
         {
           "claim": {
@@ -1190,7 +1241,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The fryer report is positive but undated, so it cannot confirm current dedicated-fryer practices for the strongest assessment."
+          "skeptic_note": "This is a specific, checkable claim about a separate fryer, not vague marketing language, and nothing in the batch asserts the opposite."
         },
         {
           "claim": {
@@ -1203,7 +1254,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This account describes regular bread being served and the diner needing to verify that the allergy note had been communicated."
+          "skeptic_note": "This recounts a specific bread mix-up and follow-up, which does not contradict other diners' separate experiences or the fryer claims."
         },
         {
           "claim": {
@@ -1216,7 +1267,22 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports one diner's outcome and is useful but limited evidence about an individual visit."
+          "skeptic_note": "This reports one diner's outcome and is not contradicted by other diners' distinct accounts."
+        }
+      ],
+      "contradicting_claims": [
+        {
+          "claim": {
+            "quote": "Please alert your server regarding any allergies.",
+            "source_url": "https://www.ameliewinebar.com/dc/menus",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "neutral"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a concrete instruction about allergy communication, with no contrary claim about that instruction."
         },
         {
           "claim": {
@@ -1229,16 +1295,15 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This clearly states that the restaurant is not an entirely gluten-free facility."
+          "skeptic_note": "This states that the restaurant is not an entirely gluten-free facility; no claim in the batch asserts that it is."
         }
       ],
-      "contradicting_claims": [],
-      "short_summary": "Diners report staff can check gluten-free requests and a separate fryer, but one also described regular bread being served, so confirm precautions with your server.",
-      "rationale": "Diner reports suggest staff may check gluten-free orders, one reviewer reported no symptoms, and the listing describes a separate fryer. However, the fryer evidence is from an undated third-party report, so it cannot confirm current dedicated-fryer practices for the strongest assessment. Another diner said regular bread was served and they had to verify the allergy note, so clearly communicate your needs and confirm precautions directly. The listing also states that the restaurant is not a dedicated gluten-free facility.",
+      "short_summary": "Staff reportedly know about gluten-free options and one diner reported a separate fryer, but that fryer claim is undated and another diner described a bread mix-up.",
+      "rationale": "The reviewed claims include staff awareness of gluten-free options and a report of no symptoms, supporting some accommodation. A diner also reported being assured of a dedicated fryer, but that third-party report has no date, so it cannot establish that the fryer arrangement is current. Another diner described receiving regular bread and needing to confirm the allergy note, so take care to communicate your needs. The restaurant is reported not to be an entirely gluten-free facility.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:04:53.645098+00:00"
+    "cached_at": "2026-10-24T00:09:55.329528+00:00"
   },
   "planta cocina": {
     "restaurant": {
@@ -1306,7 +1371,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific menu label, but it only identifies the item as gluten free and does not establish celiac-safe preparation."
+          "skeptic_note": "This is a specific menu labeling claim, not marketing puffery, and no other claim contradicts it."
         },
         {
           "claim": {
@@ -1319,7 +1384,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific reviewer account of staff identifying a more limited set of options for a celiac diner, with no direct conflicting claim in the batch."
+          "skeptic_note": "This is a specific reviewer account of staff explaining a limited celiac menu and marking up the menu, with no contrary practice claim in the batch."
         },
         {
           "claim": {
@@ -1332,7 +1397,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This describes a specific interaction with a server, though it does not provide details about preparation controls."
+          "skeptic_note": "The enthusiasm is supported by a concrete account of a server marking up a menu, and no claim contradicts that reported interaction."
         },
         {
           "claim": {
@@ -1345,7 +1410,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a concrete report that a server checked for possible cross-contamination; no claim in the batch directly conflicts with it."
+          "skeptic_note": "This describes a specific reported conversation about potential cross-contamination rather than unsupported promotional reassurance."
         },
         {
           "claim": {
@@ -1358,7 +1423,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a direct warning about facility status and celiac safety, and none of the other claims says the restaurant is a dedicated gluten-free facility."
+          "skeptic_note": "This is a specific warning about facility status, and none of the other claims says the restaurant is an entirely gluten-free facility."
         }
       ]
     },
@@ -1371,7 +1436,7 @@
         "existence_source_url": "https://www.plantarestaurants.com/location/planta-cocina/"
       },
       "safety_level": "accommodates_caution_cross_contamination",
-      "confidence": "medium",
+      "confidence": "high",
       "supporting_claims": [
         {
           "claim": {
@@ -1384,7 +1449,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The menu labels a specific item gluten free, but does not establish dedicated preparation."
+          "skeptic_note": "A specific menu item is labeled gluten-free; it supports gluten-free accommodation but does not establish dedicated preparation."
         },
         {
           "claim": {
@@ -1397,7 +1462,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "A reviewer specifically reports staff helping identify options for a celiac diner, although no preparation controls are described."
+          "skeptic_note": "This reviewer describes staff identifying options for a celiac diner; the page gives no visible date for this account."
         },
         {
           "claim": {
@@ -1410,7 +1475,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific report of staff assistance, but it does not establish dedicated preparation."
+          "skeptic_note": "This reviewer gives a concrete example of a server marking up menu options, though the source displays no date for the account."
         },
         {
           "claim": {
@@ -1423,7 +1488,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "A reviewer reports that a server checked for possible cross-contamination, without describing dedicated equipment or preparation."
+          "skeptic_note": "This reports a specific discussion of possible cross-contact, but no visible date is provided."
         },
         {
           "claim": {
@@ -1436,16 +1501,16 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This warns that the facility is not entirely gluten-free, consistent with the absence of any claim that it is."
+          "skeptic_note": "This explicitly cautions that the restaurant is not an entirely gluten-free facility; no claim in the batch contradicts it."
         }
       ],
       "contradicting_claims": [],
-      "short_summary": "The menu has gluten-free options and reviewers describe helpful, knowledgeable staff, but cross-contamination remains a concern for celiac diners.",
-      "rationale": "The current menu labels a dish gluten free, and reviewers describe staff helping celiac diners identify options and possible cross-contamination. However, there is no positive claim of a dedicated fryer or preparation area, and the facility is explicitly described as not entirely gluten free. The evidence supports gluten-free accommodation with caution, not confirmation of dedicated preparation.",
+      "short_summary": "The menu labels some items gluten-free, and reviewers describe staff explaining cross-contact concerns, but the restaurant is not a dedicated gluten-free facility.",
+      "rationale": "The current menu labels a specific item gluten-free, and multiple reviewer accounts describe staff clarifying options and potential cross-contact. This supports gluten-free accommodation, but there is no positive evidence of a dedicated fryer or preparation area; the evidence also explicitly says the restaurant is not a dedicated gluten-free facility. No reviewed claim reports an illness.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:04:55.888994+00:00"
+    "cached_at": "2026-10-24T00:10:04.495583+00:00"
   },
   "arepa zone": {
     "restaurant": {
@@ -1529,7 +1594,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific warning about shared fryer use and wheat-containing products, and no claim disputes it."
+          "skeptic_note": "This is a specific warning about shared-fryer handling and is not contradicted by any opposite claim about the restaurant's fryer policy."
         },
         {
           "claim": {
@@ -1540,9 +1605,9 @@
             "topic": "other",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is broad promotional language and does not specify preparation safeguards; it does not directly conflict with the warning about fried items."
+          "skeptic_note": "This is a checkable statement about menu items and does not contradict the warning, which specifically concerns fried items and severe intolerance."
         },
         {
           "claim": {
@@ -1555,7 +1620,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a concise report consistent with the restaurant's common-fryer warning, with no direct conflicting claim."
+          "skeptic_note": "This is a specific report consistent with the restaurant's own statement that it uses a common fryer."
         },
         {
           "claim": {
@@ -1568,7 +1633,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a brief favorable account of the food and menu labeling, but it does not establish safe preparation or conflict with another claim."
+          "skeptic_note": "This is a diner's brief opinion and observation, not vague restaurant marketing or a claim about a safety practice."
         },
         {
           "claim": {
@@ -1581,7 +1646,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports one reviewer's lack of symptoms and does not directly conflict with the shared-fryer evidence."
+          "skeptic_note": "This reports one diner's outcome and is not contradicted by any claim about that same account."
         },
         {
           "claim": {
@@ -1594,7 +1659,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This specifically warns that plantains use a shared fryer, consistent with the other fryer-related claims."
+          "skeptic_note": "This is a specific warning about plantains and a shared fryer, consistent with the restaurant's common-fryer warning."
         },
         {
           "claim": {
@@ -1607,7 +1672,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a reviewer's account of difficulty asking gluten-free questions, and no claim directly contradicts it."
+          "skeptic_note": "This describes one reviewer's difficulty getting information and is not contradicted by another claim in the batch."
         }
       ]
     },
@@ -1633,7 +1698,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "Specific restaurant-published warning of shared-fryer cross-contact; no reviewed claim disputes it."
+          "skeptic_note": "The restaurant explicitly warns that fried items share a fryer and may be cross-contaminated."
         },
         {
           "claim": {
@@ -1644,9 +1709,9 @@
             "topic": "other",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "Broad promotional statement identifies gluten-free dishes but does not establish dedicated preparation safeguards."
+          "skeptic_note": "This supports that the restaurant offers gluten-free dishes, though it does not establish dedicated preparation."
         },
         {
           "claim": {
@@ -1659,7 +1724,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "Undated third-party report against a dedicated fryer, consistent with the restaurant's own shared-fryer warning."
+          "skeptic_note": "The report is consistent with the restaurant's warning about its common fryer."
         },
         {
           "claim": {
@@ -1672,7 +1737,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "A positive account of menu labeling, not evidence of dedicated preparation."
+          "skeptic_note": "The diner notes menu labeling and gluten-free options, without claiming dedicated preparation."
         },
         {
           "claim": {
@@ -1685,7 +1750,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "One reviewer reported no symptoms, which supports accommodation but does not negate the shared-fryer warning."
+          "skeptic_note": "This is one diner's reported outcome, not a guarantee for other diners."
         },
         {
           "claim": {
@@ -1698,7 +1763,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "Specific warning about shared fryer use, consistent with the restaurant's own disclosure."
+          "skeptic_note": "This specifically warns that plantains are cooked in a shared fryer."
         },
         {
           "claim": {
@@ -1711,16 +1776,16 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "Reviewer reports difficulty asking gluten-free questions; no reviewed claim contradicts this."
+          "skeptic_note": "One reviewer reports difficulty getting gluten-free information from staff."
         }
       ],
       "contradicting_claims": [],
-      "short_summary": "Gluten-free dishes are identified, but the restaurant warns that fried items share a fryer, so check preparation carefully.",
-      "rationale": "The restaurant identifies gluten-free dishes, and one reviewer reported no symptoms, providing evidence that it accommodates some gluten-free diners. However, its own menu warns that the fryer is shared and that wheat-containing products may cause cross-contact; reviewers also describe shared-fryer use and difficulty asking gluten-free questions. No reviewed claim reports illness, but there is no evidence of a dedicated gluten-free fryer or preparation area.",
+      "short_summary": "Gluten-free dishes including arepas are available, but fried foods use a shared fryer and may have wheat cross-contact.",
+      "rationale": "The restaurant says many dishes, including arepas, are gluten-free, and one diner reported no symptoms. But the restaurant warns that its fryer is shared and may expose fried items to wheat cross-contact; reviewers also report no dedicated fryer and difficulty getting gluten-free information. There is no evidence of dedicated gluten-free preparation, so ask about handling before ordering.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:04:57.871485+00:00"
+    "cached_at": "2026-10-24T00:10:31.881343+00:00"
   },
   "cane": {
     "restaurant": {
@@ -1764,7 +1829,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific, albeit single, diner report of no symptoms and knowledgeable staff, with no conflicting claim in this batch."
+          "skeptic_note": "This is a specific community report of no symptoms and knowledgeable staff, not promotional language, and no claim contradicts this reviewer's outcome."
         },
         {
           "claim": {
@@ -1777,7 +1842,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a cautionary listing notice rather than marketing, and it does not directly conflict with one diner reporting no symptoms because it addresses facility status and possible risk."
+          "skeptic_note": "This is a specific statement that the establishment is not dedicated gluten-free, and no claim in the batch asserts the opposite facility status."
         }
       ]
     },
@@ -1803,7 +1868,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "A diner reports no symptoms and knowledgeable staff, but this does not establish dedicated gluten-free preparation."
+          "skeptic_note": "A specific diner report describes no symptoms, gluten-marked items, and knowledgeable staff; it is not promotional and no claim contradicts it."
         }
       ],
       "contradicting_claims": [
@@ -1818,15 +1883,15 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The listing cautions that the restaurant is not a dedicated gluten-free facility; this is compatible with one diner reporting no symptoms."
+          "skeptic_note": "This specifically says the establishment is not dedicated gluten-free; it does not contradict the report that a diner had no symptoms or found staff knowledgeable."
         }
       ],
-      "short_summary": "A diner reported no symptoms and knowledgeable staff, but the listing warns this is not a dedicated gluten-free facility.",
-      "rationale": "A diner report describes marked gluten-free items, knowledgeable staff, and no symptoms, which is evidence of accommodation. The listing also says the restaurant is not a dedicated gluten-free facility. There is no positive claim of a dedicated fryer or preparation area, so the evidence supports accommodation with cross-contamination caution rather than dedicated gluten-free preparation.",
+      "short_summary": "A diner reported no symptoms and knowledgeable staff, but the restaurant is not a dedicated gluten-free facility.",
+      "rationale": "A community review reports gluten-marked items, knowledgeable staff, and no symptoms, which is evidence that the restaurant accommodates gluten-free diners. The listing also states that the establishment is not a dedicated gluten-free facility, and there is no positive claim confirming a dedicated fryer or prep area, so ask about cross-contamination precautions before ordering.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:05:32.960150+00:00"
+    "cached_at": "2026-10-24T00:10:39.109398+00:00"
   },
   "the queen vic": {
     "restaurant": {
@@ -1886,7 +1951,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific negative statement about fryer availability and is not directly contradicted by the other claims."
+          "skeptic_note": "This is a specific, checkable statement, and no claim in the batch asserts that the restaurant has a dedicated fryer."
         },
         {
           "claim": {
@@ -1899,7 +1964,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is an individual account of a conversation with the owner, though it does not specify cross-contact procedures or establish current practices."
+          "skeptic_note": "This is a firsthand account of a conversation with the owner, and no claim in the batch conflicts with it."
         },
         {
           "claim": {
@@ -1912,7 +1977,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This describes one dish being pan-fried rather than fried, which does not conflict with the separate statement that there is no dedicated fryer."
+          "skeptic_note": "This describes a specific preparation choice for one order, which does not conflict with the separate claim that there is no dedicated fryer."
         },
         {
           "claim": {
@@ -1925,7 +1990,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a caution that the establishment is not entirely gluten-free and may not be safe for celiac disease; no claim directly contradicts it."
+          "skeptic_note": "This is a clear statement that the establishment is not dedicated gluten-free, and no claim in the batch asserts that it is."
         }
       ]
     },
@@ -1951,7 +2016,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "An individual account describes the owner's gluten-related knowledge, though it does not establish current cross-contact procedures."
+          "skeptic_note": "This is a firsthand report of a gluten-specific discussion with the owner, though the page provides no visible date."
         },
         {
           "claim": {
@@ -1964,7 +2029,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports a preparation accommodation for one dish, not a dedicated fryer or prep area."
+          "skeptic_note": "This describes an accommodation for one order, not a dedicated fryer or prep area, and the page provides no visible date."
         },
         {
           "claim": {
@@ -1977,16 +2042,29 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific negative statement about fryer availability and is not directly contradicted by the other claims."
+          "skeptic_note": "This directly indicates there is no dedicated fryer, consistent with the report that one order was pan-fried."
+        },
+        {
+          "claim": {
+            "quote": "This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/the-queen-vic/44185033",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This clearly says the restaurant is not a dedicated gluten-free facility."
         }
       ],
       "contradicting_claims": [],
-      "short_summary": "A reviewer praised the owner's gluten knowledge and a pan-fried dish, but reports say there is no dedicated fryer.",
-      "rationale": "The evidence includes a reviewer account of the owner being knowledgeable about celiac disease and a dish prepared by pan-frying rather than using the fryer, so there is evidence of accommodation for gluten-free diners. A separate claim says there is no dedicated fryer. The positive preparation report does not confirm a dedicated fryer or dedicated prep area, and the dated third-party evidence needed to establish that stronger level is absent.",
+      "short_summary": "A reviewer reports that the owner understands celiac needs and accommodated one dish by pan-frying it, but there is no dedicated fryer.",
+      "rationale": "The claims provide gluten-specific evidence of accommodation: a reviewer says the owner understood the distinction between celiac disease and gluten allergy, and describes a dish being pan-fried instead of cooked in the fryer. However, a separate claim says there is no dedicated fryer, and the restaurant is not a dedicated gluten-free facility. The pan-frying report concerns one order rather than a dedicated preparation area; no dated evidence confirms dedicated equipment or prep.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:05:34.822435+00:00"
+    "cached_at": "2026-10-24T00:10:46.948402+00:00"
   },
   "maketto": {
     "restaurant": {
@@ -2070,7 +2148,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific menu legend about dietary labels and modifications, but it does not describe celiac-safe preparation."
+          "skeptic_note": "This is a concrete menu key and statement that some items can be made gluten-free, not vague promotional language."
         },
         {
           "claim": {
@@ -2083,7 +2161,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a plain disclosure that the menu may omit ingredients, with no conflicting claim in the batch."
+          "skeptic_note": "This is a straightforward disclosure and no claim in the batch conflicts with it."
         },
         {
           "claim": {
@@ -2096,7 +2174,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This requests allergy disclosure but does not establish staff knowledge or a cross-contamination procedure."
+          "skeptic_note": "This is a specific instruction to guests, not a claim that staff can prevent cross-contamination or a conflicting policy."
         },
         {
           "claim": {
@@ -2109,7 +2187,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific first-person report of communicating celiac needs and having no reaction, though it reflects one visit."
+          "skeptic_note": "This describes one reviewer's specific experience, and no other claim contradicts that same account."
         },
         {
           "claim": {
@@ -2122,7 +2200,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The reviewer reports a dedicated fryer for a particular occasion but explicitly does not know whether it is routinely available."
+          "skeptic_note": "The reviewer makes a concrete but explicitly time-limited observation and uncertainty about routine practice; no claim asserts the opposite fryer policy."
         },
         {
           "claim": {
@@ -2135,7 +2213,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a favorable account of menu marking and staff knowledge, but it is limited to the reviewer's experience and does not establish preparation controls."
+          "skeptic_note": "This reports a specific reviewer's observation of labeling and server knowledge, with no opposing staff-knowledge claim in the batch."
         },
         {
           "claim": {
@@ -2148,7 +2226,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This warns that the restaurant is not an entirely gluten-free facility; the positive claims concern individual experiences or a possible dedicated fryer and do not directly contradict that warning."
+          "skeptic_note": "This is a clear statement about facility status, and none of the other claims says the restaurant is an entirely gluten-free facility."
         }
       ]
     },
@@ -2174,7 +2252,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific menu legend about dietary labels and modifications, but it does not describe celiac-safe preparation."
+          "skeptic_note": "The menu explicitly says some items can be made gluten-free, providing direct evidence of accommodation."
         },
         {
           "claim": {
@@ -2187,7 +2265,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific first-person report of communicating celiac needs and having no reaction, though it reflects one visit."
+          "skeptic_note": "This is a specific positive diner report, though the page supplies no visible date."
         },
         {
           "claim": {
@@ -2200,7 +2278,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The reviewer reports a dedicated fryer for a particular occasion but explicitly does not know whether it is routinely available."
+          "skeptic_note": "The report describes a fryer on one occasion but is undated and explicitly uncertain about whether it is routine."
         },
         {
           "claim": {
@@ -2213,7 +2291,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a favorable account of menu marking and staff knowledge, but it is limited to the reviewer's experience and does not establish preparation controls."
+          "skeptic_note": "This reports observed GF labeling and server knowledge, but is an undated third-party account."
         }
       ],
       "contradicting_claims": [
@@ -2228,15 +2306,15 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This warns that the restaurant is not an entirely gluten-free facility; the positive claims concern individual experiences or a possible dedicated fryer and do not directly contradict that warning."
+          "skeptic_note": "This confirms the restaurant is not an entirely gluten-free facility; it does not contradict menu accommodations or an occasion-specific dedicated fryer report."
         }
       ],
-      "short_summary": "Reviewers report gluten-aware service and a dedicated fryer on one occasion, but that fryer may not always be available.",
-      "rationale": "The menu marks or allows some items to be made gluten-free, and one diner reported celiac needs were noted and they had no reaction; another review described staff knowing which items were celiac safe. A reviewer also reported a dedicated fryer but explicitly said they did not know whether it was always used. Because that third-party claim has no visible date, it cannot establish current dedicated preparation. The evidence supports gluten-free accommodation, but does not confirm a reliably dedicated fryer or prep area; the listing also warns that the restaurant is not an entirely gluten-free facility.",
+      "short_summary": "The menu offers items that can be made gluten-free, and diners report knowledgeable service, but ask about cross-contact and fryer practices before ordering.",
+      "rationale": "The restaurant\u2019s menu says some items can be made gluten-free, and a diner reports gluten-free labeling, celiac-aware service, and no reaction. Another diner describes a dedicated fryer on one occasion, but that third-party report has no date and is uncertain whether the practice is consistent, so it cannot support the strongest assessment. The available evidence supports gluten-free accommodation, not a confirmed dedicated setup; the listing also says the restaurant is not an entirely gluten-free facility.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:05:37.622714+00:00"
+    "cached_at": "2026-10-24T00:11:00.472642+00:00"
   },
   "supra": {
     "restaurant": {
@@ -2304,7 +2382,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific warning about flour and possible cross-contamination, with no opposing claim that the restaurant guarantees otherwise."
+          "skeptic_note": "This is a specific cross-contamination warning, and no claim in the batch asserts the restaurant guarantees its absence."
         },
         {
           "claim": {
@@ -2317,7 +2395,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a terse menu label rather than promotional language, but it gives no handling details and does not conflict with the broader cross-contamination warning."
+          "skeptic_note": "This is a concise menu label identifying an item as gluten-free, not promotional puffery, and it does not conflict with the warning that complete absence of cross-contamination cannot be guaranteed."
         },
         {
           "claim": {
@@ -2329,8 +2407,8 @@
             "direction": "positive"
           },
           "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "This is a specific reported staff assurance, not marketing copy, but it conflicts with the restaurant's warning that it cannot guarantee a complete lack of cross-contamination."
+          "is_contradicted": false,
+          "skeptic_note": "This reports a specific staff assurance, but it does not directly contradict the menu's statement that complete absence of cross-contamination cannot be guaranteed."
         },
         {
           "claim": {
@@ -2343,7 +2421,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is an individual's specific meal and outcome, but it does not establish kitchen-wide safety or directly contradict another claim."
+          "skeptic_note": "This describes one reviewer's specific meal and outcome, and no claim contradicts that same account."
         },
         {
           "claim": {
@@ -2356,7 +2434,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific reported warning about shared bread cooking, and it does not conflict with the other claims, which concern marked items or a separate meal experience."
+          "skeptic_note": "This reports a specific warning about bread preparation, which does not contradict the separate assurance about items marked gluten-free."
         }
       ]
     },
@@ -2373,6 +2451,19 @@
       "supporting_claims": [
         {
           "claim": {
+            "quote": "Please advise your server if you have any allergies. Supra uses significant amounts of flour and walnuts. We cannot guarantee a complete lack of cross-contamination with flour or walnuts.",
+            "source_url": "https://supradc.com/washington-shaw-supra-food-menu",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific cross-contamination warning, and no claim in the batch asserts the restaurant guarantees its absence."
+        },
+        {
+          "claim": {
             "quote": "(GF)",
             "source_url": "https://supradc.com/washington-shaw-supra-food-menu",
             "source_type": "own_menu",
@@ -2382,7 +2473,20 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "A gluten-free menu label indicates accommodation, though it provides no preparation details."
+          "skeptic_note": "This is a concise menu label identifying an item as gluten-free, not promotional puffery, and it does not conflict with the warning that complete absence of cross-contamination cannot be guaranteed."
+        },
+        {
+          "claim": {
+            "quote": "confirmed there is virtually no cross contact for items marked gluten free.",
+            "source_url": "https://www.findmeglutenfree.com/biz/supra/6213094039224320",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This reports a specific staff assurance, but it does not directly contradict the menu's statement that complete absence of cross-contamination cannot be guaranteed."
         },
         {
           "claim": {
@@ -2395,7 +2499,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is one diner's report of no reaction, not evidence of kitchen-wide safety."
+          "skeptic_note": "This describes one reviewer's specific meal and outcome, and no claim contradicts that same account."
         },
         {
           "claim": {
@@ -2408,43 +2512,16 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reported warning identifies shared bread cooking and supports taking cross-contact precautions."
+          "skeptic_note": "This reports a specific warning about bread preparation, which does not contradict the separate assurance about items marked gluten-free."
         }
       ],
-      "contradicting_claims": [
-        {
-          "claim": {
-            "quote": "Please advise your server if you have any allergies. Supra uses significant amounts of flour and walnuts. We cannot guarantee a complete lack of cross-contamination with flour or walnuts.",
-            "source_url": "https://supradc.com/washington-shaw-supra-food-menu",
-            "source_type": "own_menu",
-            "source_date": null,
-            "topic": "other",
-            "direction": "negative"
-          },
-          "is_promotional": false,
-          "is_contradicted": false,
-          "skeptic_note": "The restaurant explicitly warns of flour and possible cross-contamination; this qualifies the gluten-free menu label."
-        },
-        {
-          "claim": {
-            "quote": "confirmed there is virtually no cross contact for items marked gluten free.",
-            "source_url": "https://www.findmeglutenfree.com/biz/supra/6213094039224320",
-            "source_type": "third_party_aggregator",
-            "source_date": null,
-            "topic": "staff_cross_contamination_knowledge",
-            "direction": "positive"
-          },
-          "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "The reported assurance conflicts with the restaurant's own warning that it cannot guarantee a complete lack of cross-contamination."
-        }
-      ],
-      "short_summary": "Supra marks some items gluten-free, but warns that it cannot guarantee against flour cross-contact; ask staff about precautions before ordering.",
-      "rationale": "The menu's gluten-free label and a diner's report of no reaction are evidence that Supra accommodates gluten-free diners, so this is more than general allergy accommodation alone. However, the restaurant warns that it uses significant amounts of flour and cannot guarantee a complete lack of cross-contamination, and another report describes shared bread cooking. No uncontradicted evidence confirms a dedicated gluten-free prep area or fryer.",
+      "contradicting_claims": [],
+      "short_summary": "The menu marks some items gluten-free and staff have reportedly discussed cross-contact, but the restaurant warns it cannot guarantee against flour cross-contamination.",
+      "rationale": "The menu identifies gluten-free items, and a diner reports staff gave guidance about cross-contact; one reviewer also reported no reaction after a meal. These support gluten-free accommodation, but there is no claim confirming a dedicated fryer or prep area. The restaurant's own menu warns that it cannot guarantee a complete lack of cross-contamination, and another diner reports shared bread cooking equipment, so diners should discuss their needs with staff.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:07:04.192294+00:00"
+    "cached_at": "2026-10-24T00:11:09.405356+00:00"
   },
   "unconventional diner": {
     "restaurant": {
@@ -2512,7 +2589,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific, checkable description of how dietary restrictions are identified, but it does not claim cross-contamination is prevented."
+          "skeptic_note": "This is a concrete, checkable statement about how the menu labels dietary restrictions."
         },
         {
           "claim": {
@@ -2525,7 +2602,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This directly states that cross-contamination cannot be fully ruled out and aligns with the other claims rather than conflicting with them."
+          "skeptic_note": "This directly states that cross-contamination cannot be fully guaranteed, and no claim asserts the opposite."
         },
         {
           "claim": {
@@ -2538,7 +2615,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific reviewer account describing a common fryer, and no claim in the batch says the fryer is dedicated."
+          "skeptic_note": "This is a specific reviewer account of staff knowledge and a common fryer; no claim says the fryer is dedicated."
         },
         {
           "claim": {
@@ -2551,7 +2628,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports one reviewer\u2019s outcome and does not conflict with the stated cross-contamination caveat or common fryer."
+          "skeptic_note": "This reports one reviewer's outcome and does not conflict with any claim about that same reviewer's symptoms."
         },
         {
           "claim": {
@@ -2564,7 +2641,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a clear warning that the restaurant is not a dedicated gluten-free facility, and no claim in the batch asserts that it is."
+          "skeptic_note": "This is a direct statement that the facility is not dedicated gluten-free, consistent with the common-fryer and cross-contamination claims."
         }
       ]
     },
@@ -2577,7 +2654,7 @@
         "existence_source_url": "https://www.unconventionaldiner.com/"
       },
       "safety_level": "accommodates_caution_cross_contamination",
-      "confidence": "high",
+      "confidence": "medium",
       "supporting_claims": [
         {
           "claim": {
@@ -2590,7 +2667,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific, checkable description of how dietary restrictions are identified, but it does not claim cross-contamination is prevented."
+          "skeptic_note": "The restaurant says its menu identifies gluten-free options, providing specific evidence that it accommodates gluten-free diners."
         },
         {
           "claim": {
@@ -2603,7 +2680,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This directly states that cross-contamination cannot be fully ruled out and aligns with the other claims rather than conflicting with them."
+          "skeptic_note": "This cautions that cross-contamination cannot be fully avoided, limiting how reassuring the accommodation evidence is."
         },
         {
           "claim": {
@@ -2616,7 +2693,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific reviewer account describing a common fryer, and no claim in the batch says the fryer is dedicated."
+          "skeptic_note": "The reviewer describes staff knowledge but also reports a common fryer, not a dedicated fryer."
         },
         {
           "claim": {
@@ -2629,7 +2706,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports one reviewer\u2019s outcome and does not conflict with the stated cross-contamination caveat or common fryer."
+          "skeptic_note": "One reviewer reported no symptoms, which is positive but does not establish that cross-contamination is prevented."
         },
         {
           "claim": {
@@ -2642,16 +2719,16 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a clear warning that the restaurant is not a dedicated gluten-free facility, and no claim in the batch asserts that it is."
+          "skeptic_note": "This directly indicates that the restaurant is not a dedicated gluten-free facility."
         }
       ],
       "contradicting_claims": [],
-      "short_summary": "The menu identifies gluten-free options and a reviewer reported no symptoms, but the restaurant warns it cannot prevent cross-contamination and uses a common fryer.",
-      "rationale": "The restaurant describes gluten-free menu labeling and says it can often modify requests, while explicitly warning that it cannot fully guarantee avoidance of cross-contamination. A reviewer also described knowledgeable staff and a common fryer, and reported no symptoms. This supports accommodation for gluten-free diners, but there is no positive evidence of dedicated gluten-free preparation or a dedicated fryer; the available evidence instead cautions against assuming those protections.",
+      "short_summary": "The menu identifies gluten-free options and one reviewer reported no symptoms, but the restaurant warns it cannot guarantee avoiding cross-contamination and uses a common fryer.",
+      "rationale": "The menu marks gluten-free options, a reviewer described staff as knowledgeable and reported no symptoms, so there is evidence of accommodation. However, the restaurant says it cannot fully guarantee avoiding cross-contamination, and a reviewer reports a common fryer; there is no evidence of a dedicated gluten-free facility or dedicated fryer.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:07:05.151189+00:00"
+    "cached_at": "2026-10-24T00:11:18.027340+00:00"
   },
   "ama": {
     "restaurant": {
@@ -2751,7 +2828,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific menu label indicating a gluten-free option, but it does not describe preparation or cross-contact controls."
+          "skeptic_note": "This is a specific, checkable menu label and no other claim contradicts it."
         },
         {
           "claim": {
@@ -2764,7 +2841,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific menu label indicating a gluten-free option, but it does not describe preparation or cross-contact controls."
+          "skeptic_note": "This is a specific, checkable menu label and no other claim contradicts it."
         },
         {
           "claim": {
@@ -2777,7 +2854,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific menu label indicating a gluten-free option, but it does not describe preparation or cross-contact controls."
+          "skeptic_note": "This is a specific, checkable menu label and no other claim contradicts it."
         },
         {
           "claim": {
@@ -2790,7 +2867,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a concrete report of dedicated pasta equipment, although it is an aggregator claim and no other claim directly disputes that equipment."
+          "skeptic_note": "This is a concrete claim about dedicated pasta equipment, and no other claim directly asserts that the equipment is shared."
         },
         {
           "claim": {
@@ -2802,8 +2879,8 @@
             "direction": "positive"
           },
           "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "The detailed positive account of precautions conflicts with the report that staff confirmed a gluten-free pasta dish that was later identified as regular gluten pasta."
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific reported interaction rather than vague marketing language, and no claim directly contradicts that account."
         },
         {
           "claim": {
@@ -2816,7 +2893,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a subjective food-quality comment and does not establish that the reviewer avoided gluten exposure or symptoms."
+          "skeptic_note": "This is a reviewer's subjective account of the food, not a safety or symptom claim, and it is not contradicted by another reviewer's reported outcome."
         },
         {
           "claim": {
@@ -2828,8 +2905,8 @@
             "direction": "negative"
           },
           "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "This specific account reports a gluten-pasta mix-up and conflicts with the positive claim that staff explained precautions and the separate claim that staff were knowledgeable."
+          "is_contradicted": false,
+          "skeptic_note": "This is a concrete first-person account of a pasta mix-up, and no claim in the batch disputes what happened in that account."
         },
         {
           "claim": {
@@ -2842,7 +2919,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific report of symptoms, and no claim in the batch directly denies that experience."
+          "skeptic_note": "This reports one reviewer's symptoms; another reviewer's positive experience does not contradict that outcome."
         },
         {
           "claim": {
@@ -2854,8 +2931,8 @@
             "direction": "positive"
           },
           "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "This broad positive assessment conflicts with the specific account of staff confirming regular gluten pasta as gluten-free."
+          "is_contradicted": false,
+          "skeptic_note": "This is a reviewer's account of staff interaction, and the separate pasta-mix-up report does not establish that the same account is false."
         }
       ]
     },
@@ -2881,7 +2958,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is an explicit symptom report and no uncontradicted claim denies the reported experience."
+          "skeptic_note": "An uncontradicted first-person symptom report is significant despite other positive accounts."
         },
         {
           "claim": {
@@ -2893,44 +2970,17 @@
             "direction": "negative"
           },
           "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "This specific reported mix-up is relevant context, but was flagged as contradicted, so the separate uncontradicted symptom claim is the basis for the highest-priority assessment."
+          "is_contradicted": false,
+          "skeptic_note": "This specific account describes a gluten-pasta mix-up and is consistent with the reported symptoms."
         }
       ],
-      "contradicting_claims": [
-        {
-          "claim": {
-            "quote": "Dedicated gluten-free pasta pot and water 4",
-            "source_url": "https://www.findmeglutenfree.com/biz/ama/5104439514234880",
-            "source_type": "third_party_aggregator",
-            "source_date": null,
-            "topic": "dedicated_fryer_or_prep_area",
-            "direction": "positive"
-          },
-          "is_promotional": false,
-          "is_contradicted": false,
-          "skeptic_note": "This reports dedicated pasta equipment, but it does not outweigh the uncontradicted report of gluten-related symptoms."
-        },
-        {
-          "claim": {
-            "quote": "Farinata (GF)",
-            "source_url": "https://www.amarestaurant.bar/lunchanddinner",
-            "source_type": "own_menu",
-            "source_date": null,
-            "topic": "other",
-            "direction": "positive"
-          },
-          "is_promotional": false,
-          "is_contradicted": false,
-          "skeptic_note": "This menu label indicates a gluten-free option but does not address the reported illness or preparation controls."
-        }
-      ],
-      "short_summary": "A diner reported moderate-to-severe gluten-related symptoms, so people with celiac disease should use caution despite reports of dedicated pasta equipment and GF-labeled menu items.",
-      "rationale": "An unpromotional, uncontradicted diner report explicitly describes moderate-to-severe gluten-related symptoms, which determines this assessment. The batch also includes a report of a gluten-pasta mix-up and a claim of dedicated pasta equipment, as well as GF-labeled menu items, but these do not negate the symptom report. The pasta-equipment claim is undated, so it would not independently qualify for the strongest preparation-control assessment.",
+      "contradicting_claims": [],
+      "short_summary": "A reviewer reported being served gluten-containing pasta after confirming it was gluten-free and experiencing moderate to severe symptoms; use particular caution.",
+      "rationale": "A reviewer reported moderate to severe gluten-related symptoms, and the same account describes being served regular gluten pasta after disclosing celiac disease and confirming the order with staff. That uncontradicted illness report outweighs positive menu labels and other favorable accounts. The dedicated pasta pot claim is undated and from a third-party source, so it does not establish current dedicated preparation practices.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:07:45.364168+00:00"
+    "cached_at": "2026-10-24T00:11:27.054062+00:00"
   },
   "circa at foggy bottom": {
     "restaurant": {
@@ -3014,7 +3064,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a general menu label, not marketing language or a specific safety assurance."
+          "skeptic_note": "This specifically identifies menu items as suggestions for guests with gluten sensitivities and is not contradicted by any other claim."
         },
         {
           "claim": {
@@ -3027,7 +3077,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a direct limitation notice, and no claim says the facility is entirely gluten free."
+          "skeptic_note": "This is a direct, specific statement that the restaurant is not a gluten-free environment, and no claim asserts the opposite."
         },
         {
           "claim": {
@@ -3040,7 +3090,7 @@
           },
           "is_promotional": true,
           "is_contradicted": false,
-          "skeptic_note": "The assurance about taking precautions is broad and nonspecific, without checkable details about preparation."
+          "skeptic_note": "The general assurance about thoughtful recommendations and necessary precautions is vague and does not describe a concrete handling practice."
         },
         {
           "claim": {
@@ -3053,7 +3103,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a concise, specific negative report, and no other claim addresses fryer separation."
+          "skeptic_note": "This is a concrete claim about fryer availability, and no other claim states that a dedicated fryer exists."
         },
         {
           "claim": {
@@ -3066,7 +3116,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific individual account of staff seeking clarification, with no conflicting staff-knowledge report in the batch."
+          "skeptic_note": "This is a specific reviewer account of staff behavior, and the separate general precaution statement does not conflict with it."
         },
         {
           "claim": {
@@ -3079,7 +3129,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports one diner's outcome and does not conflict with any other symptom report in the batch."
+          "skeptic_note": "This reports one diner's outcome and is not contradicted by any claim describing the same diner's symptoms."
         },
         {
           "claim": {
@@ -3092,7 +3142,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific report about menu labeling, and the separate gluten-sensitive menu reference is not a direct contradiction because the claims may reflect different times."
+          "skeptic_note": "This is a specific report about menu labeling, and none of the other claims asserts a conflicting menu-labeling practice."
         }
       ]
     },
@@ -3118,7 +3168,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a general menu label, not marketing language or a specific safety assurance."
+          "skeptic_note": "The menu specifically suggests items for guests with gluten sensitivities, supporting gluten-free accommodation."
         },
         {
           "claim": {
@@ -3131,20 +3181,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The menu explicitly says the restaurant is not a gluten-free environment."
-        },
-        {
-          "claim": {
-            "quote": "No dedicated fryer.",
-            "source_url": "https://www.findmeglutenfree.com/biz/circa-at-foggy-bottom/5995535593504768",
-            "source_type": "third_party_aggregator",
-            "source_date": null,
-            "topic": "dedicated_fryer_or_prep_area",
-            "direction": "negative"
-          },
-          "is_promotional": false,
-          "is_contradicted": false,
-          "skeptic_note": "This is a specific negative report, and no claim reports a dedicated fryer or prep area."
+          "skeptic_note": "The restaurant explicitly says it is not a gluten-free environment; this is a relevant caution, not evidence of dedicated preparation."
         },
         {
           "claim": {
@@ -3157,7 +3194,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific individual report of staff asking the chef for clarification, with no conflicting staff-knowledge report in the batch."
+          "skeptic_note": "A reviewer specifically describes staff checking with the chef, supporting some gluten-aware accommodation."
         },
         {
           "claim": {
@@ -3170,7 +3207,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports one diner's outcome and does not conflict with any other symptom report in the batch."
+          "skeptic_note": "This is a report of one diner's outcome and does not establish dedicated preparation."
         },
         {
           "claim": {
@@ -3183,16 +3220,30 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific report about menu labeling; it may reflect a different time than the menu reference."
+          "skeptic_note": "The reviewer reports gluten-free and modifiable menu labeling, which supports accommodation but not a dedicated prep setup."
         }
       ],
-      "contradicting_claims": [],
-      "short_summary": "The menu identifies gluten-sensitive options, and a diner reports knowledgeable staff and no symptoms, but the restaurant says it is not gluten-free and has no dedicated fryer.",
-      "rationale": "The evidence supports gluten-free accommodations: the menu identifies options for gluten sensitivities, and one diner describes staff clarifying ingredients and reports no symptoms. However, the restaurant says it is not a gluten-free environment, and a report says it has no dedicated fryer. No positive claim confirms a dedicated fryer or prep area, so the evidence does not support the strongest safety assessment.",
+      "contradicting_claims": [
+        {
+          "claim": {
+            "quote": "No dedicated fryer.",
+            "source_url": "https://www.findmeglutenfree.com/biz/circa-at-foggy-bottom/5995535593504768",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This concrete report says there is no dedicated fryer, so it cautions against assuming dedicated frying; no positive dedicated-fryer claim is present."
+        }
+      ],
+      "short_summary": "The menu and reviewer reports suggest gluten-free options and attentive staff, but there\u2019s no confirmed dedicated preparation and the restaurant says it is not a gluten-free environment.",
+      "rationale": "The restaurant\u2019s menu suggests items for guests with gluten sensitivities, and a reviewer describes knowledgeable staff, gluten-free menu labels, and no symptoms. This supports accommodation, but there is no positive evidence of a dedicated fryer or prep area; the available fryer report says there is no dedicated fryer. The restaurant also states that it is not a gluten-free environment, so diners should discuss cross-contact precautions with staff.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:08:22.348101+00:00"
+    "cached_at": "2026-10-24T00:11:39.381476+00:00"
   },
   "sixty vines": {
     "restaurant": {
@@ -3252,7 +3303,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a brief reviewer report that specifically mentions a dedicated fryer, though it gives no details to verify the claim."
+          "skeptic_note": "The reviewer makes a concrete, checkable claim about a dedicated fryer, and no other claim says the fryer is shared."
         },
         {
           "claim": {
@@ -3265,7 +3316,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific personal account of a server\u2019s response, but the quoted reassurance alone does not establish what precautions were taken."
+          "skeptic_note": "This describes a specific interaction the reviewer reports, and no claim conflicts with that account."
         },
         {
           "claim": {
@@ -3278,7 +3329,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The reviewer describes concrete staff interactions, and no other claim in the batch directly conflicts with them."
+          "skeptic_note": "The reviewer gives concrete details of staff interactions, and no other claim contradicts this reported experience."
         },
         {
           "claim": {
@@ -3291,7 +3342,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This states that the restaurant is not an entirely gluten-free facility, which does not conflict with the reports of a dedicated fryer or careful staff."
+          "skeptic_note": "This is a specific statement that the restaurant is not an entirely gluten-free facility, and none of the other claims says it is."
         }
       ]
     },
@@ -3317,7 +3368,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reviewer specifically reports a dedicated fryer, but the undated third-party claim cannot confirm that the setup is current."
+          "skeptic_note": "The report describes a dedicated fryer, but it has no visible date, so it cannot establish that the setup is current."
         },
         {
           "claim": {
@@ -3330,7 +3381,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a personal account of a reassuring server response, though it does not specify precautions taken."
+          "skeptic_note": "This is a specific reported server interaction supporting gluten-aware accommodation, with no conflicting claim."
         },
         {
           "claim": {
@@ -3343,7 +3394,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The reviewer gives concrete examples of staff handling a gluten-free request; no other claim directly conflicts."
+          "skeptic_note": "This specific account supports staff attention to gluten-free requests, though it does not confirm a dedicated preparation area."
         },
         {
           "claim": {
@@ -3356,16 +3407,16 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This clarifies the restaurant is not wholly gluten-free, but does not negate a report of a dedicated fryer or careful staff."
+          "skeptic_note": "This clarifies that the restaurant is not an entirely gluten-free facility; it does not contradict the claim of a dedicated fryer."
         }
       ],
       "contradicting_claims": [],
-      "short_summary": "Reviewers describe attentive handling of gluten-free requests, but the dedicated-fryer report is undated, so ask about current precautions before dining.",
-      "rationale": "Reviewers report staff asking whether gluten-free requests are for preference or allergy and clearly identifying items, and one reviewer mentions a dedicated fryer. Because that fryer report is from a third-party source with no visible date, it cannot establish that the setup is current; the evidence supports gluten-free accommodation, but not confirmed dedicated preparation. The restaurant is also described as not being an entirely gluten-free facility.",
+      "short_summary": "Reviewers describe careful handling of gluten-free requests, but the undated dedicated-fryer report is not enough to confirm the current setup.",
+      "rationale": "Reviewers report that staff asked whether gluten-free requests were due to allergy and marked items accordingly, indicating accommodation for gluten-free diners. One reviewer also reports a dedicated fryer, but the report has no date, so it cannot confirm that the setup is current. The available claims therefore support accommodation, not a current dedicated-fryer confirmation; one source also notes that this is not an entirely gluten-free facility.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:08:23.988707+00:00"
+    "cached_at": "2026-10-24T00:11:48.689613+00:00"
   },
   "spices asian restaurant & sushi bar": {
     "restaurant": {
@@ -3417,7 +3468,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a brief, specific report about soy sauce availability, but it does not address preparation or celiac safety."
+          "skeptic_note": "This is a specific, checkable statement about gluten-free soy sauce, and no claim in the batch contradicts it."
         },
         {
           "claim": {
@@ -3430,7 +3481,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific negative report about the sushi rice, and no other claim in the batch addresses or directly conflicts with it."
+          "skeptic_note": "This reports a concrete concern about the sushi rice and no other claim in the batch asserts the opposite fact."
         },
         {
           "claim": {
@@ -3443,7 +3494,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a vague, unverified report of a gluten-free menu and does not establish safe preparation; it does not directly conflict with another claim here."
+          "skeptic_note": "This is a factual report that a gluten-free menu is available, and the rice-vinegar concern does not establish that no such menu exists."
         }
       ]
     },
@@ -3469,7 +3520,20 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This brief report supports gluten-free accommodation through soy sauce availability, but does not address preparation or celiac safety."
+          "skeptic_note": "This is a specific, checkable statement about gluten-free soy sauce, and no claim in the batch contradicts it."
+        },
+        {
+          "claim": {
+            "quote": "They said gluten free sushi but rice has wheat in vinegar.",
+            "source_url": "https://www.findmeglutenfree.com/biz/spices-asian-restaurant-and-sushi-bar/17411134",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "other",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This reports a concrete concern about the sushi rice and no other claim in the batch asserts the opposite fact."
         },
         {
           "claim": {
@@ -3482,30 +3546,16 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This indicates a reported gluten-free menu, though it is vague and does not establish safe preparation."
+          "skeptic_note": "This is a factual report that a gluten-free menu is available, and the rice-vinegar concern does not establish that no such menu exists."
         }
       ],
-      "contradicting_claims": [
-        {
-          "claim": {
-            "quote": "They said gluten free sushi but rice has wheat in vinegar.",
-            "source_url": "https://www.findmeglutenfree.com/biz/spices-asian-restaurant-and-sushi-bar/17411134",
-            "source_type": "third_party_aggregator",
-            "source_date": null,
-            "topic": "other",
-            "direction": "negative"
-          },
-          "is_promotional": false,
-          "is_contradicted": false,
-          "skeptic_note": "This specific negative report warns that sushi rice may contain wheat, so ask staff to verify ingredients before ordering."
-        }
-      ],
-      "short_summary": "A gluten-free menu and soy sauce are reported, but one diner warned the sushi rice may contain wheat, so verify ingredients with staff.",
-      "rationale": "Reports indicate some gluten-free accommodation, including soy sauce and a gluten-free menu, but none confirms a dedicated gluten-free preparation area or fryer. A separate report specifically warns that the sushi rice may contain wheat in its vinegar, so diners should verify ingredients and preparation with staff.",
+      "contradicting_claims": [],
+      "short_summary": "A report mentions gluten-free soy sauce and a gluten-free menu, but also warns that the sushi rice vinegar may contain wheat; ask staff before ordering.",
+      "rationale": "The evidence includes reports of gluten-free soy sauce and a gluten-free menu, which supports accommodation for gluten-free diners. Another report specifically warns that the sushi rice vinegar may contain wheat, so confirm ingredients and preparation with staff. No claim confirms a dedicated fryer or prep area, and the available claims are undated third-party reports.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:09:27.168828+00:00"
+    "cached_at": "2026-10-24T00:11:55.054322+00:00"
   },
   "medium rare": {
     "restaurant": {
@@ -3531,6 +3581,14 @@
           "source_type": "third_party_aggregator",
           "source_date": null,
           "topic": "other",
+          "direction": "positive"
+        },
+        {
+          "quote": "Safety \u2014 Dedicated fryer \u2014 Knowledgeable staff",
+          "source_url": "https://www.findmeglutenfree.com/biz/medium-rare/4943959844061184",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "dedicated_fryer_or_prep_area",
           "direction": "positive"
         },
         {
@@ -3566,7 +3624,7 @@
           "direction": "positive"
         }
       ],
-      "note": "Checked Medium Rare\u2019s official site, dinner menu, and Cleveland Park location page first. They do not show a GF marking, dedicated gluten-free section, or celiac/cross-contamination policy. The official dinner menu lists artisan bread, salad, steak frites, and secret sauce but makes no gluten-safety claims. Third-party Find Me Gluten Free reports positive celiac diners\u2019 experiences and a dedicated fryer, but these are community reports, not verified restaurant policy; the page also cautions that the restaurant is not a dedicated gluten-free facility and may not be safe for celiac disease. The first-party menu quote is neutral menu context, not evidence of safety. Dropped 2 claim(s) that failed source-grounding verification."
+      "note": "Checked Medium Rare\u2019s official site, dinner menu, and Cleveland Park location page first. They do not show a GF marking, dedicated gluten-free section, or celiac/cross-contamination policy. The official dinner menu lists artisan bread, salad, steak frites, and secret sauce but makes no gluten-safety claims. Third-party Find Me Gluten Free reports positive celiac diners\u2019 experiences and a dedicated fryer, but these are community reports, not verified restaurant policy; the page also cautions that the restaurant is not a dedicated gluten-free facility and may not be safe for celiac disease. The first-party menu quote is neutral menu context, not evidence of safety. Dropped 1 claim(s) that failed source-grounding verification."
     },
     "reviewed": {
       "claims": [
@@ -3581,7 +3639,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific reviewer account about the menu, though it does not describe cross-contamination precautions."
+          "skeptic_note": "This is a specific reported description of the menu, and no claim in the batch directly contradicts it."
         },
         {
           "claim": {
@@ -3594,7 +3652,20 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a brief menu-availability assertion, but it gives no details about preparation or celiac precautions."
+          "skeptic_note": "This makes a concrete, checkable claim about gluten-free availability and is not directly opposed by another claim here."
+        },
+        {
+          "claim": {
+            "quote": "Safety \u2014 Dedicated fryer \u2014 Knowledgeable staff",
+            "source_url": "https://www.findmeglutenfree.com/biz/medium-rare/4943959844061184",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The claim specifically reports a dedicated fryer and knowledgeable staff; no claim in the batch asserts the opposite practice."
         },
         {
           "claim": {
@@ -3607,7 +3678,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a first-person report of no symptoms and a staff conversation, but it does not say what precautions were confirmed."
+          "skeptic_note": "This is a concrete account of one reviewer's experience, with no conflicting statement about that same account."
         },
         {
           "claim": {
@@ -3620,7 +3691,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports one diner's outcome but contains no information about food handling."
+          "skeptic_note": "This reports one diner's outcome, and no claim in the batch contradicts that same diner's account."
         },
         {
           "claim": {
@@ -3633,7 +3704,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The quote describes the food as gluten-free apart from bread, not that the facility itself is entirely gluten-free."
+          "skeptic_note": "It describes the food offered rather than explicitly asserting a gluten-free facility, and no opposite facility-policy claim appears in the batch."
         },
         {
           "claim": {
@@ -3646,7 +3717,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This gives specific menu examples but does not establish safe preparation or cross-contamination controls."
+          "skeptic_note": "This gives specific menu details and does not directly conflict with another claim in the batch."
         }
       ]
     },
@@ -3672,7 +3743,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "Specific reviewer account of gluten-free menu availability, but it does not establish dedicated preparation or cross-contamination precautions."
+          "skeptic_note": "This describes gluten-free offerings, but does not establish dedicated preparation."
         },
         {
           "claim": {
@@ -3685,16 +3756,29 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "A first-person report of no symptoms and a staff conversation supports accommodation, though it does not specify the precautions discussed."
+          "skeptic_note": "This is one reviewer's account of asking staff about cross-contamination and having no issues."
+        },
+        {
+          "claim": {
+            "quote": "Safety \u2014 Dedicated fryer \u2014 Knowledgeable staff",
+            "source_url": "https://www.findmeglutenfree.com/biz/medium-rare/4943959844061184",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The dedicated-fryer report has no visible date, so it cannot establish current dedicated preparation under the freshness rule."
         }
       ],
       "contradicting_claims": [],
-      "short_summary": "A reviewer reported a largely gluten-free menu and no issues after discussing cross-contamination with staff, but dedicated preparation is not confirmed.",
-      "rationale": "The reviewed evidence includes reports of gluten-free menu options and a diner who reported no symptoms after asking staff about cross-contamination. No uncontradicted claim confirms a dedicated fryer or preparation area; the positive dedicated-facility claim is only a third-party report without a date, and its own note clarifies it describes food rather than an entirely gluten-free facility. This supports accommodation, but not confirmation of dedicated gluten-free preparation.",
+      "short_summary": "Reviews describe gluten-free options and a dedicated fryer, but the fryer report is undated, so ask staff about current preparation practices.",
+      "rationale": "The claims describe gluten-free menu options, knowledgeable staff, and a diner's report of no symptoms after discussing cross-contamination, which supports accommodation. A third-party listing also reports a dedicated fryer, but it has no date; because that report may be stale, it does not qualify as current confirmation of dedicated preparation. No credible illness report appears in the reviewed claims.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:09:32.801587+00:00"
+    "cached_at": "2026-10-24T00:12:04.721129+00:00"
   },
   "sababa": {
     "restaurant": {
@@ -3778,7 +3862,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific menu label for the listed kebab accompaniments, but it does not establish cross-contamination precautions."
+          "skeptic_note": "This is a specific menu statement that the listed kebab accompaniments are gluten-free; no claim in the batch conflicts with it."
         },
         {
           "claim": {
@@ -3791,7 +3875,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This defines the menu abbreviation but provides no information about preparation or cross-contamination."
+          "skeptic_note": "This is a straightforward glossary definition, and no other claim disputes it."
         },
         {
           "claim": {
@@ -3804,7 +3888,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific negative report, and no other claim in the batch says the restaurant has a dedicated fryer."
+          "skeptic_note": "This is a concrete report about fryer availability, and no claim in the batch asserts that the restaurant has a dedicated fryer."
         },
         {
           "claim": {
@@ -3817,7 +3901,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a personal positive experience, but it is general and does not document specific safety procedures."
+          "skeptic_note": "This describes one reviewer's experience, including not getting sick, which does not conflict with the separate reports or claims in this batch."
         },
         {
           "claim": {
@@ -3830,7 +3914,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific account of a server identifying cross-contamination and possible modifications, with no conflicting staff report in the batch."
+          "skeptic_note": "This is a specific reviewer's account of a server's knowledge, and the fryer report does not directly contradict it."
         },
         {
           "claim": {
@@ -3843,7 +3927,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reports one diner's outcome after takeaway but gives no details about the food or precautions."
+          "skeptic_note": "This reports one reviewer's outcome and does not conflict with a different reviewer's experience."
         },
         {
           "claim": {
@@ -3856,7 +3940,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a general caution to verify precautions directly, not a claim about the restaurant's actual practices."
+          "skeptic_note": "This is a neutral advisory rather than marketing, and no claim in the batch contradicts it."
         }
       ]
     },
@@ -3882,7 +3966,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This marks listed menu components gluten-free, but does not establish dedicated preparation or cross-contamination precautions."
+          "skeptic_note": "This identifies gluten-free menu accompaniments, but does not establish dedicated preparation."
         },
         {
           "claim": {
@@ -3895,7 +3979,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "A diner's positive experience supports accommodation, but does not identify specific preparation safeguards."
+          "skeptic_note": "A reviewer's account reports accommodation and no symptoms, but does not confirm dedicated preparation."
         },
         {
           "claim": {
@@ -3908,23 +3992,8 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The account specifically describes staff explaining cross-contamination and possible modifications; it is undated and does not establish dedicated preparation."
+          "skeptic_note": "This is a specific report of staff knowledge, while also noting cross-contamination concerns."
         },
-        {
-          "claim": {
-            "quote": "Got takeaway and didn\u2019t get sick, which is good.",
-            "source_url": "https://www.findmeglutenfree.com/biz/sababa/5298916312612864",
-            "source_type": "third_party_aggregator",
-            "source_date": null,
-            "topic": "reviewer_was_fine",
-            "direction": "positive"
-          },
-          "is_promotional": false,
-          "is_contradicted": false,
-          "skeptic_note": "This is a positive individual outcome but offers no information about precautions."
-        }
-      ],
-      "contradicting_claims": [
         {
           "claim": {
             "quote": "No dedicated fryer",
@@ -3936,15 +4005,16 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific negative report, and there is no positive claim of a dedicated fryer or preparation area in the batch."
+          "skeptic_note": "This explicitly reports no dedicated fryer, consistent with advising caution."
         }
       ],
-      "short_summary": "The menu marks some items gluten-free, and a diner reported knowledgeable staff, but there\u2019s no dedicated fryer and cross-contact is a concern.",
-      "rationale": "The menu identifies some food as gluten-free, and diner accounts describe knowledgeable staff and positive experiences, which support gluten-free accommodation. However, the batch includes a report that there is no dedicated fryer and no confirmed dedicated preparation area. The positive evidence does not establish dedicated preparation, so ask the restaurant about current handling practices before ordering.",
+      "contradicting_claims": [],
+      "short_summary": "The menu marks some items gluten-free, and reviewers describe knowledgeable staff, but there is no dedicated fryer.",
+      "rationale": "The restaurant's menu labels specific accompaniments gluten-free, and reviewers report knowledgeable staff and experiences without symptoms. A third-party report says there is no dedicated fryer. The evidence supports gluten-free accommodation with cross-contamination caution, not dedicated preparation.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:09:47.743858+00:00"
+    "cached_at": "2026-10-24T00:12:14.382705+00:00"
   },
   "bibibop asian grill \u2014 dupont circle": {
     "restaurant": {
@@ -4002,9 +4072,9 @@
             "topic": "entirely_gluten_free_facility",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": true,
-          "skeptic_note": "This is broad first-party promotional language and conflicts with the FAQ statement that cross-contact with other foods can happen during prep."
+          "skeptic_note": "The specific claim of a dedicated gluten-free kitchen and no cross-contact is contradicted by the FAQ's statement that cross-contact can happen during preparation."
         },
         {
           "claim": {
@@ -4015,9 +4085,9 @@
             "topic": "staff_cross_contamination_knowledge",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a first-party claim about certification and its scope, but no claim in this batch directly disputes the certification or training."
+          "skeptic_note": "This is a specific, checkable statement about certification and what it covers, with no opposing claim in the batch."
         },
         {
           "claim": {
@@ -4030,7 +4100,7 @@
           },
           "is_promotional": false,
           "is_contradicted": true,
-          "skeptic_note": "This is a specific caution rather than marketing language, and it directly conflicts with the claim that nothing on the line can cross-contact a bowl."
+          "skeptic_note": "The warning is a concrete statement, but it conflicts with the first claim's assertion that no cross-contact can occur."
         },
         {
           "claim": {
@@ -4041,9 +4111,9 @@
             "topic": "entirely_gluten_free_facility",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a broad first-party promotional assertion, but it does not directly conflict with the cross-contact warning because a gluten-free menu is not the same as an allergen-free facility."
+          "skeptic_note": "This makes specific, checkable claims about the menu and certification; the cross-contact warning does not negate either claim."
         }
       ]
     },
@@ -4055,8 +4125,8 @@
         "cuisine": "Korean-inspired Asian bowls",
         "existence_source_url": "https://www.bibibop.com/locations/dupont/"
       },
-      "safety_level": "accommodates_caution_cross_contamination",
-      "confidence": "medium",
+      "safety_level": "confirmed_dedicated_gf_prep",
+      "confidence": "high",
       "supporting_claims": [
         {
           "claim": {
@@ -4067,22 +4137,22 @@
             "topic": "staff_cross_contamination_knowledge",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The restaurant describes gluten-focused certification and training, though this is first-party promotional language rather than independent diner evidence."
+          "skeptic_note": "This supports gluten-aware training and handling, but does not itself establish a dedicated facility or prep area."
         },
         {
           "claim": {
-            "quote": "Our restaurants are not allergen-free facilities, and cross-contact with other foods can happen during prep.",
+            "quote": "BIBIBOP\u2019s menu is 100% gluten-free, and our locations are certified by the Gluten Intolerance Group.",
             "source_url": "https://www.bibibop.com/faqs/",
             "source_type": "own_menu",
             "source_date": null,
-            "topic": "other",
-            "direction": "neutral"
+            "topic": "entirely_gluten_free_facility",
+            "direction": "positive"
           },
           "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "This is a specific first-party cross-contact caution; the flag reflects conflict with a separate broad claim that nothing can cross-contact."
+          "is_contradicted": false,
+          "skeptic_note": "This uncontradicted current-site statement supports an entirely gluten-free menu; the separate warning about possible cross-contact means this should not be read as a guarantee of safety."
         }
       ],
       "contradicting_claims": [
@@ -4095,17 +4165,30 @@
             "topic": "entirely_gluten_free_facility",
             "direction": "positive"
           },
-          "is_promotional": true,
+          "is_promotional": false,
           "is_contradicted": true,
-          "skeptic_note": "This broad promotional statement is directly contradicted by the restaurant's stated warning that cross-contact can happen during prep."
+          "skeptic_note": "Its no-cross-contact assurance conflicts with the restaurant's warning that cross-contact can happen during preparation."
+        },
+        {
+          "claim": {
+            "quote": "Our restaurants are not allergen-free facilities, and cross-contact with other foods can happen during prep.",
+            "source_url": "https://www.bibibop.com/faqs/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "neutral"
+          },
+          "is_promotional": false,
+          "is_contradicted": true,
+          "skeptic_note": "This is relevant caution about cross-contact; its flag reflects the conflict with the batch's absolute no-cross-contact assertion, not that the warning is unreliable."
         }
       ],
-      "short_summary": "The restaurant reports gluten-focused training and certification, but warns that cross-contact can happen during preparation.",
-      "rationale": "The evidence supports gluten-specific accommodation through the restaurant's description of gluten-focused certification and training, while its FAQ explicitly cautions that cross-contact can happen during prep. The claims describing a dedicated gluten-free facility are promotional and/or contradicted, so they do not establish dedicated preparation safeguards. No credible illness report was provided.",
+      "short_summary": "The restaurant reports a gluten-free menu and certification, but warns that cross-contact can happen during preparation.",
+      "rationale": "The restaurant\u2019s current FAQ says its menu is entirely gluten-free and that its locations are certified by the Gluten Intolerance Group. That uncontradicted statement supports the strongest category under the provided rules. However, the FAQ also warns that cross-contact can happen during preparation, so the menu claim does not mean orders are guaranteed free of cross-contact. There are no credible illness reports in the reviewed claims.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T19:36:37.939993+00:00"
+    "cached_at": "2026-10-24T00:12:23.394186+00:00"
   },
   "rice restaurant": {
     "restaurant": {
@@ -4189,7 +4272,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific negative report about the fryer, with no conflicting fryer claim in the batch."
+          "skeptic_note": "This is a specific report about the fryer, and no claim in the batch asserts the opposite practice."
         },
         {
           "claim": {
@@ -4201,8 +4284,8 @@
             "direction": "positive"
           },
           "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "This is one reviewer\u2019s limited no-symptoms account, and it conflicts with the separate report of being glutened."
+          "is_contradicted": false,
+          "skeptic_note": "This describes one reviewer\u2019s personal outcome, which does not conflict with another reviewer getting sick."
         },
         {
           "claim": {
@@ -4214,8 +4297,8 @@
             "direction": "negative"
           },
           "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "This specific reviewer reports both prior uneventful visits and a recent illness, conflicting with the separate report of no symptoms."
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific personal account of getting sick after earlier visits without issue; another reviewer\u2019s different outcome does not contradict it."
         },
         {
           "claim": {
@@ -4228,7 +4311,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific negative account of staff response and note-taking, with no direct conflicting claim about that interaction."
+          "skeptic_note": "This is a reviewer\u2019s specific account of staff interaction, with no opposing claim about that interaction in the batch."
         },
         {
           "claim": {
@@ -4241,7 +4324,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This identifies specific reported labeling practices, and no other claim in the batch directly disputes them."
+          "skeptic_note": "This states specific labeling practices, and no claim in the batch asserts that plates or containers are marked gluten-free."
         },
         {
           "claim": {
@@ -4254,7 +4337,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a negative reviewer assessment of staff and management, with no directly opposing staff-knowledge claim in the batch."
+          "skeptic_note": "This is a negative reviewer assessment, and no claim in the batch presents an opposing assessment of staff knowledge or respect."
         },
         {
           "claim": {
@@ -4267,7 +4350,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a specific reported response from a manager, and no claim in the batch directly contradicts that account."
+          "skeptic_note": "This recounts a specific manager interaction; no other claim in the batch contradicts that account."
         }
       ]
     },
@@ -4280,7 +4363,7 @@
         "existence_source_url": "https://www.ricedc.com/restaurant"
       },
       "safety_level": "credible_illness_report",
-      "confidence": "medium",
+      "confidence": "high",
       "supporting_claims": [
         {
           "claim": {
@@ -4292,8 +4375,8 @@
             "direction": "negative"
           },
           "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "The reviewer reports becoming ill, but the batch flags this account as contradicted by another reviewer's no-symptoms report."
+          "is_contradicted": false,
+          "skeptic_note": "A specific first-person report of getting sick after dining; no claim in the batch directly contradicts it."
         },
         {
           "claim": {
@@ -4306,20 +4389,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "Specific report that there is no dedicated fryer; this does not directly conflict with another fryer claim."
-        },
-        {
-          "claim": {
-            "quote": "I didn\u2019t get sick after so it seemed to be gluten-free.",
-            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
-            "source_type": "third_party_aggregator",
-            "source_date": null,
-            "topic": "reviewer_was_fine",
-            "direction": "positive"
-          },
-          "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "A limited no-symptoms account, but the batch flags it as conflicting with the reported illness."
+          "skeptic_note": "A specific report that there is no dedicated fryer, with no opposing fryer claim in the batch."
         },
         {
           "claim": {
@@ -4332,7 +4402,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "Specific negative account about staff response and note-taking; no direct contradiction is identified."
+          "skeptic_note": "A negative account of staff response to a gluten-related request, not contradicted by another claim."
         },
         {
           "claim": {
@@ -4345,7 +4415,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "Specific report about plate and container labeling, with no direct contradiction identified."
+          "skeptic_note": "A specific report of absent gluten-free labeling, with no contrary claim in the batch."
         },
         {
           "claim": {
@@ -4358,7 +4428,7 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "Negative reviewer assessment of staff knowledge and respect; no directly opposing claim is identified."
+          "skeptic_note": "A negative reviewer assessment of staff knowledge and respect, with no opposing assessment in the batch."
         },
         {
           "claim": {
@@ -4371,42 +4441,611 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "Specific reported manager response, with no direct contradiction identified."
+          "skeptic_note": "A specific account of the manager's response after the reviewer reported getting sick; no claim in the batch directly contradicts it."
         }
       ],
-      "contradicting_claims": [
+      "contradicting_claims": [],
+      "short_summary": "A reviewer reports getting glutened after dining here, and other feedback raises concerns about the fryer and staff handling gluten-related requests.",
+      "rationale": "A non-promotional, uncontradicted reviewer account says they became glutened after a visit. Under the assessment rules, that report takes priority over other evidence. The batch also includes a report of no dedicated fryer and negative accounts of staff handling and labeling, alongside one reviewer who reported no symptoms on a different visit.",
+      "override_applied": false,
+      "override_reason": null
+    },
+    "cached_at": "2026-10-24T00:12:24.336713+00:00"
+  },
+  "seoulspice": {
+    "restaurant": {
+      "name": "SeoulSpice",
+      "address": "439 7th St NW, Washington, DC 20004",
+      "neighborhood": "Penn Quarter",
+      "cuisine": "Korean",
+      "existence_source_url": "https://www.seoulspice.com/locations"
+    },
+    "evidence": {
+      "claims": [
+        {
+          "quote": "That's why our entire menu is gluten-free.",
+          "source_url": "https://www.seoulspice.com/food",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "entirely_gluten_free_facility",
+          "direction": "positive"
+        }
+      ],
+      "note": "SeoulSpice\u2019s own food page explicitly states that its entire menu is gluten-free, which is strong first-party evidence. This does not by itself confirm celiac-level cross-contamination controls or that every item/preparation practice is risk-free; contact the Penn Quarter location directly about current kitchen handling if you need that assurance."
+    },
+    "reviewed": {
+      "claims": [
         {
           "claim": {
-            "quote": "I didn\u2019t get sick after so it seemed to be gluten-free.",
-            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "quote": "That's why our entire menu is gluten-free.",
+            "source_url": "https://www.seoulspice.com/food",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific, checkable statement about the menu, and no claim in the batch contradicts it."
+        }
+      ]
+    },
+    "assessment": {
+      "restaurant": {
+        "name": "SeoulSpice",
+        "address": "439 7th St NW, Washington, DC 20004",
+        "neighborhood": "Penn Quarter",
+        "cuisine": "Korean",
+        "existence_source_url": "https://www.seoulspice.com/locations"
+      },
+      "safety_level": "confirmed_dedicated_gf_prep",
+      "confidence": "high",
+      "supporting_claims": [
+        {
+          "claim": {
+            "quote": "That's why our entire menu is gluten-free.",
+            "source_url": "https://www.seoulspice.com/food",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific, checkable statement about the menu, and no claim in the batch contradicts it."
+        }
+      ],
+      "contradicting_claims": [],
+      "short_summary": "SeoulSpice says its entire menu is gluten-free, though diners with celiac disease may still want to confirm preparation practices.",
+      "rationale": "The restaurant\u2019s own current menu says its entire menu is gluten-free, which supports the strongest assessment under the provided criteria. No contradictory or illness-report claims were provided; this does not guarantee that every preparation practice is free of cross-contact risk.",
+      "override_applied": false,
+      "override_reason": null
+    },
+    "cached_at": "2026-10-24T00:12:28.771944+00:00"
+  },
+  "emmy squared pizza - shaw": {
+    "restaurant": {
+      "name": "Emmy Squared Pizza - Shaw",
+      "address": "1924 8th St. NW Suite 140, Washington, DC 20001",
+      "neighborhood": "Shaw",
+      "cuisine": "Detroit-style pizza",
+      "existence_source_url": "https://www.emmysquaredpizza.com/location/shaw-washington-dc/"
+    },
+    "evidence": {
+      "claims": [
+        {
+          "quote": "All of our pizzas pan be made Gluten Free!",
+          "source_url": "https://www.emmysquaredpizza.com/faq/",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "other",
+          "direction": "positive"
+        },
+        {
+          "quote": "Our dough is prepared in an environment where non GF products are made.",
+          "source_url": "https://www.emmysquaredpizza.com/faq/",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "staff_cross_contamination_knowledge",
+          "direction": "negative"
+        },
+        {
+          "quote": "Gloves are always changed out when working with our GF product. We use separate pans specific to our GF pies, and we use a pizza cutter designated to our GF product.",
+          "source_url": "https://www.emmysquaredpizza.com/faq/",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "dedicated_fryer_or_prep_area",
+          "direction": "positive"
+        },
+        {
+          "quote": "I called and asked about it and of course they note cross contamination. I have celiac and haven\u2019t had an issue with it, but know it\u2019s a risk.",
+          "source_url": "https://www.findmeglutenfree.com/biz/emmy-squared/6212449418739712",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "reviewer_was_fine",
+          "direction": "positive"
+        },
+        {
+          "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+          "source_url": "https://www.findmeglutenfree.com/biz/emmy-squared/6212449418739712",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "entirely_gluten_free_facility",
+          "direction": "negative"
+        }
+      ],
+      "note": "The restaurant\u2019s own FAQ is the first-party source and describes precautions (changed gloves, separate pans, dedicated cutter) but also confirms the dough is prepared where non-GF products are made. This is a mixed kitchen, not an entirely gluten-free facility; these precautions do not establish a guarantee of celiac safety. The listed review is undated on the page and reflects one person\u2019s experience. Confirm current handling with the Shaw location before ordering."
+    },
+    "reviewed": {
+      "claims": [
+        {
+          "claim": {
+            "quote": "All of our pizzas pan be made Gluten Free!",
+            "source_url": "https://www.emmysquaredpizza.com/faq/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a concrete, checkable statement about the pizzas, and no claim in the batch contradicts it."
+        },
+        {
+          "claim": {
+            "quote": "Our dough is prepared in an environment where non GF products are made.",
+            "source_url": "https://www.emmysquaredpizza.com/faq/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific statement about shared preparation conditions, and no other claim disputes that practice."
+        },
+        {
+          "claim": {
+            "quote": "Gloves are always changed out when working with our GF product. We use separate pans specific to our GF pies, and we use a pizza cutter designated to our GF product.",
+            "source_url": "https://www.emmysquaredpizza.com/faq/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This describes specific handling measures, and the shared dough-preparation environment does not contradict those measures."
+        },
+        {
+          "claim": {
+            "quote": "I called and asked about it and of course they note cross contamination. I have celiac and haven\u2019t had an issue with it, but know it\u2019s a risk.",
+            "source_url": "https://www.findmeglutenfree.com/biz/emmy-squared/6212449418739712",
             "source_type": "third_party_aggregator",
             "source_date": null,
             "topic": "reviewer_was_fine",
             "direction": "positive"
           },
           "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "This limited no-symptoms account conflicts with the separate report of becoming glutened."
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific report of one diner's experience and acknowledged risk, with no conflicting statement about that same experience in the batch."
         },
         {
           "claim": {
-            "quote": "I had eaten here about 3 times without issue but was just glutened yesterday.",
-            "source_url": "https://www.findmeglutenfree.com/biz/rice/6336595821068288",
+            "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/emmy-squared/6212449418739712",
             "source_type": "third_party_aggregator",
             "source_date": null,
-            "topic": "reviewer_got_sick",
+            "topic": "entirely_gluten_free_facility",
             "direction": "negative"
           },
           "is_promotional": false,
-          "is_contradicted": true,
-          "skeptic_note": "This illness account conflicts with another reviewer's report of no symptoms."
+          "is_contradicted": false,
+          "skeptic_note": "This directly states the facility is not dedicated gluten-free, consistent with the claim that dough is prepared where non-GF products are made."
+        }
+      ]
+    },
+    "assessment": {
+      "restaurant": {
+        "name": "Emmy Squared Pizza - Shaw",
+        "address": "1924 8th St. NW Suite 140, Washington, DC 20001",
+        "neighborhood": "Shaw",
+        "cuisine": "Detroit-style pizza",
+        "existence_source_url": "https://www.emmysquaredpizza.com/location/shaw-washington-dc/"
+      },
+      "safety_level": "confirmed_dedicated_gf_prep",
+      "confidence": "high",
+      "supporting_claims": [
+        {
+          "claim": {
+            "quote": "All of our pizzas pan be made Gluten Free!",
+            "source_url": "https://www.emmysquaredpizza.com/faq/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The restaurant states that its pizzas can be made gluten-free."
+        },
+        {
+          "claim": {
+            "quote": "Our dough is prepared in an environment where non GF products are made.",
+            "source_url": "https://www.emmysquaredpizza.com/faq/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This confirms shared preparation conditions and is relevant caution for diners with celiac disease."
+        },
+        {
+          "claim": {
+            "quote": "Gloves are always changed out when working with our GF product. We use separate pans specific to our GF pies, and we use a pizza cutter designated to our GF product.",
+            "source_url": "https://www.emmysquaredpizza.com/faq/",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This current restaurant-site statement describes specific gluten-free handling equipment and practices; shared kitchen conditions add caution but do not negate the stated measures."
         }
       ],
-      "short_summary": "One reviewer reported being glutened, and other accounts describe poor handling of dietary restrictions; the reports conflict, so use caution.",
-      "rationale": "A reviewer reported being glutened, but that account is flagged as contradicted by a separate report of no symptoms. Because the illness report is not uncontradicted, it does not meet the rule for the highest-priority illness finding. The no-symptoms report is also flagged as contradicted. Other reviewer accounts describe no dedicated fryer and concerning staff communication and labeling practices; there is no positive evidence of dedicated gluten-free preparation.",
+      "contradicting_claims": [
+        {
+          "claim": {
+            "quote": "Important This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/emmy-squared/6212449418739712",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This warns that the restaurant is not an entirely gluten-free facility, which is compatible with separate GF pans and tools in a shared kitchen."
+        }
+      ],
+      "short_summary": "The restaurant uses separate pans and a dedicated cutter for gluten-free pizzas, but its kitchen also handles gluten-containing products.",
+      "rationale": "The restaurant\u2019s own current FAQ describes separate pans for gluten-free pies, a dedicated cutter, and glove changes, which supports the strongest assessment for specific gluten-free preparation measures. It also says the dough is prepared where non-gluten-free products are made, and a directory warning says the facility is not entirely gluten-free, so cross-contact remains a concern; this is not a guarantee of safety.",
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-23T23:47:23.427424+00:00"
+    "cached_at": "2026-10-24T00:17:13.947098+00:00"
+  },
+  "amazonia": {
+    "restaurant": {
+      "name": "Amazonia",
+      "address": "920 Blagden Alley NW, Washington, DC 20001",
+      "neighborhood": "Shaw",
+      "cuisine": "Peruvian",
+      "existence_source_url": "https://washington.org/find-dc-listings/amazonia"
+    },
+    "evidence": {
+      "claims": [
+        {
+          "quote": "c = celiac friendly (no cross contamination)",
+          "source_url": "https://www.causadc.com/menus/amazonia-dinner",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "other",
+          "direction": "positive"
+        },
+        {
+          "quote": "We are happy to accommodate dietary restrictions at Amazonia such as shellfish, fish, gluten, vegan, and several others.",
+          "source_url": "https://www.causadc.com/amazonia",
+          "source_type": "own_menu",
+          "source_date": null,
+          "topic": "other",
+          "direction": "positive"
+        },
+        {
+          "quote": "My server recommended that I avoid the skewers because he wasn\u2019t sure the sauce was celiac safe.",
+          "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "staff_cross_contamination_knowledge",
+          "direction": "negative"
+        },
+        {
+          "quote": "the bartender told me that the needed to check if the fryer was gluten free that day. Some days they do have gluten, others no.",
+          "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "dedicated_fryer_or_prep_area",
+          "direction": "negative"
+        },
+        {
+          "quote": "Thankfully it was gluten free as that small little plate ended up being the only thing I ate since 11am until 9am the following day.",
+          "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "reviewer_was_fine",
+          "direction": "positive"
+        },
+        {
+          "quote": "Well marked menu and manager was celiac aware and super knowledgeable. Felt very safe and food was awesome.",
+          "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "staff_cross_contamination_knowledge",
+          "direction": "positive"
+        },
+        {
+          "quote": "They had a safe fryer today but don\u2019t always so def check.",
+          "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "dedicated_fryer_or_prep_area",
+          "direction": "negative"
+        },
+        {
+          "quote": "I didn\u2019t get sick, which is most important to me.",
+          "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "reviewer_was_fine",
+          "direction": "positive"
+        },
+        {
+          "quote": "This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+          "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+          "source_type": "third_party_aggregator",
+          "source_date": null,
+          "topic": "entirely_gluten_free_facility",
+          "direction": "negative"
+        }
+      ],
+      "note": "The restaurant\u2019s own dinner menu explicitly defines \u201cc\u201d as celiac-friendly with no cross-contamination and marks select dishes with it; its website also says it accommodates gluten-related dietary restrictions. However, the restaurant is not a wholly gluten-free facility, and recent third-party reports describe inconsistent fryer availability and uncertainty about some sauces. The reviews shown do not display actual calendar dates, so source_date is null. This is evidence of some celiac-aware procedures, not a guarantee of safety; confirm current fryer and preparation practices directly with staff."
+    },
+    "reviewed": {
+      "claims": [
+        {
+          "claim": {
+            "quote": "c = celiac friendly (no cross contamination)",
+            "source_url": "https://www.causadc.com/menus/amazonia-dinner",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific, checkable menu definition and no claim directly contradicts it."
+        },
+        {
+          "claim": {
+            "quote": "We are happy to accommodate dietary restrictions at Amazonia such as shellfish, fish, gluten, vegan, and several others.",
+            "source_url": "https://www.causadc.com/amazonia",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This states a concrete accommodation policy, and no claim says the restaurant does not accommodate gluten-related requests."
+        },
+        {
+          "claim": {
+            "quote": "My server recommended that I avoid the skewers because he wasn\u2019t sure the sauce was celiac safe.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific reported interaction about uncertainty over a sauce, and no claim contradicts this same account."
+        },
+        {
+          "claim": {
+            "quote": "the bartender told me that the needed to check if the fryer was gluten free that day. Some days they do have gluten, others no.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This reports variable fryer status rather than a fixed policy, and the other fryer claim that a safe fryer was available today is compatible with that variability."
+        },
+        {
+          "claim": {
+            "quote": "Thankfully it was gluten free as that small little plate ended up being the only thing I ate since 11am until 9am the following day.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a personal report about the reviewer's food and experience, and no claim conflicts with that same account."
+        },
+        {
+          "claim": {
+            "quote": "Well marked menu and manager was celiac aware and super knowledgeable. Felt very safe and food was awesome.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a reviewer's specific assessment of the menu and manager, and another reviewer's reported uncertainty does not directly contradict this account."
+        },
+        {
+          "claim": {
+            "quote": "They had a safe fryer today but don\u2019t always so def check.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This explicitly describes fryer availability as variable, consistent with the report that its status changes by day."
+        },
+        {
+          "claim": {
+            "quote": "I didn\u2019t get sick, which is most important to me.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This reports one reviewer's outcome, which is not contradicted by other diners' experiences or restaurant-practice claims."
+        },
+        {
+          "claim": {
+            "quote": "This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a specific statement that the facility is not dedicated gluten-free, and no claim says the entire restaurant is gluten-free."
+        }
+      ]
+    },
+    "assessment": {
+      "restaurant": {
+        "name": "Amazonia",
+        "address": "920 Blagden Alley NW, Washington, DC 20001",
+        "neighborhood": "Shaw",
+        "cuisine": "Peruvian",
+        "existence_source_url": "https://washington.org/find-dc-listings/amazonia"
+      },
+      "safety_level": "accommodates_caution_cross_contamination",
+      "confidence": "medium",
+      "supporting_claims": [
+        {
+          "claim": {
+            "quote": "c = celiac friendly (no cross contamination)",
+            "source_url": "https://www.causadc.com/menus/amazonia-dinner",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The menu defines a celiac-friendly notation, indicating gluten-specific accommodation, but does not confirm a dedicated facility or prep area."
+        },
+        {
+          "claim": {
+            "quote": "We are happy to accommodate dietary restrictions at Amazonia such as shellfish, fish, gluten, vegan, and several others.",
+            "source_url": "https://www.causadc.com/amazonia",
+            "source_type": "own_menu",
+            "source_date": null,
+            "topic": "other",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This expressly includes gluten accommodation, but makes no claim about dedicated preparation."
+        },
+        {
+          "claim": {
+            "quote": "My server recommended that I avoid the skewers because he wasn\u2019t sure the sauce was celiac safe.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This reports uncertainty about a particular sauce and supports advising diners to confirm ingredients and handling."
+        },
+        {
+          "claim": {
+            "quote": "the bartender told me that the needed to check if the fryer was gluten free that day. Some days they do have gluten, others no.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This describes fryer status as variable, not a reliably dedicated fryer."
+        },
+        {
+          "claim": {
+            "quote": "Well marked menu and manager was celiac aware and super knowledgeable. Felt very safe and food was awesome.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "staff_cross_contamination_knowledge",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is a positive individual report of knowledgeable staff and a marked menu, though another diner describes uncertainty about specific items."
+        },
+        {
+          "claim": {
+            "quote": "They had a safe fryer today but don\u2019t always so def check.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "dedicated_fryer_or_prep_area",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "The reviewer says fryer availability varies; this does not establish a consistently dedicated fryer."
+        },
+        {
+          "claim": {
+            "quote": "I didn\u2019t get sick, which is most important to me.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "reviewer_was_fine",
+            "direction": "positive"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This is one diner's reported experience and does not guarantee another diner's outcome."
+        },
+        {
+          "claim": {
+            "quote": "This establishment is NOT a dedicated gluten-free facility and may not be safe for those with celiac disease.",
+            "source_url": "https://www.findmeglutenfree.com/biz/amazonia/6107319245340672",
+            "source_type": "third_party_aggregator",
+            "source_date": null,
+            "topic": "entirely_gluten_free_facility",
+            "direction": "negative"
+          },
+          "is_promotional": false,
+          "is_contradicted": false,
+          "skeptic_note": "This explicitly says the restaurant is not an entirely gluten-free facility."
+        }
+      ],
+      "contradicting_claims": [],
+      "short_summary": "The menu and reviews indicate gluten-free accommodation, but fryer availability can vary and staff may need to check specific items.",
+      "rationale": "The restaurant\u2019s own menu defines a celiac-friendly marking and its site says it accommodates gluten requests; reviews also describe a marked menu and knowledgeable staff, as well as uncertainty about some sauces and changing fryer status. This supports gluten-free accommodation, but there is no uncontradicted positive claim confirming a dedicated gluten-free prep area or fryer. The reported fryer availability is variable, and the third-party claims have no visible dates, so they cannot establish current dedicated equipment. No reviewer illness report was provided.",
+      "override_applied": false,
+      "override_reason": null
+    },
+    "cached_at": "2026-10-24T00:18:09.143002+00:00"
   }
 }
