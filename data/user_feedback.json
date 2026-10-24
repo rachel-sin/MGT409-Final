@@ -20,5 +20,16 @@
     "tester_number": 2,
     "collection_method": "texted_to_builder",
     "submitted_at": "2026-10-24T02:10:00.000000+00:00"
+  },
+  {
+    "restaurant_tried": "Adams Morgan neighborhood search",
+    "matched_experience": "positive_easy_to_use",
+    "usual_time_minutes": "",
+    "app_time_minutes": "",
+    "trust_rating": "",
+    "comment": "Family member with celiac disease searched Adams Morgan and said the app was helpful and easy to understand.",
+    "tester_number": 3,
+    "collection_method": "told_in_person",
+    "submitted_at": "2026-10-25T00:00:00.000000+00:00"
   }
 ]
