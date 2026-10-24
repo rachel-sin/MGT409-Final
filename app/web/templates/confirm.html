@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="confirm-panel">
+  <h1>Is this the restaurant you meant?</h1>
+  <div class="result-card">
+    <h2>{{ restaurant.name }}</h2>
+    <p class="result-address">{{ restaurant.address }}{% if restaurant.cuisine %} · {{ restaurant.cuisine }}{% endif %}</p>
+    {% if restaurant.multiple_locations_note %}
+    <p class="multi-location-note"><i class="ti ti-map-pin" aria-hidden="true"></i> {{ restaurant.multiple_locations_note }}</p>
+    {% endif %}
+  </div>
+  <form action="/confirm/{{ pending_id }}" method="post" id="confirm-form">
+    <button type="submit" id="confirm-button">Yes, show me the safety info</button>
+  </form>
+  <p class="loading-note" id="confirm-loading-note" hidden>Checking the evidence — usually under a minute.</p>
+  <p><a href="/">Not this one — search again</a></p>
+  <script>
+    document.getElementById('confirm-form').addEventListener('submit', function () {
+      document.getElementById('confirm-button').disabled = true;
+      document.getElementById('confirm-button').textContent = 'Checking…';
+      document.getElementById('confirm-loading-note').hidden = false;
+    });
+  </script>
+</section>
+{% endblock %}

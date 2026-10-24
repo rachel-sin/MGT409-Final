@@ -1,6 +1,8 @@
-"""Shared structured I/O types passed between the 4 agents. Every claim
-the system makes carries a verbatim quote and a source URL back to where
-it came from, per the brief's core requirement.
+"""Shared structured I/O types passed between the agents (5 total: two
+Finder modes — confirm-one and discover-many — plus Evidence Extractor,
+Skeptic, and Ranker; a single-restaurant evaluation touches 4 of the 5).
+Every claim the system makes carries a verbatim quote and a source URL
+back to where it came from, per the brief's core requirement.
 """
 
 from typing import Literal
@@ -39,6 +41,14 @@ class RestaurantCandidate(BaseModel):
     neighborhood: str | None = None
     cuisine: str | None = None
     existence_source_url: str = Field(description="URL of a fetched page that shows this name and address together")
+    multiple_locations_note: str | None = Field(
+        default=None,
+        description="Set ONLY if this name matches a chain/brand with more than one DC location and no "
+        "neighborhood/cuisine hint was given to disambiguate — plain-English note telling the user which "
+        "location was picked and that others exist (e.g. 'BIBIBOP has multiple DC locations; this is the "
+        "Dupont Circle one — add a neighborhood to pick a different one.'). Leave null for a single-location "
+        "restaurant, or when a hint already disambiguated which location to use.",
+    )
 
 
 class CandidateBatch(BaseModel):
@@ -112,8 +122,16 @@ class SafetyAssessment(BaseModel):
     restaurant: RestaurantCandidate
     safety_level: SafetyLevel
     confidence: ConfidenceLevel
-    supporting_claims: list[ReviewedClaim]
-    contradicting_claims: list[ReviewedClaim]
+    supporting_claims: list[ReviewedClaim] = Field(
+        description="EVERY credible, non-promotional reviewed claim with direction='positive' — not a curated "
+        "highlight reel. If the own-site evidence and a third-party source (e.g. a review aggregator) both "
+        "corroborate the same fact, include both; dropping a real corroborating source hides evidence from the "
+        "user, even if it wasn't needed to reach the tier."
+    )
+    contradicting_claims: list[ReviewedClaim] = Field(
+        description="EVERY credible, non-promotional reviewed claim with direction='negative' — same completeness "
+        "requirement as supporting_claims."
+    )
     short_summary: str = Field(
         description="ONE short, plain-English sentence for a results-list card — no internal rule names, no tier "
         "identifiers (e.g. never write 'accommodates_caution_cross_contamination'), no jargon like 'recency "

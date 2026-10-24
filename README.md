@@ -1,6 +1,8 @@
 # Celiac-Safe DC Restaurant Ranker
 
-Ranks Washington, DC restaurants by **evidence of celiac safety** — dedicated prep, staff cross-contamination awareness, real reports of reviewers getting sick or being fine — not just "has a gluten-free menu." Every claim the app makes is backed by a verbatim quote and a source link. Built with a 4-agent [PydanticAI](https://ai.pydantic.dev/) pipeline (Finder → Evidence Extractor → Skeptic → Ranker) running on `gpt-6-luna` via Portkey.
+Ranks Washington, DC restaurants by **evidence of celiac safety** — dedicated prep, staff cross-contamination awareness, real reports of reviewers getting sick or being fine — not just "has a gluten-free menu." Every claim the app makes is backed by a verbatim quote and a source link. Built with 5 [PydanticAI](https://ai.pydantic.dev/) agents (two Finder modes — confirm one named restaurant, or discover many by neighborhood/cuisine — then Evidence Extractor → Skeptic → Ranker; a single-restaurant evaluation touches 4 of the 5) running on `gpt-6-luna` via Portkey.
+
+Browse by neighborhood/cuisine (results are sorted best-evidence-first, never pre-filtered to only "safe" ones, with a "Show more restaurants" option beyond the first few), or look up a specific restaurant by name — a short/ambiguous name shows a "did you mean X?" confirmation before running the full pipeline, and a multi-location chain is flagged explicitly rather than silently picking one branch.
 
 Full build history, design decisions, and every caught bug (with root cause and fix) are in [`HARNESS.md`](HARNESS.md) and [`FAILURES.md`](FAILURES.md).
 
@@ -23,18 +25,18 @@ Full build history, design decisions, and every caught bug (with root cause and 
 
 4. **Run the server:**
    ```bash
-   python3 -m uvicorn app.web.server:app --reload --port 8010
+   python3 -m uvicorn app.web.server:app --port 8010
    ```
-   Open **http://localhost:8010** in your browser.
+   Open **http://localhost:8010** in your browser. (Skip `--reload` unless you're actively editing code — it restarts the server, and an in-flight search, on every file save.)
 
 That's it — no Node, no database, no build step.
 
 ## Live vs. cached mode
 
-`data/cached_restaurants.json` is a small, real, included test dataset — **20 DC restaurants**, each run through the full live pipeline once and cached with a 30-day expiry (`app/harness/cache.py`). This is the small-dataset-plus-switch the course requires:
+`data/cached_restaurants.json` is a small, real, included test dataset — **34 DC restaurants** as of this writing (built as 20 via `scripts/build_cached_dataset.py`, grown since through real named-restaurant searches and live testing — this number keeps growing with use), each run through the full live pipeline once and cached with a 30-day expiry (`app/harness/cache.py`). This is the small-dataset-plus-switch the course requires:
 
 - **Cached restaurant** (already in `data/cached_restaurants.json`, not yet 30 days old): the app returns the previously-verified result instantly, at zero additional token cost. The restaurant's detail page shows a "Served from our cache" note with the verification date, instead of a live run log.
-- **Live restaurant** (not cached, or the cache entry has expired): the app runs the full 4-agent pipeline for real, live, right then.
+- **Live restaurant** (not cached, or the cache entry has expired): the app runs the full Finder → Evidence Extractor → Skeptic → Ranker pipeline for real, live, right then.
 
 There's no manual switch to flip — it's automatic per restaurant, based on what's actually in the cache. To force a restaurant back to live mode, delete its entry from `data/cached_restaurants.json` (or wait 30 days).
 
@@ -48,18 +50,19 @@ The 14 neighborhoods in the search dropdown are the ones the cached dataset was 
 ├── requirements.txt
 ├── .env.example
 ├── app/
-│   ├── agents/            the 4 PydanticAI agents (finder, evidence_extractor, skeptic, ranker)
-│   ├── harness/           audit_log, cache, grounding, input_guard — the code-level guardrails
-│   ├── web/               FastAPI app, Jinja2 templates, static CSS
+│   ├── agents/            the 5 PydanticAI agents (finder.py has 2: confirm-one + discover-many; plus evidence_extractor, skeptic, ranker)
+│   ├── harness/           audit_log, cache, discovery_cache, grounding, input_guard — the code-level guardrails
+│   ├── web/               FastAPI app, Jinja2 templates (incl. confirm.html), static CSS
 │   ├── models.py          shared Pydantic schemas passed between agents
-│   ├── pipeline.py        orchestrates the 4 agents, applies the code-level safety backstops
+│   ├── pipeline.py        orchestrates the agents, applies the code-level safety backstops
 │   └── runtime.py         shared Portkey-routed model, env/config loading
 ├── data/
-│   ├── cached_restaurants.json     the 20-restaurant cached dataset
+│   ├── cached_restaurants.json     the cached dataset (34 restaurants as of this writing)
 │   ├── golden_set.json             10 independently-labeled restaurants for the accuracy check
 │   ├── competitor_comparison.md    Find Me Gluten Free / Google comparison, with screenshots
 │   ├── neighborhood_suggestions.json, user_feedback.json   real data captured from the live app
-├── scripts/               one-off scripts: build the dataset, run the golden-set eval,
+│   └── discovery_cache.json        24h discovery-result cache (gitignored, regenerated by use)
+├── scripts/               one-off scripts: build/refresh the dataset, run the golden-set eval,
 │                          compute tokenomics from real logs, the prompt-injection test, etc.
 ├── report_assets/         diagram + screenshots used in report.html / slides.html
 └── logs/runs/             per-run audit logs (gitignored — regenerated by use, not shipped)
@@ -69,12 +72,14 @@ The 14 neighborhoods in the search dropdown are the ones the cached dataset was 
 
 All run from the repo root with the same `.env` setup as above.
 
+- `python3 scripts/test_web_access.py` — Step 1's web-access feasibility test (confirms the web search tool works through Portkey/`gpt-6-luna` before anything else depends on it).
 - `python3 scripts/run_single_restaurant.py "<name>" "<hint>"` — run one restaurant through the full pipeline, print every stage's output.
 - `python3 scripts/run_discovery.py "<neighborhood>" "<cuisine>" <max_candidates>` — discovery + full pipeline for a list of restaurants.
 - `python3 scripts/run_golden_eval.py` — the 10-restaurant golden-set accuracy check (reads from the cache, no new API calls).
 - `python3 scripts/compute_tokenomics.py` — aggregates real token/cost data from every run log in `logs/runs/`.
 - `python3 scripts/test_prompt_injection.py` — the required prompt-injection defense test, run live against the real Skeptic/Ranker agents.
 - `python3 scripts/build_cached_dataset.py` — (re)builds `data/cached_restaurants.json` by running discovery + the full pipeline across real DC neighborhoods.
+- `python3 scripts/refresh_cached_dataset.py` — re-runs the full live pipeline for every restaurant already in the cached dataset, overwriting each entry. Used after a prompt/logic fix to re-evaluate the existing dataset under corrected rules rather than leaving stale pre-fix verdicts in place.
 
 ## Safety and cost guardrails
 

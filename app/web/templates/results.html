@@ -5,7 +5,7 @@
     {% if restaurant_name %}
       Looking up <strong>{{ restaurant_name }}</strong>{% if neighborhood or cuisine %} ({{ [neighborhood, cuisine] | select | join(', ') }}){% endif %}.
     {% else %}
-      Showing up to {{ max_candidates }} result(s){% if neighborhood %} in <strong>{{ neighborhood }}</strong>{% endif %}{% if cuisine %} ({{ cuisine }}){% endif %}.
+      Showing {{ results|length }} result{{ 's' if results|length != 1 else '' }}{% if neighborhood %} in <strong>{{ neighborhood }}</strong>{% endif %}{% if cuisine %} ({{ cuisine }}){% endif %}, ranked best-evidence-first.
     {% endif %}
     <a href="/">New search</a>
   </p>
@@ -28,9 +28,11 @@
     {% endif %}
   {% endif %}
 
-  <div class="result-grid">
+  <div class="result-list">
     {% for r in results %}
     <a class="result-card {{ r.assessment.safety_level | safety_class }}" href="/restaurant/{{ r.run_log.run_id }}">
+      <div class="result-rank" aria-hidden="true">{{ loop.index }}</div>
+      <div class="result-card-body">
       <div class="result-card-header">
         <h2>{{ r.restaurant.name }}</h2>
         <span class="tier-badge {{ r.assessment.safety_level | safety_class }}">
@@ -39,6 +41,9 @@
         </span>
       </div>
       <p class="result-address">{{ r.restaurant.address }}{% if r.restaurant.cuisine %} · {{ r.restaurant.cuisine }}{% endif %}</p>
+      {% if r.restaurant.multiple_locations_note %}
+      <p class="multi-location-note"><i class="ti ti-map-pin" aria-hidden="true"></i> {{ r.restaurant.multiple_locations_note }}</p>
+      {% endif %}
 
       <div class="confidence-row">
         <span class="confidence-label">Confidence</span>
@@ -55,6 +60,7 @@
       </div>
 
       <p class="result-rationale">{{ r.assessment.short_summary }}</p>
+      </div>
     </a>
     {% endfor %}
   </div>

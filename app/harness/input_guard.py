@@ -30,19 +30,23 @@ INJECTION_MARKERS = [
 
 
 def validate_search_input(
-    neighborhood: str | None, cuisine: str | None, field_names: tuple[str, str] = ("Neighborhood", "Cuisine")
+    neighborhood: str | None,
+    cuisine: str | None,
+    field_names: tuple[str, str] = ("Neighborhood", "Cuisine"),
+    max_length: int = MAX_FILTER_LENGTH,
 ) -> str | None:
     """Returns a user-facing rejection message if the input should be
     blocked, or None if it's fine to proceed. Reused beyond the search form
-    (e.g. the feedback form's free-text fields) — pass field_names to get an
-    accurate label in the rejection message for those cases."""
+    (e.g. the feedback form's free-text fields, the restaurant-name field
+    with a longer max_length) — pass field_names to get an accurate label in
+    the rejection message for those cases."""
     for field_name, value in zip(field_names, (neighborhood, cuisine)):
         if not value:
             continue
-        if len(value) > MAX_FILTER_LENGTH:
+        if len(value) > max_length:
             return (
                 f"{field_name} looks too long to be a real neighborhood or cuisine name "
-                f"(max {MAX_FILTER_LENGTH} characters) — please enter something shorter."
+                f"(max {max_length} characters) — please enter something shorter."
             )
         lowered = value.lower()
         hit = next((m for m in INJECTION_MARKERS if m in lowered), None)

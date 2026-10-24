@@ -424,7 +424,12 @@ class PipelineResult:
     cached_at: str | None = None  # set when this result came from the cache, not a live run
 
 
-async def run_for_restaurant(name: str, hint: str | None = None) -> PipelineResult:
+async def resolve_restaurant(name: str, hint: str | None = None) -> tuple[RestaurantCandidate, RunLog]:
+    """Just the Finder half of a named lookup — confirms the restaurant
+    exists and finds its address, without running the costlier evidence/
+    skeptic/ranker calls yet. Used for the "did you mean X?" confirm step
+    (FAILURES.md #18) so a bad name match doesn't burn tokens on the wrong
+    restaurant before the user has even seen what was found."""
     run_log = new_run_log(name)
     finder_prompt = f"Restaurant name: {name}"
     if hint:
@@ -433,12 +438,16 @@ async def run_for_restaurant(name: str, hint: str | None = None) -> PipelineResu
         finder_result = await _run_agent_logged(
             finder_agent, "finder", finder_prompt, run_log, extract_sources=_candidate_sources
         )
-        restaurant = finder_result.output
-        return await _run_evidence_to_assessment(restaurant, run_log)
+        return finder_result.output, run_log
     except Exception:
         run_log.overall_stop_reason = run_log.agent_calls[-1].stop_reason if run_log.agent_calls else "error"
         save_run_log(run_log)
         raise
+
+
+async def run_for_restaurant(name: str, hint: str | None = None) -> PipelineResult:
+    restaurant, run_log = await resolve_restaurant(name, hint)
+    return await _run_evidence_to_assessment(restaurant, run_log)
 
 
 @dataclass

@@ -70,6 +70,13 @@ Rules:
   toward the strongest tier"), never by writing the raw tier name itself.
 - Leave override_applied as false and override_reason as null — those are
   set by code after you respond, not by you.
+- supporting_claims and contradicting_claims must include EVERY credible,
+  non-promotional claim in the batch with that direction — not just the one
+  or two you used to pick the tier. If the restaurant's own site AND a
+  third-party source (e.g. a review aggregator) both corroborate the same
+  fact, include both; never drop a real corroborating claim just because it
+  wasn't strictly necessary to reach the tier. A diner reading the detail
+  page should see all the real evidence, not a curated highlight reel.
 
 ## Grounding — never rely on your own general knowledge
 

@@ -55,6 +55,15 @@ Rules:
 - A generic "we have gluten-free options!" marketing line is weak evidence —
   prefer specific claims about fryers, prep areas, staff training, or a named
   reviewer's real experience.
+- Don't list near-duplicate claims that restate the SAME underlying fact from
+  the restaurant's own site (e.g. the FAQ page and the menu page both saying
+  the kitchen is gluten-free). One restaurant's own site repeating itself
+  isn't several pieces of evidence — it's one. Pick the single clearest,
+  most specific quote for that fact and skip the repeats. This doesn't apply
+  across DIFFERENT facts (a kitchen-wide claim and a separate tortilla-specific
+  claim are both worth keeping) or across different SOURCES (an own-site claim
+  and a third-party aggregator corroborating the same fact are still two
+  independent pieces of evidence — keep both).
 - If you find little or nothing relevant after searching both the restaurant's
   own site and third-party sources, return an empty (or near-empty) claims
   list and explain why in `note` — do not pad it with weak or invented claims

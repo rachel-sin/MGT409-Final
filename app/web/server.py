@@ -13,9 +13,17 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from app.harness.audit_log import estimate_cost_usd
+from app.harness.audit_log import RunLog, estimate_cost_usd
 from app.harness.input_guard import validate_search_input
-from app.pipeline import SAFETY_LEVEL_RANK_ORDER, AgentCapExceeded, PipelineResult, run_for_discovered_list, run_for_restaurant
+from app.models import RestaurantCandidate
+from app.pipeline import (
+    SAFETY_LEVEL_RANK_ORDER,
+    AgentCapExceeded,
+    PipelineResult,
+    _run_evidence_to_assessment,
+    resolve_restaurant,
+    run_for_discovered_list,
+)
 from app.web.labels import confidence_dots, safety_class, safety_icon, safety_label
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -73,6 +81,21 @@ class StoredSearch:
 # the restaurant it belongs to.
 SEARCHES_STORE: dict[str, StoredSearch] = {}
 RESULTS_STORE: dict[str, tuple[PipelineResult, str]] = {}  # run_id -> (result, search_id)
+
+
+@dataclass
+class PendingConfirmation:
+    restaurant: RestaurantCandidate
+    run_log: RunLog
+    neighborhood: str
+    cuisine: str
+
+
+# "Did you mean X?" confirm step (FAILURES.md #18): a named-restaurant search
+# resolves the name via the Finder ALONE first (cheap, one call) and waits
+# for the user to confirm before running the costlier evidence/skeptic/
+# ranker calls on what might be the wrong restaurant for an ambiguous name.
+PENDING_STORE: dict[str, PendingConfirmation] = {}
 
 MAX_CANDIDATES = 3  # kept small — each candidate is a real, slow, costly live run
 
@@ -151,49 +174,113 @@ async def search(restaurant_name: str = Form(""), neighborhood: str = Form(""), 
     if restaurant_name:
         # Named-restaurant lookup (found missing in Step 9's real user test —
         # the form only had neighborhood/cuisine, so a tester had nowhere
-        # obvious to type a specific restaurant). Uses run_for_restaurant
-        # directly instead of discovery; neighborhood/cuisine (if given) are
-        # passed through as a disambiguating hint, same as the CLI script.
-        rejection = validate_search_input(restaurant_name, None, field_names=("Restaurant name", ""))
+        # obvious to type a specific restaurant). Resolves the name via the
+        # Finder ALONE first (resolve_restaurant), then shows a "did you
+        # mean X?" confirm step (FAILURES.md #18) before spending the
+        # costlier evidence/skeptic/ranker calls on what a short/ambiguous
+        # name might have mismatched. neighborhood/cuisine (if given) are
+        # passed through as a disambiguating hint.
+        rejection = validate_search_input(restaurant_name, None, field_names=("Restaurant name", ""), max_length=120)
         if rejection:
-            results, note, search_likely_failed, input_rejected = [], rejection, False, True
+            SEARCHES_STORE[search_id] = StoredSearch(
+                results=[],
+                note=rejection,
+                search_likely_failed=False,
+                input_rejected=True,
+                restaurant_name=restaurant_name,
+                neighborhood=neighborhood,
+                cuisine=cuisine,
+            )
+            return RedirectResponse(f"/results/{search_id}", status_code=303)
+
+        hint = ", ".join(p for p in (neighborhood, cuisine) if p) or None
+        try:
+            restaurant, run_log = await resolve_restaurant(restaurant_name, hint)
+        except AgentCapExceeded as exc:
+            note = f"Hit a cost/time limit: {exc}"
+            search_likely_failed = True
+        except Exception as exc:  # noqa: BLE001
+            note = f"Couldn't confirm this restaurant ({type(exc).__name__}): {exc}"
+            search_likely_failed = True
         else:
-            hint = ", ".join(p for p in (neighborhood, cuisine) if p) or None
-            try:
-                result = await run_for_restaurant(restaurant_name, hint)
-                results, note, search_likely_failed, input_rejected = [result], None, False, False
-            except AgentCapExceeded as exc:
-                results, note, search_likely_failed, input_rejected = [], f"Hit a cost/time limit: {exc}", True, False
-            except Exception as exc:  # noqa: BLE001
-                results, note, search_likely_failed, input_rejected = (
-                    [],
-                    f"Couldn't confirm this restaurant ({type(exc).__name__}): {exc}",
-                    True,
-                    False,
-                )
-    else:
-        outcome = await run_for_discovered_list(neighborhood or None, cuisine or None, MAX_CANDIDATES)
-        results, note, search_likely_failed, input_rejected = (
-            outcome.results,
-            outcome.note,
-            outcome.search_likely_failed,
-            outcome.input_rejected,
+            pending_id = uuid.uuid4().hex[:8]
+            PENDING_STORE[pending_id] = PendingConfirmation(
+                restaurant=restaurant, run_log=run_log, neighborhood=neighborhood, cuisine=cuisine
+            )
+            return RedirectResponse(f"/confirm/{pending_id}", status_code=303)
+
+        SEARCHES_STORE[search_id] = StoredSearch(
+            results=[],
+            note=note,
+            search_likely_failed=search_likely_failed,
+            input_rejected=False,
+            restaurant_name=restaurant_name,
+            neighborhood=neighborhood,
+            cuisine=cuisine,
         )
+        return RedirectResponse(f"/results/{search_id}", status_code=303)
+
+    outcome = await run_for_discovered_list(neighborhood or None, cuisine or None, MAX_CANDIDATES)
+    SEARCHES_STORE[search_id] = StoredSearch(
+        results=outcome.results,
+        note=outcome.note,
+        search_likely_failed=outcome.search_likely_failed,
+        input_rejected=outcome.input_rejected,
+        restaurant_name=restaurant_name,
+        neighborhood=neighborhood,
+        cuisine=cuisine,
+    )
+    for r in outcome.results:
+        RESULTS_STORE[r.run_log.run_id] = (r, search_id)
+    # Redirect (not render directly) so the results page has its own URL —
+    # refreshing it re-displays the same search instead of resubmitting the
+    # form, and a detail page can link back to it by that URL.
+    return RedirectResponse(f"/results/{search_id}", status_code=303)
+
+
+@app.get("/confirm/{pending_id}", response_class=HTMLResponse)
+async def confirm_restaurant(request: Request, pending_id: str):
+    pending = PENDING_STORE.get(pending_id)
+    if pending is None:
+        return templates.TemplateResponse(request, "not_found.html", {}, status_code=404)
+    return templates.TemplateResponse(request, "confirm.html", {"restaurant": pending.restaurant, "pending_id": pending_id})
+
+
+@app.post("/confirm/{pending_id}")
+async def confirm_restaurant_submit(pending_id: str):
+    pending = PENDING_STORE.pop(pending_id, None)
+    search_id = uuid.uuid4().hex[:8]
+    if pending is None:
+        SEARCHES_STORE[search_id] = StoredSearch(
+            results=[],
+            note="This confirmation link has expired — please search again.",
+            search_likely_failed=True,
+            input_rejected=False,
+            restaurant_name="",
+            neighborhood="",
+            cuisine="",
+        )
+        return RedirectResponse(f"/results/{search_id}", status_code=303)
+
+    try:
+        result = await _run_evidence_to_assessment(pending.restaurant, pending.run_log)
+        results, note, search_likely_failed = [result], None, False
+    except AgentCapExceeded as exc:
+        results, note, search_likely_failed = [], f"Hit a cost/time limit: {exc}", True
+    except Exception as exc:  # noqa: BLE001
+        results, note, search_likely_failed = [], f"Couldn't evaluate this restaurant ({type(exc).__name__}): {exc}", True
 
     SEARCHES_STORE[search_id] = StoredSearch(
         results=results,
         note=note,
         search_likely_failed=search_likely_failed,
-        input_rejected=input_rejected,
-        restaurant_name=restaurant_name,
-        neighborhood=neighborhood,
-        cuisine=cuisine,
+        input_rejected=False,
+        restaurant_name=pending.restaurant.name,
+        neighborhood=pending.neighborhood,
+        cuisine=pending.cuisine,
     )
     for r in results:
         RESULTS_STORE[r.run_log.run_id] = (r, search_id)
-    # Redirect (not render directly) so the results page has its own URL —
-    # refreshing it re-displays the same search instead of resubmitting the
-    # form, and a detail page can link back to it by that URL.
     return RedirectResponse(f"/results/{search_id}", status_code=303)
 
 
@@ -206,10 +293,14 @@ async def search_more(search_id: str):
         return RedirectResponse(f"/results/{search_id}", status_code=303)
 
     already_shown = [r.restaurant.name for r in stored.results]
+    already_shown_slugs = {n.strip().lower() for n in already_shown}
     outcome = await run_for_discovered_list(
         stored.neighborhood or None, stored.cuisine or None, MAX_CANDIDATES, exclude_names=already_shown
     )
-    new_results = [r for r in outcome.results if r.restaurant.name not in already_shown]
+    # The exclusion above is just a prompt instruction to the Finder (best
+    # effort, not guaranteed) — also filter case-insensitively ourselves so
+    # a near-duplicate name doesn't sneak a repeat into the list.
+    new_results = [r for r in outcome.results if r.restaurant.name.strip().lower() not in already_shown_slugs]
     combined = stored.results + new_results
     combined.sort(key=lambda r: SAFETY_LEVEL_RANK_ORDER.index(r.assessment.safety_level))
     stored.results = combined

@@ -33,6 +33,17 @@ For each claim, decide:
   reviewer reported being fine — only mark it contradicted if a claim
   conflicts with that SAME account (e.g. the same review elsewhere says they
   had no symptoms).
+
+  Apply this consistently: if the SAME restaurant's own general policy
+  statement conflicts with a specific positive claim (e.g. the restaurant's
+  own site says "we are not an allergen-free facility, cross-contact can
+  happen" and a DIFFERENT own-site quote says "the entire kitchen is
+  gluten-free"), mark EVERY positive claim that conflicts with it as
+  contradicted — not just the first or most obvious one. Two differently-
+  worded claims asserting the same underlying fact (e.g. two separate quotes
+  both claiming a dedicated GF kitchen) must get the SAME contradiction
+  verdict against the same conflicting evidence; don't flag one and miss the
+  other.
 - skeptic_note: one plain sentence explaining your flags, or why there are
   none.
 

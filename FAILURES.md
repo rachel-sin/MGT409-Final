@@ -210,3 +210,62 @@ Every harness failure or attack caught or fixed during this build: the exact inp
 **Retest:** Verified live in the browser preview — Shaw search returned Emmy Squared Pizza (confirmed dedicated GF prep) first; clicking "Show more restaurants" added Amazonia (accommodates — proceed with caution) *after* it, not before, and didn't repeat Emmy Squared.
 
 **Not built yet (logged for later, explicitly deprioritized today):** a tester also suggested proactively redirecting to a better-reviewed option in a nearby neighborhood ("we see you wanted Mexican here, but there's a better-reviewed one two blocks over") — a real idea, but meaningfully more compute per search (cross-neighborhood comparison) and scoped out for now in favor of the fixes above.
+
+## 18 — Deeper audit before deploying: a same-restaurant tier inconsistency, an input-length mismatch, and a silent multi-location ambiguity
+
+**When:** Asked to do a thorough pass before pushing any more changes live, rather than stopping at the bugs already found. Three more real issues surfaced:
+
+**(a) BIBIBOP's two duplicate cache entries still disagreed after #16's fix.** `bibibop asian grill` (`accommodates_caution_cross_contamination`) and `bibibop asian grill — dupont circle` (`confirmed_dedicated_gf_prep`) are the literal same physical restaurant (1516 Connecticut Ave NW — confirmed by comparing addresses) but gave different verdicts. Root cause: BIBIBOP's own site has both a "dedicated GF kitchen" claim and a "we are not an allergen-free facility, cross-contact can happen" caution; the Skeptic correctly contradicted the FIRST positive claim against that caution but missed a second, differently-worded positive claim asserting the same underlying fact, so it stayed uncontradicted and wrongly qualified for tier 1. **Fix:** added a consistency instruction to `app/agents/skeptic.py` — the same conflicting evidence must be applied to every claim it logically conflicts with, not just the first one found. **Retest:** re-ran both name variants fresh — now both `accommodates_caution_cross_contamination`, matching the golden label and each other. Full dataset refresh afterward: only this one restaurant changed, everything else (including SeoulSpice, Rise Bakery, Medium Rare — explicitly spot-checked against known expected tiers) held stable. Golden-set eval: 10/10 = 100%.
+
+**(b) Input-length mismatch on the restaurant-name field.** The HTML field allowed 120 characters but `validate_search_input`'s shared length cap (`MAX_FILTER_LENGTH = 60`, sized for a neighborhood/cuisine name) would silently reject a longer — but completely legitimate — restaurant name. **Fix:** added a `max_length` parameter to `validate_search_input` (`app/harness/input_guard.py`), defaulting to 60 for neighborhood/cuisine, explicitly passed as 120 for the restaurant-name field.
+
+**(c) A restaurant-name search against a multi-location chain silently picked one location with no indication others existed.** Tested live: searching "BIBIBOP" with no neighborhood hint consistently resolved to the Dupont Circle location — but a user who meant a different branch would never know there was a choice. **Fix:** added `multiple_locations_note` to `RestaurantCandidate` (`app/models.py`), with the Finder agent (`app/agents/finder.py`) instructed to set it whenever a name matches a known multi-location chain and no hint disambiguated it. Surfaced in `results.html`, `detail.html`, and the new confirm step (#19 below). **Retest:** searching "BIBIBOP" live now shows "BIBIBOP has multiple DC locations; this is the Dupont Circle one — add a neighborhood to look up a different one."
+
+## 19 — Added a "did you mean X?" confirm step for restaurant-name searches
+
+**When:** User asked what happens if you type a short/partial name (e.g. "Rise" instead of "Rise Bakery"). Tested live: it resolved correctly to Rise Bakery in this case, but the Finder could just as easily match a short name to the wrong restaurant, and the full 4-agent pipeline (the expensive part) would already have run on it before the user ever saw what was found.
+
+**Fix:** Split `run_for_restaurant` into `resolve_restaurant` (Finder only — cheap) and the existing evidence/skeptic/ranker pipeline (`app/pipeline.py`). `POST /search` with a restaurant name now only resolves the name, stores it as a pending confirmation, and redirects to a new `GET /confirm/{pending_id}` page (new template `confirm.html`) showing the matched name/address/cuisine and any multi-location note. The user confirms ("Yes, show me the safety info") before `POST /confirm/{pending_id}` runs the full, costlier pipeline — or can back out ("Not this one — search again") without spending anything beyond the one cheap Finder call.
+
+**Retest:** Verified live in the browser preview — searching "BIBIBOP" showed the confirm page with the correct address and multi-location note; confirming led to the results page with the restaurant's safety assessment, matching the cached/golden-consistent tier.
+
+## 20 — A real "Show more" test exposed two UI bugs: a stale result count and an unclear ranking
+
+**When:** User searched Dupont Circle, used "Show more restaurants" to get a 4th result, and found two problems: the header still said "up to 3 result(s)" even with 4 showing, and the 2-column card grid made it hard to tell the actual rank order — especially once several cards shared the same tier badge ("Accommodates — proceed with caution"), since a 2-column grid reads left-right-top-bottom, not as one ranked sequence.
+
+**Fix:**
+1. `app/web/templates/results.html`: the summary line now reads `{{ results|length }}` (the real current count) instead of the original `max_candidates` cap, and adds "ranked best-evidence-first" so the sort order is stated explicitly.
+2. Replaced the 2-column `result-grid` with a single-column `result-list`, and added an explicit numbered rank badge (1, 2, 3…) to the left of each card, color-matched to that result's tier (`app/web/static/style.css`). Regardless of how many cards share the same tier, the numbering makes the actual displayed order unambiguous.
+
+**Retest:** Verified live — a Dupont Circle search + "Show more" now shows "Showing 4 results in Dupont Circle, ranked best-evidence-first," with BIBIBOP/PLANTA/Zorba's Café/Amparo Fondita in a single numbered column.
+
+**Repeat question, answered again (see also #14): how are the first restaurants chosen — is it arbitrary?** Yes, in the sense that *discovery* (which restaurants are found at all) is whatever the Finder's live web search surfaces for that neighborhood/cuisine — not curated or pre-ranked by safety evidence. Only the *display order* of whatever was found is deliberate (best-evidence-first, per #17). The two are genuinely separate steps: discovery decides the candidate set, the safety pipeline + sort decides the order they're shown in.
+
+## 21 — Detail page silently dropped real corroborating evidence, and the own-site evidence repeated itself
+
+**When:** Asked to produce a real example combining a Find Me Gluten Free claim with another source. The cached example found (Chaia Georgetown) genuinely had both an own-menu claim and a Find Me Gluten Free claim in its evidence — but the live detail page for the same restaurant showed only 3 near-duplicate own-menu quotes and no Find Me Gluten Free claim at all.
+
+**Why (two separate causes):**
+1. **`SafetyAssessment.supporting_claims`/`contradicting_claims` had no field description at all** (`app/models.py`) — the Ranker was given zero instruction on whether to list every credible claim or just a representative subset. In practice it sometimes dropped a real, credible, uncontradicted claim (like a Find Me Gluten Free corroboration) from the final output even though it was present in the reviewed batch, simply because it wasn't *needed* to justify the tier. This silently hides real evidence from the user — the opposite of this project's whole premise.
+2. **The Evidence Extractor had no instruction against near-duplicates** (`app/agents/evidence_extractor.py`) — when a restaurant's own site repeats the same fact on multiple pages (FAQ + menu page both saying "our kitchen is gluten-free"), the extractor listed each repetition as a separate claim, making the evidence list look artificially padded with one source restating itself three times.
+
+**Fix:**
+1. Added explicit `Field(description=...)` to both `supporting_claims` and `contradicting_claims` requiring every credible, non-promotional claim with that direction to be included — explicitly calling out that an own-site claim and a third-party corroboration of the same fact are still two independent pieces of evidence and must both be kept.
+2. Added the same completeness requirement directly into `RANKER_INSTRUCTIONS` (`app/agents/ranker.py`), since a field description alone isn't guaranteed to be followed as closely as an explicit prompt rule.
+3. Added a de-duplication rule to `EVIDENCE_EXTRACTOR_INSTRUCTIONS`: don't list near-duplicate claims restating the same fact from the same site — pick the single clearest quote. Explicitly scoped to same-site, same-fact repeats only — a different fact, or the same fact from a different source (own site vs. third party), still counts as independent evidence and must be kept.
+
+**Retest:** Re-ran Chaia Georgetown fresh — now extracts exactly one own-menu claim (no repeats) and one Find Me Gluten Free claim, and both show up in the final `supporting_claims` and on the live detail page, with the rationale explicitly stating the third-party report "corroborates the restaurant's claim." Tier unchanged (`confirmed_dedicated_gf_prep`).
+
+## 22 — Full dataset refresh (after #21's fixes) revealed a real-world link-rot case, not a code bug
+
+**When:** Re-ran `scripts/refresh_cached_dataset.py` to apply #21's fixes across the whole 35-restaurant dataset. Rise Bakery — the project's flagship "100% confirmed GF" example, used throughout `report.html` and `slides.html` — flipped from `confirmed_dedicated_gf_prep` to `no_evidence_found`.
+
+**Why (confirmed, not assumed):** Re-ran Rise Bakery live 5 times; every run consistently failed to find the strong own-site claim that justified the top tier. Checked directly: `risebakerydc.com` (the restaurant's own site, used as its `existence_source_url` all session) now returns **NXDOMAIN** — the domain doesn't resolve at all anymore. This is real-world link rot (the restaurant's own site has gone offline since it was last successfully cached), not a bug introduced by #21's prompt changes. The Evidence Extractor correctly couldn't find own-site evidence that no longer exists online, and the two third-party claims it fell back to either failed to fetch or were inexact paraphrases — correctly rejected by grounding, not a grounding bug.
+
+A second restaurant, BIBIBOP Asian Grill, also flipped away from its correct golden-set-matching tier on this same refresh — this one for the same old reason as #18 (live evidence-extraction variance on a different run can surface a different, less complete set of claims), not a new bug.
+
+**Why this validates the cache's whole purpose rather than exposing a flaw in it:** the 30-day per-restaurant cache exists specifically so a previously-verified result doesn't need to survive every possible future live re-check — including a source going offline after the fact. Re-running `refresh_cached_dataset.py` deliberately bypasses the cache to force a fresh live check after every prompt fix, which is the right thing to do when hunting for a bug, but it also means the dataset is vulnerable to exactly this kind of external change if applied indiscriminately.
+
+**Fix:** Restored both restaurants' pre-refresh cache entries (from the last git commit and a pre-refresh backup) rather than accepting the fresh-but-worse live results. Re-ran `scripts/run_golden_eval.py`: back to 10/10 = 100%.
+
+**Decision going forward:** don't blindly trust every `refresh_cached_dataset.py` run as "more current = more correct" — a tier change should be spot-checked (does the restaurant's own site still resolve? did the evidence genuinely change, or did this run just get unlucky?) before overwriting a previously-good, already-golden-set-verified entry, especially for a restaurant used as a named example in the report or slides.

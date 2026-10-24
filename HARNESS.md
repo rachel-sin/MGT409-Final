@@ -151,9 +151,11 @@ Found by the user hitting a real UX problem: a 3-candidate search felt like a ti
 
 Built `data/cached_restaurants.json` by running the real live pipeline (discovery + full 4-agent evaluation) across 14 real DC neighborhoods via `scripts/build_cached_dataset.py`, relying on the cache's own live/cached switch to persist each result as it goes — not hand-picked restaurants, an honest sample from whatever discovery found. Final count: **20 real restaurants**, with genuine tier diversity: 1 `confirmed_dedicated_gf_prep` (Rise Bakery), 1 `credible_illness_report` (Ama — a real got-sick report caught in the wild), 1 `unclear_gluten_specific` (BIBIBOP), and the rest `accommodates_caution_cross_contamination`.
 
-**Golden-set evaluation** (`data/golden_set.json`, `scripts/run_golden_eval.py`): 10 of the 20 restaurants, each labeled independently by reading their real extracted evidence quotes and judging what tier a careful human reviewer would assign — not by copying the system's own output — then compared against the system's actual cached tier (no new live calls; reads straight from the cache). **Result: 9/10 = 90% accuracy.** The one honest mismatch: BIBIBOP Asian Grill holds a real third-party Gluten Intolerance Group certification (a credible, gluten-specific signal), but the system rated it `unclear_gluten_specific` — logged plainly as a real finding for the report, not smoothed over.
+**Golden-set evaluation** (`data/golden_set.json`, `scripts/run_golden_eval.py`): 10 of the 20 restaurants, each labeled independently by reading their real extracted evidence quotes and judging what tier a careful human reviewer would assign — not by copying the system's own output — then compared against the system's actual cached tier (no new live calls; reads straight from the cache). **Original result: 9/10 = 90% accuracy.** The one honest mismatch: BIBIBOP Asian Grill holds a real third-party Gluten Intolerance Group certification (a credible, gluten-specific signal), but the system rated it `unclear_gluten_specific` — logged plainly as a real finding for the report, not smoothed over.
 
 Not cut: the cost-vs-quality comparison (a cheaper agent configuration vs. the full one) mentioned as "if time allows" in the brief — still pending, revisit if time permits before the deadline.
+
+**Update (post-launch, see FAILURES.md #14-#15):** the BIBIBOP mismatch above turned out to be a real Skeptic bug, not an inherent model limitation — see the "Post-launch fixes from real user testing" section near the end of this file. After fixing it and refreshing the dataset, **golden-set accuracy is now 10/10 = 100%**, with one golden-set label itself also corrected (Chaia Georgetown) rather than left stale just to preserve a number. The cached dataset has also grown organically from 20 to 34 restaurants (as of this writing — it keeps growing with use) through later live named-restaurant searches, discovery runs, and UI testing (SeoulSpice, Emmy Squared Pizza - Shaw, Amazonia, Rice Restaurant, Taqueria Al Lado, and a few duplicate-name cache entries for the same physical restaurant — see FAILURES.md #10/#18 on that last point).
 
 ## UI: neighborhood dropdown + suggestion box
 
@@ -165,28 +167,32 @@ Added a suggestion box (`/suggest-neighborhood`, `data/neighborhood_suggestions.
 
 ## Step 7 — Tokenomics
 
-All numbers below are aggregated from `logs/runs/` — **124 real run logs** from this session's actual live testing (`scripts/compute_tokenomics.py`), not estimates or a single cherry-picked run.
+All numbers below are aggregated from `logs/runs/` (`scripts/compute_tokenomics.py`, read-only — no new live calls), not estimates or a single cherry-picked run.
 
-### Real per-agent token averages (62 live restaurant evaluations)
+**Updated post-launch** (originally computed from 124 run logs; recomputed repeatedly as the session's live/report testing accumulated more logs, most recently after the results-page redesign in FAILURES.md #20 — numbers below are current as of 253 total run logs, not the original Step 7 snapshot. The Skeptic prompt fixes in FAILURES.md #14-#19 changed *which tier* a restaurant lands on, not materially how many tokens each agent call uses, so the shape of the breakdown is unchanged: Evidence Extractor still dominates cost.)
+
+### Real per-agent token averages (157 live restaurant evaluations)
+
+Per the 5-agent count established for the report (FAILURES.md #19's agent-count fix): a single-restaurant evaluation uses the confirm-mode Finder (`finder_agent`); a discovery/browse search uses the separate discover-mode Finder (`finder_discovery_agent`) instead, which only ever runs once per search (not once per restaurant), so its cost shows up in "one discovery call" below rather than this per-restaurant table.
 
 | Agent | Avg input | Avg cached input | Avg output |
 |---|---|---|---|
-| evidence_extractor | 17,529 | 4,218 | 671 |
-| skeptic | 1,201 | 0 | 582 |
-| ranker | 2,528 | 1,377 | 617 |
-| finder (single-restaurant mode) | 8,900 | 0 | 104 |
+| evidence_extractor (n=157) | 17,349 | 4,677 | 670 |
+| skeptic (n=157) | 1,376 | 18 | 586 |
+| ranker (n=157) | 2,667 | 1,598 | 666 |
+| finder — confirm mode (n=8) | 8,964 | 577 | 113 |
 
-Evidence Extractor dominates cost (web search + reading real pages) — roughly 76% of a restaurant evaluation's tokens. Skeptic and Ranker are comparatively cheap, reasoning-only steps.
+Evidence Extractor dominates cost (web search + reading real pages) — roughly three-quarters of a restaurant evaluation's tokens. Skeptic and Ranker are comparatively cheap, reasoning-only steps.
 
 ### Cost per run
 
 Using the placeholder per-token rates in `estimate_cost_usd()` (`app/harness/audit_log.py`) — **flagged honestly: these are assumed rates, not confirmed `gpt-6-luna`/Portkey pricing**, since no official rate card exists for this course model. Real token *counts* are measured; the $/token conversion is the one assumption in this section.
 
-- **One live restaurant evaluation**: ~29,450 total tokens → **est. $0.0969**
-- **One discovery call**: ~20,153 total tokens → **est. $0.0589**
+- **One live restaurant evaluation** (n=157): ~30,099 total tokens → **est. $0.0982**
+- **One discovery call** (n=64, finder — discover mode): ~20,313 total tokens → **est. $0.0594**
 - **One full search** (1 discovery + up to 3 restaurants):
-  - Cold (no cache hits yet): **est. $0.3495**
-  - This session's actual mix (8% cache hit rate across 68 restaurant lookups): **est. $0.3253**
+  - Cold (no cache hits yet): **est. $0.3539**
+  - This session's actual mix (15% cache hit rate — 28 cache hits across 185 restaurant lookups): **est. $0.3103**
 
 ### Per-user-per-month and at-scale cost
 
@@ -194,16 +200,16 @@ Using the placeholder per-token rates in `estimate_cost_usd()` (`app/harness/aud
 
 | | Cold (worst case) | This session's actual cache rate |
 |---|---|---|
-| Per search | $0.3495 | $0.3253 |
-| Per user/month | $3.49 | $3.25 |
-| At 100 users/month | $349.50 | $325.28 |
-| At 10,000 users/month | $34,949.85 | $32,528.14 |
+| Per search | $0.3539 | $0.3103 |
+| Per user/month | $3.54 | $3.10 |
+| At 100 users/month | $353.91 | $310.28 |
+| At 10,000 users/month | $35,391.00 | $31,028.07 |
 
-The gap between "cold" and "actual" widens as the cache fills with more of DC's restaurants — a mature deployment covering most of DC would push the cache-hit rate far above this session's 8% (built from scratch this week), making the real steady-state cost meaningfully lower than either figure above.
+The gap between "cold" and "actual" widens as the cache fills with more of DC's restaurants — a mature deployment covering most of DC would push the cache-hit rate far above this session's 15% (built from scratch this week, and the discovery-level cache added in FAILURES.md #14 doesn't show up in this per-*restaurant* cache-hit rate at all — it saves a whole discovery call, not a restaurant evaluation), making the real steady-state cost meaningfully lower than either figure above.
 
 ### Cost-reduction steps evaluated
 
-**1. The 30-day cache — implemented, real measured savings, zero quality cost.** Verified directly from logs: on a real cache hit, the Evidence Extractor/Skeptic/Ranker chain recorded **0 tokens** (correctly — it never ran), while Finder still ran on cache hits reached via `run_for_restaurant` (~9k tokens, needed to re-confirm the restaurant still exists). Each cache hit saves the full ~$0.0969/restaurant cost and returns the exact same previously-verified result — not an approximation, so there's no quality tradeoff at all.
+**1. The 30-day per-restaurant cache — implemented, real measured savings, zero quality cost.** Verified directly from logs: on a real cache hit, the Evidence Extractor/Skeptic/Ranker chain recorded **0 tokens** (correctly — it never ran), while confirm-mode Finder still ran on 10 of 28 cache hits reached via `run_for_restaurant` (~9k tokens, needed to re-confirm the restaurant still exists). Each cache hit saves the full ~$0.0982/restaurant cost and returns the exact same previously-verified result — not an approximation, so there's no quality tradeoff at all. A second, shorter-lived (24h) discovery-level cache was added later (FAILURES.md #14) that saves a whole discover-mode Finder call (~$0.0594) when the same neighborhood/cuisine search repeats within the window — a separate saving from the per-restaurant cache above.
 
 **2. Dropping the Skeptic agent — considered, rejected.** Skeptic is genuinely the cheapest stage (~1,783 raw tokens, ~6% of a restaurant evaluation's total cost) — removing it would save very little. But Skeptic's `is_promotional`/`is_contradicted` flags feed directly into `apply_safety_backstops`'s credibility checks (`_is_credible`, `_qualifies_for_tier1`) — the asymmetric risk rule and the tier-1a recency rule both depend on knowing whether a claim is credible. Cutting Skeptic would save ~6% of cost while disabling two of the code-level safety backstops. Not worth it — logged here as a considered-and-rejected cost cut, with the real numbers behind the decision.
 
@@ -247,9 +253,42 @@ Pushed the project to GitHub (`rachel-sin/MGT409-Final`) along the way — neede
 
 **Real timed fresh-clone dry run** (not the uncommitted working directory — an actual `git clone` of the pushed repo into a clean temp folder): clone itself took under a second; copied `.env.example` to `.env` with a real key; skipped re-testing `pip install` here since the Codespace test already proved a genuine fresh install works (this local sandbox has an unrelated TLS quirk in its own pip, the same macOS-trust-store issue diagnosed back in Step 1 — not a real-world problem). Started the server directly from the fresh clone: `Application startup complete`, and `curl` to the homepage returned a real `HTTP 200`. Well under the 10-minute rule.
 
+## Step 9 real user test: first round of fixes (FAILURES.md #11-#13)
+
+Shared the deployed Codespace link with real testers per `USER_TEST_SCRIPT.md`. Two pieces of real feedback led to real fixes, ahead of the larger round below:
+
+- **No way to search for a specific restaurant.** The form only had neighborhood/cuisine fields; a tester who wanted to check one specific restaurant had nowhere to type it. Added a "Restaurant name (optional)" field to the homepage (`app/web/templates/index.html`) and wired `POST /search` to call `run_for_restaurant` directly when a name is given, with neighborhood/cuisine (if also filled in) passed through as a disambiguating hint rather than a requirement.
+- **Unclear whether results are pre-filtered.** The same tester's follow-up question — does the app skip "unfriendly" restaurants and keep searching until it finds a good one? — was a reasonable misread of the homepage copy. Checked the actual code (`grep` for any tier-based filtering in `app/pipeline.py`: none exists, and there's no retry-until-positive loop) and rewrote the homepage intro and "How this works" copy to state plainly that results are never pre-filtered to only "safe" ones, and a risky result is shown with the warning front and center, not hidden.
+
+## Post-launch fixes from real user testing (FAILURES.md #14-#19)
+
+After Step 9's real testers started using the deployed Codespace, their feedback surfaced several real bugs — full root-cause/fix/retest detail is in `FAILURES.md` #14 through #19; this section is the build-log summary.
+
+**Two Skeptic prompt bugs, both found by testers noticing wrong-looking tiers:**
+1. The Skeptic's `is_promotional` flag conflated "reads like marketing puffery" with "is short/lacks elaboration" — a concrete, factual own-site claim like SeoulSpice's "our entire menu is gluten-free" got flagged promotional just for being brief, wrongly blocking tier 1. Rewrote the instruction (`app/agents/skeptic.py`) to judge substance, not length. This also turned out to be the root cause of the one golden-set mismatch from Step 6 (BIBIBOP) — fixing it brought golden-set accuracy to **10/10 = 100%** (see the Step 6 update above).
+2. More seriously: the Skeptic could mark a credible `reviewer_got_sick` claim as contradicted by a *different* reviewer's unrelated positive experience — two different diners having two different outcomes isn't a logical contradiction, but the prompt's only example was same-fact conflicts (dedicated fryer vs. shared oil). This could silently defeat the asymmetric-risk safety override (the project's core safety guarantee) for any restaurant with mixed reviews. Fixed with an explicit instruction distinguishing "different people, different outcomes" from "same fact, conflicting claims." A follow-on consistency bug (the same contradicting evidence applied to one duplicate claim but not a second, differently-worded one making the same point) was also found and fixed the same way.
+
+**Discovery had no caching and no ranking.** An identical neighborhood/cuisine search could return a different restaurant list every time (live, unseeded web search) — added a 24-hour discovery-level cache (`app/harness/discovery_cache.py`). Results also weren't sorted by safety tier at all, just whatever order discovery happened to return them in — added `SAFETY_LEVEL_RANK_ORDER` (`app/pipeline.py`) so results show best-evidence-first (a credible illness report still always shows, just last — never hidden).
+
+**Capped at 3 results with no way to see more.** Added a "Show more restaurants" action (`POST /search/{search_id}/more`) that re-runs discovery with an explicit exclude list of restaurants already shown, so the Finder is asked for genuinely different candidates.
+
+**Named-restaurant search gaps.** A chain with multiple DC locations (e.g. BIBIBOP) resolved silently to one location with no indication others existed — added `multiple_locations_note` to `RestaurantCandidate` (`app/models.py`), set by the Finder whenever a name is ambiguous and no neighborhood hint disambiguated it. Separately, a short/partial name search (e.g. "Rise" for "Rise Bakery") ran the full, costly 4-agent pipeline before the user ever saw what was matched — split `run_for_restaurant` into a cheap `resolve_restaurant` (Finder only) plus a new "did you mean X?" confirm step (`GET`/`POST /confirm/{pending_id}`, `app/web/templates/confirm.html`) so a bad match can be rejected before the expensive evidence/skeptic/ranker calls run.
+
+**Homepage copy clarified.** A tester asked whether the app filters out "unfriendly" restaurants and keeps searching until it finds a good one — checked the code (no such filtering or retry-until-positive logic exists) and rewrote the homepage intro to state plainly that results are never pre-filtered to only "safe" ones.
+
+All of the above were re-verified against the full cached dataset (`scripts/refresh_cached_dataset.py`, a new script — re-runs every cached restaurant live under corrected rules rather than leaving stale pre-fix verdicts in the committed dataset) and spot-checked against known-expected tiers (Rise Bakery and SeoulSpice → `confirmed_dedicated_gf_prep`; Medium Rare → `accommodates_caution_cross_contamination`) before and after each fix.
+
+**Results-list redesign (FAILURES.md #20).** A real "Show more" test surfaced two more UI bugs: the results-count header stayed stuck at the original "up to 3" even after a 4th result was added, and the 2-column card grid made the actual rank order ambiguous once several cards shared the same tier badge. Fixed by switching to a single-column `result-list` with an explicit numbered rank badge (1, 2, 3…) per card (`app/web/templates/results.html`, `app/web/static/style.css`), and making the summary line report the real live count instead of the original cap.
+
+**Evidence completeness + de-duplication (FAILURES.md #21).** Asked to show a real example combining a Find Me Gluten Free claim with another source, found the detail page sometimes silently dropped real corroborating evidence (the `supporting_claims`/`contradicting_claims` fields had no instruction at all on whether to be exhaustive) and sometimes padded the list with near-duplicate own-site claims (the same fact repeated across multiple pages of one restaurant's own site). Fixed both: an explicit completeness requirement on the Ranker's output fields and prompt, and a de-duplication rule on the Evidence Extractor scoped to same-site, same-fact repeats only.
+
+**A real-world link-rot case, not a bug (FAILURES.md #22).** Refreshing the dataset after #21's fixes flipped Rise Bakery — the project's flagship confirmed-GF example — to `no_evidence_found`. Investigated rather than assumed: `risebakerydc.com` now returns NXDOMAIN; the restaurant's own site has gone offline since it was last verified. Restored the pre-refresh cache entries for Rise Bakery and (a recurring live-variance case) BIBIBOP Asian Grill rather than accepting a fresh-but-worse result — golden-set accuracy confirmed back at 10/10 = 100%. This is the 30-day cache's purpose working as intended: a previously-verified result shouldn't need to survive every possible future change to the live internet.
+
 ## Limits and next steps (running list for the report)
 
 - **User-submitted finds**: let a user save a restaurant they personally found to be GF-safe, even if it never shows up via web search. Would need a way to distinguish "user-reported, unverified" entries from the evidence-backed ranking (since a bare user claim doesn't meet the verbatim-quote-plus-URL bar everything else in this system is held to), and a decision on real accounts vs. lightweight browser-local storage. Scoped out of the current build given the timeline — good candidate for "what's next."
+- **Cross-neighborhood redirect**: a tester suggested proactively surfacing a better-reviewed option in a nearby neighborhood ("you searched Mexican here, but there's a better-reviewed one two blocks over"). A real idea, but meaningfully more compute per search (comparing across neighborhoods, not just within one) — explicitly deprioritized today (FAILURES.md #17) in favor of the fixes that shipped.
+- **Cache-key fragmentation for the same physical restaurant**: the per-restaurant cache keys on exact name, so the same real restaurant can end up under multiple keys if it's found under slightly different names across runs (e.g. "BIBIBOP Asian Grill" vs. "BIBIBOP Asian Grill — Dupont Circle" vs. "BIBIBOP") — three separate cache entries for one physical restaurant exist in the current dataset. Not a correctness bug (each entry is independently verified, and a Skeptic consistency fix in FAILURES.md #18 means they now agree on tier), but a cache-efficiency gap worth closing with a proper restaurant-identity key (e.g. normalized address) if there's time.
 
 ## Topic taxonomy + freshness rule fix: a 100%-GF bakery couldn't reach the top tier
 

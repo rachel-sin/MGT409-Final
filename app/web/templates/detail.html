@@ -6,6 +6,9 @@
 
   <h1>{{ result.restaurant.name }}</h1>
   <p class="result-address">{{ result.restaurant.address }}{% if result.restaurant.cuisine %} · {{ result.restaurant.cuisine }}{% endif %}</p>
+  {% if result.restaurant.multiple_locations_note %}
+  <p class="multi-location-note"><i class="ti ti-map-pin" aria-hidden="true"></i> {{ result.restaurant.multiple_locations_note }}</p>
+  {% endif %}
 
   <div class="tier-banner {{ result.assessment.safety_level | safety_class }}">
     <strong><i class="ti {{ result.assessment.safety_level | safety_icon }}" aria-hidden="true"></i> {{ result.assessment.safety_level | safety_label }}</strong>

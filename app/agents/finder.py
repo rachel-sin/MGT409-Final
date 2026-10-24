@@ -32,6 +32,14 @@ Rules:
   cannot find an actual street address after that follow-up search, say so
   plainly in prose to the user rather than inventing a plausible-looking
   address or writing an explanation into the address field itself.
+- If the name you were given is a chain/brand with MORE than one DC location
+  (e.g. "BIBIBOP", "Chaia"), and no neighborhood/cuisine hint was given to
+  tell you which one, you must still pick exactly one real location to
+  report — but set `multiple_locations_note` to a short plain-English
+  sentence naming which location you picked and that others exist (e.g.
+  "BIBIBOP has multiple DC locations; this is the Dupont Circle one — add a
+  neighborhood to look up a different one."). If a hint WAS given, or there's
+  only one DC location, leave `multiple_locations_note` null.
 
 ## Grounding — never rely on your own general knowledge
 
