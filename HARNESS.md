@@ -1,6 +1,6 @@
 # HARNESS.md — Celiac-Safe DC Restaurant Ranker
 
-Written for a non-technical manager. Documents the system as it's built, step by step: purpose, agent roles, tools, run limits and stopping rules, guardrails, audit log format, and specs. Updated at the end of every build step — see `AI_prompts.md` for the full prompt history behind each entry.
+Written for a non-technical manager. Documents the system as it's built, step by step: purpose, agent roles, tools, run limits and stopping rules, guardrails, audit log format, and specs. Updated at the end of every build step.
 
 ## Purpose
 
