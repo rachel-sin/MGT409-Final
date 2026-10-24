@@ -19,7 +19,15 @@ from app.harness.cache import get_cached, put_cached
 from app.harness.discovery_cache import get_cached_discovery, put_cached_discovery
 from app.harness.grounding import restaurant_existence_grounded, verify_claims_grounded
 from app.harness.input_guard import validate_search_input
-from app.models import CandidateBatch, EvidenceBatch, ReviewedBatch, ReviewedClaim, RestaurantCandidate, SafetyAssessment
+from app.models import (
+    CandidateBatch,
+    EvidenceBatch,
+    EvidenceClaim,
+    ReviewedBatch,
+    ReviewedClaim,
+    RestaurantCandidate,
+    SafetyAssessment,
+)
 from app.runtime import (
     AGENT_WALL_CLOCK_TIMEOUT_SECONDS,
     DEFAULT_USAGE_LIMITS,
@@ -123,6 +131,23 @@ async def _run_agent_logged(
 
 def _is_credible(c: ReviewedClaim) -> bool:
     return not c.is_promotional and not c.is_contradicted
+
+
+def _dedupe_own_menu_claims(claims: list[EvidenceClaim]) -> list[EvidenceClaim]:
+    """Collapse own_menu claims that share a topic to the single longest
+    (most specific) quote — see the call site's comment for why this is
+    scoped to own_menu only, not third-party claims."""
+    kept: list[EvidenceClaim] = []
+    best_own_menu: dict[str, EvidenceClaim] = {}
+    for c in claims:
+        if c.source_type != "own_menu":
+            kept.append(c)
+            continue
+        existing = best_own_menu.get(c.topic)
+        if existing is None or len(c.quote) > len(existing.quote):
+            best_own_menu[c.topic] = c
+    kept.extend(best_own_menu.values())
+    return kept
 
 
 def _is_recent(source_date: str | None, today: date) -> bool:
@@ -548,6 +573,26 @@ async def _run_evidence_to_assessment(
             extract_sources=_evidence_sources,
         )
         evidence = evidence_result.output
+
+        # Code-level backstop for a prompt rule that isn't followed
+        # reliably every run: collapse own-menu claims that share a topic
+        # down to the single longest (most specific) quote. Own-menu claims
+        # are by definition all from the same restaurant's own site, so two
+        # of them sharing a topic are almost always one real fact repeated
+        # across pages (e.g. the FAQ and the menu page both saying "our
+        # kitchen is gluten-free"), not two independent pieces of evidence —
+        # unlike two different THIRD-PARTY sources agreeing, which are kept
+        # separately (see FAILURES.md #21). Scoped to own_menu only.
+        deduped_claims = _dedupe_own_menu_claims(evidence.claims)
+        if len(deduped_claims) != len(evidence.claims):
+            dropped_dupes = len(evidence.claims) - len(deduped_claims)
+            dedupe_note = f"Collapsed {dropped_dupes} near-duplicate own-site claim(s) restating the same fact."
+            evidence = evidence.model_copy(
+                update={
+                    "claims": deduped_claims,
+                    "note": f"{evidence.note} {dedupe_note}" if evidence.note else dedupe_note,
+                }
+            )
 
         # Source grounding: independently re-fetch each claimed source and
         # verify the quote actually appears there — never trust the model's

@@ -269,3 +269,15 @@ A second restaurant, BIBIBOP Asian Grill, also flipped away from its correct gol
 **Fix:** Restored both restaurants' pre-refresh cache entries (from the last git commit and a pre-refresh backup) rather than accepting the fresh-but-worse live results. Re-ran `scripts/run_golden_eval.py`: back to 10/10 = 100%.
 
 **Decision going forward:** don't blindly trust every `refresh_cached_dataset.py` run as "more current = more correct" — a tier change should be spot-checked (does the restaurant's own site still resolve? did the evidence genuinely change, or did this run just get unlucky?) before overwriting a previously-good, already-golden-set-verified entry, especially for a restaurant used as a named example in the report or slides.
+
+## 23 — #21's prompt-only de-duplication didn't hold on every run; added a code-level backstop
+
+**When:** The user spot-checked Chaia's detail page live and still saw 3 near-duplicate own-menu quotes with no Find Me Gluten Free claim — the exact pattern #21 was supposed to have fixed.
+
+**Why:** Two separate causes, not one:
+1. **Cache-key fragmentation** (previously documented, FAILURES.md #10/#18): this restaurant was cached under two different name keys, `"chaia"` and `"chaia georgetown"` — same address, same real place. `"chaia georgetown"` had already been re-verified clean under #21's fix; `"chaia"` was a stale, separate cache entry the user happened to land on.
+2. **The prompt-only de-duplication rule from #21 isn't reliably followed every run**: re-running the live pipeline showed that on one run the Evidence Extractor correctly avoided the duplicate, and on another (the one cached under `"chaia"`) it didn't — confirmed by inspecting that entry's raw evidence: two `own_menu` claims with the identical topic (`entirely_gluten_free_facility`) restating the same fact. A prompt instruction alone doesn't guarantee this every time.
+
+**Fix (code-level backstop, per the project's standing principle):** added `_dedupe_own_menu_claims()` (`app/pipeline.py`), run on every evidence batch right after extraction. It collapses `own_menu` claims that share a topic down to the single longest (most specific) quote — scoped to `own_menu` only, since two *different* source types corroborating the same fact are still independent evidence worth keeping (per #21), and two *different* topics from the same site are still two distinct facts. Unit-tested directly with synthetic duplicate claims (4 in → 3 out, correctly keeping the tortilla-specific claim and the third-party corroboration while collapsing only the two same-topic own-menu claims) before trusting it. Also removed the stale duplicate `"chaia"` cache entry.
+
+**Retest:** Live-searched "Chaia" (the name that was previously broken) end to end — now shows exactly 2 supporting claims (1 own-menu + 1 Find Me Gluten Free), matching `"chaia georgetown"`'s already-correct result.
