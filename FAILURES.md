@@ -281,3 +281,15 @@ A second restaurant, BIBIBOP Asian Grill, also flipped away from its correct gol
 **Fix (code-level backstop, per the project's standing principle):** added `_dedupe_own_menu_claims()` (`app/pipeline.py`), run on every evidence batch right after extraction. It collapses `own_menu` claims that share a topic down to the single longest (most specific) quote — scoped to `own_menu` only, since two *different* source types corroborating the same fact are still independent evidence worth keeping (per #21), and two *different* topics from the same site are still two distinct facts. Unit-tested directly with synthetic duplicate claims (4 in → 3 out, correctly keeping the tortilla-specific claim and the third-party corroboration while collapsing only the two same-topic own-menu claims) before trusting it. Also removed the stale duplicate `"chaia"` cache entry.
 
 **Retest:** Live-searched "Chaia" (the name that was previously broken) end to end — now shows exactly 2 supporting claims (1 own-menu + 1 Find Me Gluten Free), matching `"chaia georgetown"`'s already-correct result.
+
+## 24 — The override banner shouldn't be user-facing, and removing it exposed a grammar bug in the output scanner
+
+**When:** User asked why a technical banner ("A code-level safety check adjusted this result after the AI's own assessment: Code-level output scanner: redacted absolutist safety language (risk-free).") was shown on the detail page at all.
+
+**Design decision:** a diner doesn't need to know *how* the system caught an overconfident phrase — only that the final text they're reading is already corrected. Removed the banner from `app/web/templates/detail.html` (and its now-unused `.override-note` CSS). The override itself is still recorded in `SafetyAssessment.override_applied`/`override_reason`, still saved in the audit log and the cached entry, and still available for the report/HARNESS.md — just not rendered to end users.
+
+**Bug this surfaced:** with the banner gone, the redacted rationale text itself was visible and read as broken English: *"...every order or handling situation is evidence suggests accommodation (not a guarantee)."* `apply_output_scanner()` (`app/pipeline.py`) did a blind in-place substring replace of the banned phrase (e.g. "risk-free") with a fixed replacement clause — grammatical when the banned phrase stood alone, but broken whenever it was used as a predicate adjective ("is risk-free" → "is evidence suggests accommodation...").
+
+**Fix:** rewrote `apply_output_scanner()` to drop the whole offending SENTENCE (not just the phrase) and append one clean, standalone caveat sentence once — removing a full sentence is always grammatically safe, patching a fragment in place isn't. Verified directly against the actual broken text (confirmed clean output), and re-ran `scripts/test_prompt_injection.py` to confirm the scanner's core defense still passes.
+
+**Retest:** Forced a fresh live run for Chaia — the rationale now reads as clean, grammatically correct prose. Golden-set accuracy unaffected (10/10 = 100%).

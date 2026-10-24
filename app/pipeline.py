@@ -247,7 +247,15 @@ def apply_output_scanner(assessment: SafetyAssessment) -> SafetyAssessment:
     """Code-level backstop blocking absolutist safety language, independent
     of whether the Ranker's prompt was followed — including if the prompt
     itself was compromised by injected instructions in fetched text (see
-    the prompt-injection test). Scans both user-facing text fields."""
+    the prompt-injection test). Scans both user-facing text fields.
+
+    Drops the whole offending SENTENCE rather than substituting the banned
+    phrase in place — an in-place substitution (e.g. "risk-free" -> some
+    fixed replacement clause) reliably breaks grammar whenever the phrase
+    was used as a predicate adjective ("is risk-free" -> "is <replacement
+    clause>"), which is exactly the kind of sentence this scanner tends to
+    catch. Removing a whole sentence is always grammatically safe; a single
+    clarifying sentence is appended once per field instead."""
     found = []
     updates = {}
     for field in ("short_summary", "rationale"):
@@ -256,11 +264,13 @@ def apply_output_scanner(assessment: SafetyAssessment) -> SafetyAssessment:
         hit_phrases = [p for p in BANNED_ABSOLUTE_PHRASES if p in lowered]
         if hit_phrases:
             found.extend(hit_phrases)
-            redacted = text
-            for phrase in hit_phrases:
-                # Case-insensitive replace, preserving the rest of the sentence.
-                redacted = re.sub(re.escape(phrase), "evidence suggests accommodation (not a guarantee)", redacted, flags=re.IGNORECASE)
-            updates[field] = redacted
+            # Split into sentences, drop any sentence containing a banned
+            # phrase, rejoin, then append one clean caveat sentence.
+            sentences = re.split(r"(?<=[.!?])\s+", text.strip())
+            kept = [s for s in sentences if not any(p in s.lower() for p in hit_phrases)]
+            cleaned = " ".join(kept).strip()
+            caveat = "Evidence suggests accommodation — not a guarantee."
+            updates[field] = f"{cleaned} {caveat}".strip() if cleaned else caveat
 
     if not found:
         return assessment

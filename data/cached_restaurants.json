@@ -637,7 +637,7 @@
       "override_applied": false,
       "override_reason": null
     },
-    "cached_at": "2026-10-24T03:32:08.857829+00:00"
+    "cached_at": "2026-10-24T03:39:35.759047+00:00"
   },
   "zorba\u2019s caf\u00e9": {
     "restaurant": {
@@ -6430,11 +6430,11 @@
   "chaia": {
     "restaurant": {
       "name": "Chaia",
-      "address": "3207 Grace Street NW, Washington, DC 20007",
+      "address": "3207 Grace Street, NW, Washington, DC 20007",
       "neighborhood": "Georgetown",
       "cuisine": "Vegetarian tacos",
-      "existence_source_url": "https://www.chaiatacos.com/location/georgetown/",
-      "multiple_locations_note": "Chaia has multiple DC locations; this is the Georgetown one. Add a neighborhood to look up a different location."
+      "existence_source_url": "https://www.chaiatacos.com/georgetown/",
+      "multiple_locations_note": null
     },
     "evidence": {
       "claims": [
@@ -6447,15 +6447,15 @@
           "direction": "positive"
         },
         {
-          "quote": "Everything here is gluten free and so delicious!",
-          "source_url": "https://www.findmeglutenfree.com/biz/chaia/5513962407329792",
-          "source_type": "third_party_aggregator",
+          "quote": "Our tortillas are 100 percent gluten-free. We hand-griddle our corn tortillas daily using pure masa harina made by Masienda.",
+          "source_url": "https://www.chaiatacos.com/faq/",
+          "source_type": "own_menu",
           "source_date": null,
-          "topic": "entirely_gluten_free_facility",
+          "topic": "other",
           "direction": "positive"
         }
       ],
-      "note": "Chaia's own menu states that all products are gluten-free except beer and that no products containing gluten are used in its kitchen, which is strong first-party evidence of a gluten-free facility. A dated Tripadvisor review from a diner who identifies as celiac reports no cross-contamination concern. The Find Me Gluten Free listing also contains community reports, but reviewer-level dates were not visible in the fetched page, so its source_date is null. This is supportive evidence, not a guarantee; confirm current practices with the restaurant, especially around beer and any menu or process changes. Dropped 1 claim(s) that failed source-grounding verification."
+      "note": "Chaia's own menu and FAQ describe its products and kitchens as gluten-free, indicating a gluten-free facility rather than merely GF options. The Tripadvisor review is a single celiac diner's positive report, not a guarantee. No date is shown on the restaurant's own menu/FAQ pages. Confirm current practices directly with the Georgetown location if needed. Collapsed 1 near-duplicate own-site claim(s) restating the same fact. Dropped 1 claim(s) that failed source-grounding verification."
     },
     "reviewed": {
       "claims": [
@@ -6470,31 +6470,31 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This is a concrete, checkable statement about the restaurant\u2019s products and kitchen, and no conflicting policy claim appears in the batch."
+          "skeptic_note": "This is a specific, checkable statement about products and kitchen ingredients, and no claim in the batch contradicts it."
         },
         {
           "claim": {
-            "quote": "Everything here is gluten free and so delicious!",
-            "source_url": "https://www.findmeglutenfree.com/biz/chaia/5513962407329792",
-            "source_type": "third_party_aggregator",
+            "quote": "Our tortillas are 100 percent gluten-free. We hand-griddle our corn tortillas daily using pure masa harina made by Masienda.",
+            "source_url": "https://www.chaiatacos.com/faq/",
+            "source_type": "own_menu",
             "source_date": null,
-            "topic": "entirely_gluten_free_facility",
+            "topic": "other",
             "direction": "positive"
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The reviewer makes a specific factual claim that everything is gluten-free; no opposing factual claim appears in the batch."
+          "skeptic_note": "This is a concrete statement about the tortillas and their preparation, and no claim in the batch contradicts it."
         }
       ]
     },
     "assessment": {
       "restaurant": {
         "name": "Chaia",
-        "address": "3207 Grace Street NW, Washington, DC 20007",
+        "address": "3207 Grace Street, NW, Washington, DC 20007",
         "neighborhood": "Georgetown",
         "cuisine": "Vegetarian tacos",
-        "existence_source_url": "https://www.chaiatacos.com/location/georgetown/",
-        "multiple_locations_note": "Chaia has multiple DC locations; this is the Georgetown one. Add a neighborhood to look up a different location."
+        "existence_source_url": "https://www.chaiatacos.com/georgetown/",
+        "multiple_locations_note": null
       },
       "safety_level": "confirmed_dedicated_gf_prep",
       "confidence": "high",
@@ -6510,28 +6510,28 @@
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "The restaurant makes a specific current statement about its kitchen ingredients, with no conflicting claim in the batch."
+          "skeptic_note": "This is a specific, checkable statement about products and kitchen ingredients, and no claim in the batch contradicts it."
         },
         {
           "claim": {
-            "quote": "Everything here is gluten free and so delicious!",
-            "source_url": "https://www.findmeglutenfree.com/biz/chaia/5513962407329792",
-            "source_type": "third_party_aggregator",
+            "quote": "Our tortillas are 100 percent gluten-free. We hand-griddle our corn tortillas daily using pure masa harina made by Masienda.",
+            "source_url": "https://www.chaiatacos.com/faq/",
+            "source_type": "own_menu",
             "source_date": null,
-            "topic": "entirely_gluten_free_facility",
+            "topic": "other",
             "direction": "positive"
           },
           "is_promotional": false,
           "is_contradicted": false,
-          "skeptic_note": "This reviewer reports that everything is gluten-free; the source has no visible date, so it is corroborative but not relied on for current dedicated-prep status."
+          "skeptic_note": "This is a concrete statement about the tortillas and their preparation, and no claim in the batch contradicts it."
         }
       ],
       "contradicting_claims": [],
-      "short_summary": "Chaia says it uses no gluten-containing products in its kitchen, and a diner review also reports that everything is gluten-free.",
-      "rationale": "Chaia\u2019s current menu page states that its products are gluten-free except for beer and that it uses no products containing gluten in the kitchen. That first-party statement qualifies for the strongest assessment; the undated third-party review offers additional corroboration but is not needed to establish the result. This does not guarantee that every order or handling situation is evidence suggests accommodation (not a guarantee).",
-      "override_applied": true,
-      "override_reason": "Code-level output scanner: redacted absolutist safety language (risk-free)."
+      "short_summary": "The restaurant says its kitchen uses no gluten-containing products, and its tortillas are made from gluten-free masa.",
+      "rationale": "Chaia\u2019s current restaurant-site menu states that its products are gluten-free (with beer as the exception) and that its kitchen uses no products containing gluten; its FAQ also describes daily hand-griddled corn tortillas made with gluten-free masa. These specific, uncontradicted statements support this assessment, though they are not a guarantee against every possible exposure.",
+      "override_applied": false,
+      "override_reason": null
     },
-    "cached_at": "2026-10-24T03:32:57.875542+00:00"
+    "cached_at": "2026-10-24T03:40:13.402961+00:00"
   }
 }

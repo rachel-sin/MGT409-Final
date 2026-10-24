@@ -289,14 +289,6 @@ button:disabled { opacity: 0.6; cursor: default; }
 
 .rationale { font-size: 1.02rem; }
 
-.override-note {
-  background: var(--unclear-bg);
-  color: var(--unclear-fg);
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-}
-
 .claim-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
 .claim {
   background: var(--card-bg);

@@ -24,12 +24,11 @@
 
   <p class="rationale">{{ result.assessment.rationale }}</p>
 
-  {% if result.assessment.override_applied %}
-  <p class="override-note">
-    A code-level safety check adjusted this result after the AI's own assessment:
-    {{ result.assessment.override_reason }}
-  </p>
-  {% endif %}
+  {# override_applied/override_reason are intentionally not shown here — a diner
+     doesn't need "a code-level safety check adjusted this result" jargon; the
+     rationale above already reflects the corrected, final assessment. The
+     override itself is still recorded in the audit log (run_log) and the
+     cached entry for the report/HARNESS.md to reference. #}
 
   <h2>Supporting evidence</h2>
   {% if result.assessment.supporting_claims %}
