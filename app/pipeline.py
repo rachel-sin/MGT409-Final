@@ -133,14 +133,26 @@ def _is_credible(c: ReviewedClaim) -> bool:
     return not c.is_promotional and not c.is_contradicted
 
 
+# Topics that describe ONE restaurant-wide fact — if two own_menu claims
+# share one of these topics, they're almost certainly the same fact
+# repeated across pages (see FAILURES.md #21/#23), safe to collapse to one.
+# Deliberately NOT applied to other topics like "other": that bucket covers
+# many genuinely distinct facts (e.g. a list of different GF-marked menu
+# items), where same-topic does NOT mean same-fact — collapsing those would
+# silently delete real, distinct evidence.
+SINGLE_FACT_OWN_MENU_TOPICS = {"entirely_gluten_free_facility", "dedicated_fryer_or_prep_area"}
+
+
 def _dedupe_own_menu_claims(claims: list[EvidenceClaim]) -> list[EvidenceClaim]:
-    """Collapse own_menu claims that share a topic to the single longest
-    (most specific) quote — see the call site's comment for why this is
-    scoped to own_menu only, not third-party claims."""
+    """Collapse own_menu claims that share a SINGLE_FACT_OWN_MENU_TOPICS
+    topic to the single longest (most specific) quote — see the call site's
+    comment for why this is scoped to own_menu only, not third-party
+    claims, and SINGLE_FACT_OWN_MENU_TOPICS's comment for why it's scoped
+    to those two topics only, not every topic."""
     kept: list[EvidenceClaim] = []
     best_own_menu: dict[str, EvidenceClaim] = {}
     for c in claims:
-        if c.source_type != "own_menu":
+        if c.source_type != "own_menu" or c.topic not in SINGLE_FACT_OWN_MENU_TOPICS:
             kept.append(c)
             continue
         existing = best_own_menu.get(c.topic)
@@ -160,7 +172,7 @@ def _is_recent(source_date: str | None, today: date) -> bool:
     return 0 <= (today - parsed).days <= RECENCY_WINDOW_DAYS
 
 
-TIER1_TOPICS = {"entirely_gluten_free_facility", "dedicated_fryer_or_prep_area"}
+TIER1_TOPICS = SINGLE_FACT_OWN_MENU_TOPICS
 
 
 def _qualifies_for_tier1(c: ReviewedClaim, today: date) -> bool:

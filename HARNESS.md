@@ -169,18 +169,18 @@ Added a suggestion box (`/suggest-neighborhood`, `data/neighborhood_suggestions.
 
 All numbers below are aggregated from `logs/runs/` (`scripts/compute_tokenomics.py`, read-only — no new live calls), not estimates or a single cherry-picked run.
 
-**Updated post-launch** (originally computed from 124 run logs; recomputed repeatedly as the session's live/report testing accumulated more logs, most recently after the results-page redesign in FAILURES.md #20 — numbers below are current as of 253 total run logs, not the original Step 7 snapshot. The Skeptic prompt fixes in FAILURES.md #14-#19 changed *which tier* a restaurant lands on, not materially how many tokens each agent call uses, so the shape of the breakdown is unchanged: Evidence Extractor still dominates cost.)
+**Updated post-launch** (originally computed from 124 run logs; recomputed repeatedly as the session's live/report testing accumulated more logs, most recently after the overnight audit following FAILURES.md #24 — numbers below are current as of 312 total run logs, not the original Step 7 snapshot. The Skeptic prompt fixes in FAILURES.md #14-#19 changed *which tier* a restaurant lands on, not materially how many tokens each agent call uses, so the shape of the breakdown is unchanged: Evidence Extractor still dominates cost.)
 
-### Real per-agent token averages (157 live restaurant evaluations)
+### Real per-agent token averages (201 live restaurant evaluations)
 
 Per the 5-agent count established for the report (FAILURES.md #19's agent-count fix): a single-restaurant evaluation uses the confirm-mode Finder (`finder_agent`); a discovery/browse search uses the separate discover-mode Finder (`finder_discovery_agent`) instead, which only ever runs once per search (not once per restaurant), so its cost shows up in "one discovery call" below rather than this per-restaurant table.
 
 | Agent | Avg input | Avg cached input | Avg output |
 |---|---|---|---|
-| evidence_extractor (n=157) | 17,349 | 4,677 | 670 |
-| skeptic (n=157) | 1,376 | 18 | 586 |
-| ranker (n=157) | 2,667 | 1,598 | 666 |
-| finder — confirm mode (n=8) | 8,964 | 577 | 113 |
+| evidence_extractor (n=201) | 17,304 | 4,688 | 659 |
+| skeptic (n=201) | 1,412 | 14 | 565 |
+| ranker (n=201) | 2,764 | 1,675 | 663 |
+| finder — confirm mode (n=10) | 9,092 | 949 | 120 |
 
 Evidence Extractor dominates cost (web search + reading real pages) — roughly three-quarters of a restaurant evaluation's tokens. Skeptic and Ranker are comparatively cheap, reasoning-only steps.
 
@@ -188,11 +188,11 @@ Evidence Extractor dominates cost (web search + reading real pages) — roughly 
 
 Using the placeholder per-token rates in `estimate_cost_usd()` (`app/harness/audit_log.py`) — **flagged honestly: these are assumed rates, not confirmed `gpt-6-luna`/Portkey pricing**, since no official rate card exists for this course model. Real token *counts* are measured; the $/token conversion is the one assumption in this section.
 
-- **One live restaurant evaluation** (n=157): ~30,099 total tokens → **est. $0.0982**
-- **One discovery call** (n=64, finder — discover mode): ~20,313 total tokens → **est. $0.0594**
+- **One live restaurant evaluation** (n=201): ~30,249 total tokens → **est. $0.0981**
+- **One discovery call** (n=66, finder — discover mode): ~19,698 total tokens → **est. $0.0576**
 - **One full search** (1 discovery + up to 3 restaurants):
-  - Cold (no cache hits yet): **est. $0.3539**
-  - This session's actual mix (15% cache hit rate — 28 cache hits across 185 restaurant lookups): **est. $0.3103**
+  - Cold (no cache hits yet): **est. $0.3521**
+  - This session's actual mix (17% cache hit rate — 41 cache hits across 242 restaurant lookups): **est. $0.3030**
 
 ### Per-user-per-month and at-scale cost
 
@@ -200,16 +200,16 @@ Using the placeholder per-token rates in `estimate_cost_usd()` (`app/harness/aud
 
 | | Cold (worst case) | This session's actual cache rate |
 |---|---|---|
-| Per search | $0.3539 | $0.3103 |
-| Per user/month | $3.54 | $3.10 |
-| At 100 users/month | $353.91 | $310.28 |
-| At 10,000 users/month | $35,391.00 | $31,028.07 |
+| Per search | $0.3521 | $0.3030 |
+| Per user/month | $3.52 | $3.03 |
+| At 100 users/month | $352.06 | $302.99 |
+| At 10,000 users/month | $35,206.20 | $30,298.80 |
 
-The gap between "cold" and "actual" widens as the cache fills with more of DC's restaurants — a mature deployment covering most of DC would push the cache-hit rate far above this session's 15% (built from scratch this week, and the discovery-level cache added in FAILURES.md #14 doesn't show up in this per-*restaurant* cache-hit rate at all — it saves a whole discovery call, not a restaurant evaluation), making the real steady-state cost meaningfully lower than either figure above.
+The gap between "cold" and "actual" widens as the cache fills with more of DC's restaurants — a mature deployment covering most of DC would push the cache-hit rate far above this session's 17% (built from scratch this week, and the discovery-level cache added in FAILURES.md #14 doesn't show up in this per-*restaurant* cache-hit rate at all — it saves a whole discovery call, not a restaurant evaluation), making the real steady-state cost meaningfully lower than either figure above.
 
 ### Cost-reduction steps evaluated
 
-**1. The 30-day per-restaurant cache — implemented, real measured savings, zero quality cost.** Verified directly from logs: on a real cache hit, the Evidence Extractor/Skeptic/Ranker chain recorded **0 tokens** (correctly — it never ran), while confirm-mode Finder still ran on 10 of 28 cache hits reached via `run_for_restaurant` (~9k tokens, needed to re-confirm the restaurant still exists). Each cache hit saves the full ~$0.0982/restaurant cost and returns the exact same previously-verified result — not an approximation, so there's no quality tradeoff at all. A second, shorter-lived (24h) discovery-level cache was added later (FAILURES.md #14) that saves a whole discover-mode Finder call (~$0.0594) when the same neighborhood/cuisine search repeats within the window — a separate saving from the per-restaurant cache above.
+**1. The 30-day per-restaurant cache — implemented, real measured savings, zero quality cost.** Verified directly from logs: on a real cache hit, the Evidence Extractor/Skeptic/Ranker chain recorded **0 tokens** (correctly — it never ran), while confirm-mode Finder still ran on 18 of 41 cache hits reached via `run_for_restaurant` (~9k tokens, needed to re-confirm the restaurant still exists). Each cache hit saves the full ~$0.0981/restaurant cost and returns the exact same previously-verified result — not an approximation, so there's no quality tradeoff at all. A second, shorter-lived (24h) discovery-level cache was added later (FAILURES.md #14) that saves a whole discover-mode Finder call (~$0.0576) when the same neighborhood/cuisine search repeats within the window — a separate saving from the per-restaurant cache above.
 
 **2. Dropping the Skeptic agent — considered, rejected.** Skeptic is genuinely the cheapest stage (~1,783 raw tokens, ~6% of a restaurant evaluation's total cost) — removing it would save very little. But Skeptic's `is_promotional`/`is_contradicted` flags feed directly into `apply_safety_backstops`'s credibility checks (`_is_credible`, `_qualifies_for_tier1`) — the asymmetric risk rule and the tier-1a recency rule both depend on knowing whether a claim is credible. Cutting Skeptic would save ~6% of cost while disabling two of the code-level safety backstops. Not worth it — logged here as a considered-and-rejected cost cut, with the real numbers behind the decision.
 
@@ -285,6 +285,8 @@ All of the above were re-verified against the full cached dataset (`scripts/refr
 **The de-duplication prompt rule wasn't reliable every run (FAILURES.md #23).** A live spot-check still showed 3 near-duplicate own-menu claims for the same restaurant, cached under a different name key than the one already fixed (the known cache-key-fragmentation issue, FAILURES.md #10/#18). Confirmed the Evidence Extractor doesn't follow the #21 prompt rule 100% of the time — added a code-level backstop instead (`_dedupe_own_menu_claims()`, `app/pipeline.py`), unit-tested directly with synthetic duplicate claims before trusting it, per the project's standing "enforce rules in code, not only in prompts" principle.
 
 **Override banner hidden from users; fixed a real grammar bug underneath (FAILURES.md #24).** Asked why the detail page showed a technical "a code-level safety check adjusted this result" banner at all — a diner doesn't need to know how the correction happened, just that the final text is already correct. Removed it from `detail.html` (the override is still recorded in the audit log and cache for this report). Removing it exposed that `apply_output_scanner()`'s in-place text substitution could break grammar (e.g. "is risk-free" became "is evidence suggests accommodation..."). Rewrote it to drop the whole offending sentence and append one clean caveat instead, re-verified against the real broken text and against `scripts/test_prompt_injection.py` to confirm the core defense still holds.
+
+**Overnight audit found #23's de-dup backstop was itself too aggressive for one topic (FAILURES.md #25).** Re-stress-testing rather than assuming the prior fixes were fully correct: scanned the whole cached dataset for the duplicate pattern `_dedupe_own_menu_claims()` targets and found cases where same-topic own-menu claims were actually *different* facts (two different GF-marked menu items both tagged topic `"other"`). Confirmed directly that the backstop would silently delete one of them — a real, if not-yet-triggered, data-loss bug. Scoped the backstop to only the two topics that genuinely describe one restaurant-wide fact (`entirely_gluten_free_facility`, `dedicated_fryer_or_prep_area`, now named `SINGLE_FACT_OWN_MENU_TOPICS` in `app/pipeline.py`) rather than every topic. Also re-stress-tested #24's grammar fix with 6 additional synthetic cases beyond the one already verified — all clean. Golden-set accuracy and the prompt-injection test both reconfirmed.
 
 **A real-world link-rot case, not a bug (FAILURES.md #22).** Refreshing the dataset after #21's fixes flipped Rise Bakery — the project's flagship confirmed-GF example — to `no_evidence_found`. Investigated rather than assumed: `risebakerydc.com` now returns NXDOMAIN; the restaurant's own site has gone offline since it was last verified. Restored the pre-refresh cache entries for Rise Bakery and (a recurring live-variance case) BIBIBOP Asian Grill rather than accepting a fresh-but-worse result — golden-set accuracy confirmed back at 10/10 = 100%. This is the 30-day cache's purpose working as intended: a previously-verified result shouldn't need to survive every possible future change to the live internet.
 
